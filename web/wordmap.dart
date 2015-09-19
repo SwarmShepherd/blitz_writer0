@@ -694,6 +694,7 @@ Map glsuperWordMap = {
                             '#hurt,pain_(feel),suffer-(to)',
                             '#challenge',
                             '#succeed-(to)',
+
                             '#success',
                             '#win-(to)',
                             '#cheering_(the_sound)',
