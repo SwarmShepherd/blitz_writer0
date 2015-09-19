@@ -1452,6 +1452,7 @@ Map glsuperWordMap = {
     'PEOPLE:ARE:career:professions':    [
                         'SOFTAB:professions',
                             '#calling,profession,career',
+                                "*colleague",
                             '#auditor,accountant',
                             '#archeologist',
                             '#artist',
@@ -6736,7 +6737,7 @@ Map glsuperWordMap = {
                         '#clean-(to)', //mirror
                         '#climb-(to)',
 
-
+                        "#destroyed,ruined,demolished,deleted,erased,cancelled",
 
                         '#disappearance',
                         '#discordant',
