@@ -698,9 +698,9 @@ Map glsuperWordMap = {
                             '#success',
                             '#win-(to)',
                             '#cheering_(the_sound)',
-
                             "#support-(to)",
                             "#support_(oral)",
+
                             "#support_(orally)-(to)",
                             "#supporters,cheering_section",
 
