@@ -1,0 +1,98 @@
+
+//****************************************************************************************************************************************
+//
+//FREQ         [0..9] FREQUENCY to be determined statistically, for preliminary purposes -0 to -9 could be used as best author guess,
+//                    where -0 is very low, and where -9 is very high                     (All maps to contain initially, Default == -3)
+//SPZL         SPECIALIZED [true, false]                                                  (missing from Map => false)
+//ADLT***      ADULT       [true, false]    not suitable, and not necessary for children  (missing from Map => false)
+//CHLD***      CHILD       [true, false]    phantasy, cartons, toys and such Low FRQ under(missing from Map => false)
+//                                          normal circumstances
+//KEYS         KEY(S) USED EG   PEOPLE:BABY   (AUTHOR CLASSIFICATION SYSTEM)
+//ASSC         CATEGORIZED BY (CLOSE) ASSOCIATION* WITH ANOTHER WORD, 'NORMALLY' FALSE    (missing from Map => false)
+//OPPS         OPPOSITE OF A WORD - (ABOVE?) COLORS/Shape TO PARTICULARLY EMPHASIZE       (missing from Map => false)
+//NUBA         NOT UNDERSTOOD TO AUTHOR(S)  [true, false]                                 (missing from Map => false)
+//BLDW         BUILDABLE WITH EXTENSION (EG ['^', 'v'])                                   (missing from Map => false)
+//ROOT         THIS IS THE BASE WORD.  IF VERB IN PRESENT TENSE: DRINK  (not DRUNK..)     (missing from Map => false)
+//MULT         AT THE 'WORD' LEVEL IS THIS WORD REPLACEABLE WITH 2 OR MORE WORDS          (missing from Map => false)
+//CORE        'CORE-NESS' on Scale 0..9 where 0 is required for a working Pigeon Language with target size ~ 800
+//CORE                   where 1 is not Core, and is part of a 1500 max beginner vocabulary
+//CORE                   where 5 is not in 0..4 and is part of a "normal adult vocabulary" without speciality words such as religion or ethnic foods
+//CORE                   where 6..8 are reserved for future discernment.
+//CORE                   where 9 is reserved for Words of basic questionable utility, such as two part words, both words of which exist already.
+//
+//FLNM         BCI FileName in Sept 2015 set
+//SUBS**       SUB-SYMBOL NAME SYMBOLS - YET TO BE DETERMINED, FUTURE ORIENTED
+
+
+Exploratory
+
+* Where possible words are categorized as a Direct Logical Member of a Grouping.  Sometimes, in practice, it seems that there is a very
+  close association between such as an Object and an Activity.  A Rugby Ball, rather than to belong to a group of "sports Objects" could
+  be categorized directly under the RUGBY_Sport Word.  Perhaps the legitimacy and value of this categorization is more obvious for BottleNeck
+  Associated directly under Bottle, rather than in a grouping of "Necks".  Visual cues will be given.
+
+** Where this is an exploratory feature to test the feasibility of giving unique symbol names to each unique SubSymbol.  The actual features
+based on this could be the highlighting / making active of all words containing a given key as a way of finding Symbols (very much as typing
+a letter can work in searching algorithms).
+
+*** Adult and child should generally be obvious.  Adult to include "optional" Reproduction words specific to humans, and such practice as Incest.
+Clearly a grey area with plenty of for future re-interpretations, initially these will be the opinion of the Author.
+
+
+//ALL KEYS TO BE Declared (Dart Language) SYMBOLS, quotes therefore unnecessary.  This may not make sense for the WORD sub part names...
+Symbol  KEY  = new Symbol('KEY');
+
+...
+...
+
+{
+         CORE:  0,
+         FREQ: -3,
+         KEYS: 'PEOPLE:baby:child',
+         FLNM: 'bowel_movement,defecation,shitting,feces,shit,poop',
+         FREQ: -3,                                                        //Default starting number
+         SUBS: [THING_LN_URLL, BUTTOCKS],                                  //Exploratory only
+
+         //to cut down on 'noise' these will only be added on exception?
+         ASSC: false,
+         ADLT: false,
+         CHLD: false,
+         SPCL: false,
+         NUBA: false,
+  };
+
+
+//======================!?How to REDUCE the Vocabulary and at same time make it more useful?!=====================================
+
+
+
+
+// "#contact_sports",     AN EXAMPLE OF A 2 PART WORD THAT COULD (SHOULD?) BE REMOVED !IF! CONTACT EXISTED AS A UNIQUE WORD.
+//  DOES 'CONTACT' HAVE OTHER USES?   Two Parts coming together make contact.  I think it belongs in a more basic vocabulary than
+//  contact_sports
+
+
+{
+         CORE:  5,
+         FREQ: -3,
+         KEYS: 'PEOPLE:SPORTS',
+         FLNM: 'contact_sports',
+         FREQ: -3,                                          //Default starting number
+         SUBS: [SPORT, CONTACT],                            //Exploratory only
+
+         MULT: true,                                        //IF THE SYMBOL  CONTACT EXISTED (IT DOES NOT YET) THEN THIS WOULD BE TRUE...
+
+         //to cut down on 'noise' these will only be added on exception?
+         ASSC: false,
+         ADLT: false,
+         CHLD: false,
+         SPCL: false,
+         NUBA: false,
+  };
+
+
+
+
+
+
+
