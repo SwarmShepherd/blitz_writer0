@@ -10,8 +10,10 @@
 //KEYS         KEY(S) USED EG   PEOPLE:BABY   (AUTHOR CLASSIFICATION SYSTEM)
 //ASSC         CATEGORIZED BY (CLOSE) ASSOCIATION* WITH ANOTHER WORD, 'NORMALLY' FALSE    (missing from Map => false)
 //OPPS         OPPOSITE OF A WORD - (ABOVE?) COLORS/Shape TO PARTICULARLY EMPHASIZE       (missing from Map => false)
-//NUBA         NOT UNDERSTOOD  TO AUTHOR(S)  [true, false]                                 (missing from Map => false)
+//NUBA         NOT UNDERSTOOD TO AUTHOR(S)  [true, false]                                 (missing from Map => false)
 //BLDW         BUILDABLE WITH EXTENSION (EG ['^', 'v'])                                   (missing from Map => false)
+//ROOT         THIS IS THE BASE WORD.  IF VERB IN PRESENT TENSE: DRINK  (not DRUNK..)     (missing from Map => false)
+//MULT         AT THE 'WORD' LEVEL IS THIS WORD REPLACEABLE WITH 2 OR MORE WORDS          (missing from Map => false)
 //CORE        'CORE-NESS' on Scale 0..9 where 0 is required for a working Pigeon Language with target size ~ 800
 //CORE                   where 1 is not Core, and is part of a 1500 max beginner vocabulary
 //CORE                   where 5 is not in 0..4 and is part of a "normal adult vocabulary" without speciality words such as religion or ethnic foods
@@ -60,9 +62,39 @@ Symbol  KEY  = new Symbol('KEY');
   };
 
 
+//======================!?How to REDUCE the Vocabulary and at same time make it more useful?!=====================================
 
 
-  ================================================================
+
+
+
+
+// "#contact_sports",     AN EXAMPLE OF A 2 PART WORD THAT COULD (SHOULD?) BE REMOVED !IF! CONTACT EXISTED AS A UNIQUE WORD.
+//  DOES 'CONTACT' HAVE OTHER USES?   Two Parts coming together make contact.  I think it belongs in a more basic vocabulary than
+//  contact_sports
+
+
+{
+         CORE:  5,
+         FREQ: -3,
+         KEYS: 'PEOPLE:SPORTS',
+         FLNM: 'contact_sports',
+         FREQ: -3,                                          //Default starting number
+         SUBS: [SPORT, CONTACT],                            //Exploratory only
+
+         MULT: true,                                        //IF THE SYMBOL  CONTACT EXISTED (IT DOES NOT YET) THEN THIS WOULD BE TRUE...
+
+         //to cut down on 'noise' these will only be added on exception?
+         ASSC: false,
+         ADLT: false,
+         CHLD: false,
+         SPCL: false,
+         NUBA: false,
+  };
+
+
+
+
 
 
 
