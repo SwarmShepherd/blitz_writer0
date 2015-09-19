@@ -8,6 +8,12 @@
 
 
  */
+
+
+library wordmap;
+
+
+
 Map glsuperWordMap = {
     'PEOPLE:relations' : [
                         'SOFTAB:genders',
@@ -110,7 +116,7 @@ Map glsuperWordMap = {
                         'SOFTAB:functions:basic',
                             '#swallow-(to)',
                             '#digestion',
-                            '@chew-(to)',
+                                '*chew-(to)',
                             '#digest-(to)',
                             '#breath',
                             '#breathe-(to)',
@@ -129,6 +135,8 @@ Map glsuperWordMap = {
                             '#muscle',
                                '*spasm',  //CLOSELY ASSOCIATED
                                '*cramp,spasm',
+                                "*rub,massage-(to)",
+                                "*stretch_(muscles)-(to)",
                             '#skin',
                             '#blood_vessel',
                             '#blood',
@@ -188,7 +196,7 @@ Map glsuperWordMap = {
                                 '#iris_(eye)',
                                 '#cornea', //??
                                 '#nose',
-                                     '@tissue',  //??for blowing nose, from symbol, maybe also user paper??
+                                     '*tissue',  //??for blowing nose, from symbol, maybe also user paper??
                                 '#eyebrow',
                                 '#eyelid(s)',
                                 '#eyelid_(lower)',
@@ -207,6 +215,9 @@ Map glsuperWordMap = {
                                 '#mouth',
                                     '*smile,grin-(to)',
                                     '*saliva,spit',
+                                    '*blow_(mouth)-(to)',
+                                    "*lick-(to)",
+                                    "#open_one's_mouth,hold_one's_mouth_open,gape-(to)",
                                 '#neck_(head)',
                                 '#facial_hair',
                             'SOFTAB:torso',
@@ -353,6 +364,7 @@ Map glsuperWordMap = {
                                 '#tasteless',
                             'SOFTAB:sense_of_sound',
                                 '#hear,listen-(to)',
+                                "#sound-(to)",
                                 '#hearing,audition,auditory_sense',
                                 '#noise_(loud)',
                                 '#silent',
@@ -387,7 +399,6 @@ Map glsuperWordMap = {
                          '#cuddle-(to)',
                             '#swing,sway,rock-(to)',
                             '#back_and_forth,backward_and_forward,to_and_fro',
-
                             '#kiss',
                             '#kiss-(to)',
                             '#hug,squeeze,embrace',
@@ -675,6 +686,7 @@ Map glsuperWordMap = {
                             '#lose_(fail_to_win)-(to)',
                             '#adversity,hardship,setback',
                             '#strategy',
+                            "#chance,risk",
                             '#trouble',
                             '#failure',
                             '#troublesome',
@@ -685,10 +697,16 @@ Map glsuperWordMap = {
                             '#success',
                             '#win-(to)',
                             '#cheering_(the_sound)',
+
+                            "#support-(to)",
+                            "#support_(oral)",
+                            "#support_(orally)-(to)",
+                            "#supporters,cheering_section",
+
                             '#prize,award,trophy',
 
 
-                        'SOFTAB:party',
+        'SOFTAB:party',
                             '#public_(not_private)',
                             '#public_(of_the_public)',
                             '#public_(the_public)',
@@ -1154,6 +1172,7 @@ Map glsuperWordMap = {
                             '#bread_with_fruit',  //Why exists as single symbol?
                             '#bread_with_seeds',  //Why exists as single symbol?
                             '#bun_(soft),roll_(soft),scone,brioche',
+                            "#cupcake,fancy_cake,pastry",
                             '#cake,bread_with_sugar',
                                 '#bread_surface',  //?crust
                                 '#bread_knife',
@@ -1792,6 +1811,7 @@ Map glsuperWordMap = {
                             '#hope',
                              '#charm',
                              '#charming',
+                             "#charity",
                             '#curious,inquisitive',
                             '#eagerness,keenness,willingness',
                              '#creative',
@@ -1970,6 +1990,7 @@ Map glsuperWordMap = {
                             '#tired,exhausted,weary',
                             '#dizzy',
                             '#hungry',
+                                "*starvation",
                             '#thirsty',
      ],
 
@@ -2317,6 +2338,7 @@ Map glsuperWordMap = {
                                  '#flying',
                                  '#rugby,football_(N.A.)',  //closely associated '#rugby_ball',
                                      '*rugby_ball',
+                                     "*wicket",   //Low freq
                                  '#snowshoe',
                                  '#growth,growing',
                                  '#hammer_throw',
@@ -2355,8 +2377,14 @@ Map glsuperWordMap = {
                                 '#squash_(sport)',
                                 '#swimming_(sport)',
                                     '*high_jump',
+                                     "*swim-(to)",
+                                     "*swim_centre",
+                                     "*swimming,swim",
+                                     "*swimming_hall,indoor_swimming_pool",
+                                     "*swimming_rule(s)",
 
-                                '#synchronized_diving,synchro_diving_(sport)',
+
+                             '#synchronized_diving,synchro_diving_(sport)',
                                 '#synchronized_swimming_(sport)',
                                 '#table_tennis,ping-pong_(sport)',
                                 '#team_(sport)',
@@ -2543,8 +2571,8 @@ Map glsuperWordMap = {
                             '#brake_(vehicle)',
                             '#recumbent_bicycle',
                             '#wagon,cart,truck',
-                               '@trailer,container_transport',
-                               '@tail_lift,lift',//?? dock leveler on back of truck (?)
+                               '*trailer,container_transport',
+                               '*tail_lift,lift',//?? dock leveler on back of truck (?)
 
                             '#carriage',
                             '#dump_truck,dumper,tipper_lorry,tipper',
@@ -2679,6 +2707,8 @@ Map glsuperWordMap = {
                             '#cage',
                             '#ashtray',
                             '#bottle,flask',
+                                "*bottle_nipple,teat",
+                                "*bottleneck,bottle_opening",
 
 
     ],
@@ -2733,7 +2763,8 @@ Map glsuperWordMap = {
 
                         'SOFTAB:here',
                             '#fireplace',
-                            '#cloakroom,walk-in_closet',
+                            '#cloakroom,walk-in_closet',  //If there is only one word Closet, then should not be "walk in"?!
+                               "*shelf",
                             '#bathroom,washroom',
                                 '#shower-(to)',
                             '#sauna',
@@ -2835,7 +2866,9 @@ Map glsuperWordMap = {
                             '#workplace', //GENERAL
                             '#jobcentre,job-centre',
                             '#laundry_(workplace)',
-    ],
+    ], //'PEOPLE:visit:places'
+
+
 
     'PEOPLE:house:clean:work:repairs':          [
                         '#habitation,dwelling_place,site',
@@ -2925,6 +2958,7 @@ Map glsuperWordMap = {
                             '#tumble-drier,tumble-dryer',
 
                             '#garbage_can,rubbish_bin,trash_can',
+                            "#waste,garbage,rubbish,trash",
     ],
 
 
@@ -2994,7 +3028,9 @@ Map glsuperWordMap = {
                             '#Formula_One,NASCAR_Kart',
                             '#road_(2)',
                             '#driver,chauffeur',
-                            '#road_sign',
+                                "*traffic_rule(s)",
+                                "*street",
+                                '*road_sign',
                             '#public_transport',
                             '#taxi,cab',
                             '#parking_permit',
@@ -3237,6 +3273,8 @@ Map glsuperWordMap = {
                             '#grater,grinder',
                             '#whisk,beater',
                             '#can_opener',
+
+                            "#steam-(to)",
                             '#deep_fryer',
                             '#dish_gloves,rubber_gloves',
                         'SOFTAB:hold:handle:liquid',
@@ -3425,35 +3463,37 @@ Map glsuperWordMap = {
     ],
 
     'SCENES:entertainment': [
-                    'SOFTAB:car_racing',
-                        '#car_racing,auto_racing',
-                        '#film',
-                    'SOFTAB:football',
-                        '#football_team',
-                        '#football,soccer_(activity)',
-                           '*football_rule(s)',
+                            'SOFTAB:car_racing',
+                                '#car_racing,auto_racing',
+                                '#film',
+                            'SOFTAB:football',
+                                '#football_team',
+                                '#football,soccer_(activity)',
+                                   '*football_rule(s)',
 
-                    'SOFTAB:television',
-                        '*remote_control',
-                        '#amuse,entertain,please-(to)',
-                        '#TV_programme,TV_show,radio_programme',
-                        '#TV_studio,radio_studio',
-                        '#cartoon,animated_picture',
+                            'SOFTAB:television',
+                                '*remote_control',
+                                '#amuse,entertain,please-(to)',
+                                '#TV_programme,TV_show,radio_programme',
+                                '#TV_studio,radio_studio',
+                                '#cartoon,animated_picture',
 
 
-                    'SOFTAB:entertainment:music_listening',
-                        '#pay_channel',
-                        '#microphone',
-                        '#cassette,audiocassette,videocassette',
-                        '#DVD',
-                        '#CD_player,record_player,stereo',
-                        '#loudspeaker',
-                        '#MP3_player,iPod_(etc)',  //
-                        '#CD',
-                        '#disc,disk',
-                        '#CD,record',
-                        '#DVD_player',
-                        '#media_player',
+                            'SOFTAB:entertainment:music_listening',
+                                '#pay_channel',
+                                '#microphone',
+                                '#cassette,audiocassette,videocassette',
+                                '#DVD',
+                                '#CD_player,record_player,stereo',
+                                '#loudspeaker',
+                                '#MP3_player,iPod_(etc)',  //
+                                '#CD',
+                                '#disc,disk',
+                                '#CD,record',
+                                "*CD_cover",
+                                "#DVD,movie_disc",
+                            '#DVD_player',
+                                '#media_player',
     ],
 
     'SCENES:conference:study':         [
@@ -3642,6 +3682,7 @@ Map glsuperWordMap = {
                                 '#block,brick',
                             'SOFTAB:marketing',
                                  '#advertisement',
+                                 "#sign,advertisement",
                             'SOFTAB:meeting',
                                 '#agenda',
                                 '#appointment',
@@ -3754,11 +3795,12 @@ Map glsuperWordMap = {
                         '#free_of_charge,gratis,for_free',
     ],
 
-    'SCENES:crime':         [                      //court?
+    'SCENES:court':         [                      //court?
                         '#judge',
-                        '#hammer,gavel,mallet',
+                           '*hammer,gavel,mallet',
                         '#judgement,law_(in_combinations)',
                         '#lawyer_(for_the_defence)',
+                            "*advice,counsel,recommendation",
                         '#interrogate-(to)',
                         '#sentence,condemn-(to)',
                         '#justice',
@@ -3917,6 +3959,7 @@ Map glsuperWordMap = {
                         '#minus,no,without',
                         '#adding,additive',
                         '#subtract,remove,take_away-(to)',
+                        "#subtraction,loss",
                         '#multiplication',
                         '#multiply-(to)',
                         '#and,also,plus,too',
@@ -3940,7 +3983,7 @@ Map glsuperWordMap = {
                         '#sign_language',
 
                     //NATURAL PHONETIC LAGUAGES
-                          '@spell-(to)',
+                          '*spell-(to)',
                         '#English_(language)',
                         '#German_(language)',
                         '#Norwegian_(language)',
@@ -4386,7 +4429,7 @@ Map glsuperWordMap = {
                             '#protector,guard',
                             '#pollution',
 
-
+                            "#safety,security",
 
 
                             'SOFTAB:monarchy:historical:royalty',
@@ -4405,6 +4448,7 @@ Map glsuperWordMap = {
                           'SOFTAB:child-rights',  //???
                             '#adoption', //??
                             '#foster_home', //??
+                            "#temporary_home",  //??home_temporary
 
 
 
@@ -5262,6 +5306,7 @@ Map glsuperWordMap = {
 
                             '#insect_(pest)',
                             '#louse,stinging_insect',
+                            "#plant-louse",
                             '#bee',
                             '#fly',
                             '#flea',
@@ -5269,7 +5314,7 @@ Map glsuperWordMap = {
                             '#mosquito',
                         'SOFTAB:NOT:flying',
                             '#spider',
-                                '@spider_web,cobweb,orb_web',
+                                '*spider_web,cobweb,orb_web',
                             '#scorpion',
                             '#caterpillar',
                             '#millepede',
@@ -5516,6 +5561,7 @@ Map glsuperWordMap = {
                             '#fire',
                                '*match',   //to start a fire
                                '*spark',
+                               "*glow",
                             '#flame',
                             '#burn-(to)',
 
@@ -5621,6 +5667,7 @@ Map glsuperWordMap = {
                             '#earth,ground,land',
                             '#continent',
                             '#planet',
+                            "#earth,globe,world",
                             '#rock_planet,terrestrial_planet',
                             '#island',
                             '#continental_drift',
@@ -5776,9 +5823,13 @@ Map glsuperWordMap = {
                         '#how-(question)',
                         '#how_much,how_many',
     ],
+
     'LANGUAGE:when_question': [  //These are relative references
                         '#when',
                         '#when,what_time-(question)',
+
+                        '#never',
+
                         '*fresh',
 
                         '#anytime,sometime',
@@ -6047,9 +6098,29 @@ Map glsuperWordMap = {
                         '#what_kind-(question)',
     ],
 
-//    'LANGUAGE:events': [
-//
-//    ],
+    'LANGUAGE:likelyhood' : [
+        '#trust,confidence',
+
+        '#trust-(to)',
+        '#never',
+
+        "#surprise",
+        "#surprise-(to)",
+        "#surprised",
+
+
+        '#probable,likely,probably',
+
+        '#maybe,perhaps,possibly',//GENERAL
+        '#guess,estimation', //GENERAL
+
+        '#possibility',
+        '#possible',
+
+        '#uncertain,unsure',
+
+        '#certain,sure'
+    ],
 
     'LANGUAGE:size:about':  [
                         '#size',
@@ -6248,7 +6319,9 @@ Map glsuperWordMap = {
                         '#choose,pick,select-(to)',
                         '#fire',                  //ADDED THESE below - SEE BLISS DOCS
                         '#nose',
+                            "*tissue",
                         '#ear',
+                            "*ampullae",
                         '#exchange,substitution',
                         '#empty,evacuate,throw_away,void-(to)',
                         '#hand',
@@ -6307,24 +6380,6 @@ Map glsuperWordMap = {
 
     ],
 
-    'LANGUAGE:confidence' : [
-                        '#trust,confidence',
-
-                        '#trust-(to)',
-                        '#never',
-
-                        '#probable,likely,probably',
-
-                        '#maybe,perhaps,possibly',//GENERAL
-                        '#guess,estimation', //GENERAL
-
-                        '#possibility',
-                        '#possible',
-
-                        '#uncertain,unsure',
-
-                        '#certain,sure'
-    ],
 
     'LANGUAGE:logic':       [
                         '#mental,intellectual,rational,thinking',
@@ -6604,7 +6659,10 @@ Map glsuperWordMap = {
 
 
                         '#bless-(to)',
-                        '#blow_(mouth)-(to)',
+
+
+
+
                         '#blush-(to)',
                         '#board-(to)', //board???
                         '#braid,plait-(to)', //mirror
@@ -7013,13 +7071,18 @@ Map glsuperWordMap = {
         '#tuft_of_grass,tussock', //Can't think how to use
 
 
+        "#toy_(in_combinations)", //What does this mean?, basic symbol?
+
+        "#suicide",   //adult?
+
+        "#tracker",   //Not sure what is meant here, as attached to ankle?
+
 
 
     ],   //TODO!  TEMP!    DUMMY / TERMINATOR
 
 
 };
-
 
 
 

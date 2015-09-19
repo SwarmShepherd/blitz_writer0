@@ -1,433 +1,482 @@
 
-//****************************************************************************************************************************************
-//
-//FREQ         [0..9] FREQUENCY to be determined statistically, for preliminary purposes -0 to -9 could be used as best author guess,
-//                    where -0 is very low, and where -9 is very high                     (All maps to contain initially, Default == -3)
-//SPZL         SPECIALIZED [true, false]                                                  (missing from Map => false)
-//ADLT***      ADULT       [true, false]    not suitable, and not necessary for children  (missing from Map => false)
-//CHLD***      CHILD       [true, false]    phantasy, cartons, toys and such Low FRQ under(missing from Map => false)
-//                                          normal circumstances
-//KEYS         KEY(S) USED EG   PEOPLE:BABY   (AUTHOR CLASSIFICATION SYSTEM)
-//ASSC         CATEGORIZED BY (CLOSE) ASSOCIATION* WITH ANOTHER WORD, 'NORMALLY' FALSE    (missing from Map => false)
-//NUBA         NOT UNDERSTOOD TO AUTHOR(S)  [true, false]                                 (missing from Map => false)
-//BLDW         BUILDABLE WITH EXTENSION (EG ['^', 'v'])                                   (missing from Map => false)
-//CORE        'CORE-NESS' on Scale 0..9 where 0 is required for a working Pigeon Language with target size ~ 800
-//CORE                   where 1 is not Core, and is part of a 1500 max beginner vocabulary
-//CORE                   where 5 is not in 0..4 and is part of a "normal adult vocabulary" without speciality words such as religion or ethnic foods
-//CORE                   where 6..8 are reserved for future discernment.
-//CORE                   where 9 is reserved for Words of basic questionable utility, such as two part words, both words of which exist already.
-//
-//FLNM         BCI FileName in Sept 2015 set
-//SUBS**       SUB-SYMBOL NAME SYMBOLS - YET TO BE DETERMINED, FUTURE ORIENTED
-
-
-Exploratory
-
-* Where possible words are categorized as a Direct Logical Member of a Grouping.  Sometimes, in practice, it seems that there is a very
-  close association between such as an Object and an Activity.  A Rugby Ball, rather than to belong to a group of "sports Objects" could
-  be categorized directly under the RUGBY_Sport Word.  Perhaps the legitimacy and value of this categorization is more obvious for BottleNeck
-  Associated directly under Bottle, rather than in a grouping of "Necks".  Visual cues will be given.
-
-** Where this is an exploratory feature to test the feasibility of giving unique symbol names to each unique SubSymbol.  The actual features
-based on this could be the highlighting / making active of all words containing a given key as a way of finding Symbols (very much as typing
-a letter can work in searching algorithms).
-
-*** Adult and child should generally be obvious.  Adult to include "optional" Reproduction words specific to humans, and such practice as Incest.
-Clearly a grey area with plenty of for future re-interpretations, initially these will be the opinion of the Author.
-
-
-//ALL KEYS TO BE Declared (Dart Language) SYMBOLS, quotes therefore unnecessary.  This may not make sense for the WORD sub part names...
-Symbol  KEY  = new Symbol('KEY');
-
-...
-...
-
-{
-         CORE:  0,
-         FREQ: -3,
-         KEYS: 'PEOPLE:baby:child',
-         FLNM: 'bowel_movement,defecation,shitting,feces,shit,poop',
-         FREQ: -3,                                                        //Default starting number
-         SUBS: [THING_LN_URLL, BUTTOCKS],                                  //Exploratory only
-
-         //to cut down on 'noise' these will only be added on exception?
-         ASSC: false,
-         ADLT: false,
-         CHLD: false,
-         SPCL: false,
-         NUBA: false,
-  };
 
 
 
-                           '#CD_cover',
-                           '#DVD,movie_disc',
+Following is a list of all the missing names:
 
-                           '#ability_(half_sized)',
 
-                           '#achievement',
+			"#ability_(half_sized)",
+			"#achievement",
+			"#active,actively",
+			"#activity,male_gender_(in_combinations)",
 
-                           '#active,actively',
-                           '#activity,male_gender_(in_combinations)',
+			"#adventure",
+			"#adventurous",
 
-                           '#adventure',
-                           '#adventurous',
 
-                           '#advice,counsel,recommendation',
 
-                           '#advocacy',
-                           '#advocacy,representation_(legal)',
-                           '#advocate_(legal)',
-                           '#advocate_(legal,speaking)',
-                           '#advocate_(speaking),spokesperson',
 
-                           '#alpana,rangoli_(decoration)',
 
-                           '#alternating',
-                           '#alternation',
+			"#advocacy",
+			"#advocacy,representation_(legal)",
+			"#advocate_(legal)",
+			"#advocate_(legal,speaking)",
+			"#advocate_(speaking),spokesperson",
 
-                           '#ampullae',
+			"#alpana,rangoli_(decoration)",
 
-                           '#appearance,manifestation',
+			"#alternating",
 
-                           '#appendix,cecum,caecum',
+			"#alternation",
 
-                           '#applause,clapping',
 
-                           '#arrow_(bent)',
-                           '#at_one's_destination,there',
-                           '#attachment,appendix,annex',
-                           '#attention',
-                           '#belief',
-                           '#bindi,tika_(decoration)',
-                           '#blot',
 
-                           '#bottle_nipple,teat',
-                           '#bottleneck,bottle_opening',
+			"#appearance,manifestation",
+			"#appendix,cecum,caecum",
+			"#applause,clapping",
 
-                           '#bump,press,pressing',
+			"#arrow_(bent)",
 
-                           '#cannula_(with_needle)',
+			"#at_one's_destination,there",
+			"#attachment,appendix,annex",
+			"#attention",
+			"#belief",
+			"#bindi,tika_(decoration)",
+			"#blot",
 
-                           '#case,casing',
 
-                           '#chance,risk',
-                           '#change,alteration',
-                           '#charity',
-                           '#chase',
-                           '#checked',
-                           '#chew-(to)',
-                           '#chewing-gum',
 
-                           '#church_ruin,temple_ruin,wreck,wreckage_(church,temple,mosque)_(2)',
+			"#bump,press,pressing",
+			"#cannula_(with_needle)",
+			"#case,casing",
 
-                           '#closed',
-                           '#colleague',
-                           '#collection,pile,tussock_(etc)',
-                           '#compartment',
-                           '#compression,compressing,squeezing',
-                           '#contact_sports',
-                           '#continuance,continuation',
-                           '#copy,duplicate',
-                           '#core_activity',
-                           '#corner_(room)',
-                           '#court,field',
-                           '#crack,gap,cleft',
-                           '#crew,staff',
-                           '#cupcake,fancy_cake,pastry',
-                           '#current_events',
-                           '#decoration,ornament',
-                           '#definition',
-                           '#depth',
-                           '#destroyed,ruined,demolished,deleted,erased,cancelled',
-                           '#detachment,separation,breakup',
-                           '#development',
-                           '#devotee,fan',
-                           '#dichotomy,duality',
-                           '#dig-(to)',
-                           '#dilemma',
-                           '#disagree,discord,disaccord-(to)',
-                           '#disagreement,discord',
-                           '#dispersion,dissemination,scattering,spread,spreading',
-                           '#disturbance,unrest',
-                           '#divided',
-                           '#diving,activity_under_water',
-                           '#dotted',
-                           '#earth,globe,world',
-                           '#embarrassing',
-                           '#empowered',
-                           '#empty',
-                           '#emptying,voidance,evacuation',
-                           '#endangered',
-                           '#equipment,gear',
-                           '#event,happening,occasion',
-                           '#exchanger',
-                           '#fall,drop,spill,tumble',
-                           '#fantasy,phantasy,imagination,illusion',
-                           '#fiber,fibre,fibril,filament,strand',
-                           '#filled,stuffed',
-                           '#filling,fill,fullness',
-                           '#finger_spelling,finger_alphabet',
-                           '#foundation,base,fundament',
-                           '#free,freely',
-                           '#function',
-                           '#functional',
-                           '#generalization',
-                           '#glitter',
-                           '#glow',
-                           '#good_conscience',
-                           '#grid,matrix',
-                           '#habit,custom',
-                           '#helper,aide,assistant,personal_assistant',
-                           '#hoist,lift',
-                           '#holding',
-                           '#hope-(to)',
-                           '#illustrated,illustrating',
-                           '#illustration',
-                           '#imported',
-                           '#imprint,depression',
-                           '#imprint,trace,track',
-                           '#intensity',
-                           '#interest',
-                           '#interview',
-                           '#interview-(to)',
-                           '#interviewer',
-                           '#introduce,present-(to)',
-                           '#keep,preserve,save-(to)',
-                           '#knot',
-                           '#layer,level',
-                           '#lick-(to)',
-                           '#lid',
-                           '#lifeline',
-                           '#limit(s),limitation,restriction',
-                           '#limit,restrict,restrain,confine-(to)',
-                           '#limited,restricted,confined',
-                           '#line,queue',
-                           '#list,inventory',
-                           '#little_person',
-                           '#live,dwell,reside-(to)',
-                           '#load',
-                           '#lock',
-                           '#lock-(to)',
-                           '#long_for,yearn-(to)',
-                           '#longing,yearning',
-                           '#lump(s)',
-                           '#lumpy',
-                           '#make_cheese-(to)',
-                           '#making,production,fashioning',
-                           '#manhole_cover',
-                           '#massage',
-                           '#massage-(to)',
-                           '#mean,signify-(to)',
-                           '#meaning,sense,significance',
-                           '#memory_game,Kim's_game',
-                           '#message,content_(communication)',
-                           '#mislead-(to)',
-                           '#mistake,error,fault',
-                           '#misuse',
-                           '#misuse-(to)',
-                           '#mouth_(wide-open),open_mouth,gape',
-                           '#multi-sport_event',
-                           '#mummy_(general)',
-                           '#must,have_to,be_forced_to-(to)',
-                           '#mysterious,unknown',
-                           '#mystery,unknown',
-                           '#nag-(to)',
-                           '#near,almost,close,nearly',
-                           '#necessary,necessarily,needed',
-                           '#need-(to)',
-                           '#need_(needy_person)',
-                           '#negative_dependency',
-                           '#net',
-                           '#newness,novelty',
-                           '#nonsense',
-                           '#open-(to)',
-                           '#open_one's_mouth,hold_one's_mouth_open,gape-(to)',
-                           '#opening',
-                           '#operation',
-                           '#overlay',
-                           '#overturn,turn_over,tip_over-(to)',
-                           '#painful,painfully,sore',
-                           '#parting',
-                           '#passive',
-                           '#passivity',
-                           '#patient_(in_medical_care)',
-                           '#pavement,sidewalk',
-                           '#peace_(opposite_war)',
-                           '#penetrate,go_through-(to)',
-                           '#permission,allowance',
-                           '#permission,allowance_(moral)',
-                           '#personal_measurement',
-                           '#persuade,convince-(to)',
-                           '#persuasion',
-                           '#pick-(to)',
-                           '#picture,image,icon,painting',
-                           '#pin',
-                           '#pipe,hose,tube_(2)',
-                           '#pit,stone',
-                           '#pit,stone-(to)',
-                           '#place,area,location,space',
-                           '#place_to_feed,feeding_place,feeding_ground',
-                           '#plant-louse',
-                           '#point_of_view',
-                           '#portability',
-                           '#portable',
-                           '#positive',
-                           '#power,powerfulness',
-                           '#pram_straps,safety_harness',
-                           '#predict-(to)',
-                           '#preparation,readying,readiness,preparedness',
-                           '#pressure',
-                           '#print-(to)',
-                           '#private',
-                           '#problem',
-                           '#puddle,pool',
-                           '#pump',
-                           '#pump-(to)',
-                           '#puncture,prick-(to)',
-                           '#purpose',
-                           '#quality',
-                           '#quality_(measurement)',
-                           '#quarrel,row',
-                           '#racket,racquet',
-                           '#rain_gauge',
-                           '#raindrop',
-                           '#rainy',
-                           '#raised_wavy_line',
-                           '#ramp',
-                           '#react-(to)',
-                           '#reaction',
-                           '#ready,prepared',
-                           '#real,really',
-                           '#reception',
-                           '#reclaim_(marshes_etc)-(to)',
-                           '#redo-(to)',
-                           '#relative,relation',
-                           '#repeat,copy,duplicate,reproduce-(to)',
-                           '#repetition,copying,duplication,replication',
-                           '#request-(to)',
-                           '#resource_centre',
-                           '#respect,admiration',
-                           '#rest-(to)',
-                           '#rest_period,break',
-                           '#return',
-                           '#return,come_back,reverse-(to)',
-                           '#revelry',
-                           '#ribbon,tape',
-                           '#robot',
-                           '#roll-(to)',
-                           '#rope,hawser',
-                           '#rub,massage-(to)',
-                           '#ruin,wreck,wreckage_(building)_(2)',
-                           '#ruin_(castle),castle_ruin',
-                           '#safety,security',
-                           '#satisfaction,contentment',
-                           '#score',
-                           '#scratch',
-                           '#scratch-(to)',
-                           '#search-(to)',
-                           '#secret',
-                           '#secret_agent,spy',
-                           '#send-(to)',
-                           '#set_square',
-                           '#shallow',
-                           '#shallowness',
-                           '#shelf',
-                           '#shell,crust',
-                           '#sheltered_workshop',
-                           '#shoal,school_(of_fish)',
-                           '#should,would-(modal_aux_v)',
-                           '#side_(enclosure)',
-                           '#sign,advertisement',
-                           '#sign,signal',
-                           '#sign-(to)',
-                           '#signal,broadcast,transmitting',
-                           '#signature_stamp',
-                           '#singalong',
-                           '#sitting_mat',
-                           '#slide',
-                           '#slide,skid,slip-(to)',
-                           '#smash,grind,shatter,splinter-(to)',
-                           '#social',
-                           '#social_worker',
-                           '#society',
-                           '#somersault_(2)',
-                           '#sound-(to)',
-                           '#special,particular',
-                           '#spell-(to)',
-                           '#spider_web,cobweb,orb_web',
-                           '#spill,slop-(to)',
-                           '#spirit',
-                           '#splash-(to)',
-                           '#spray,vaporization',
-                           '#spray,vaporize-(to)',
-                           '#spray_bottle,vaporizer,spray_can',
-                           '#spread,paste',
-                           '#spread_(cover_with_spread)-(to)',
-                           '#stand-in,substitute,alternate',
-                           '#starvation',
-                           '#station',
-                           '#stave,staff',
-                           '#stay,remain-(to)',
-                           '#steam-(to)',
-                           '#stop,arrive,end-(to)',
-                           '#storage_jar,preserving_jar',
-                           '#strap,string,velcro,rope,cord',
-                           '#street',
-                           '#stress-(to)',
-                           '#stretch_(elongate)-(to)',
-                           '#stretch_(muscles)-(to)',
-                           '#string',
-                           '#striped',
-                           '#subtraction,loss',
-                           '#suggest,propose-(to)',
-                           '#suggestion,proposal',
-                           '#suicide',
-                           '#summary,abstract',
-                           '#support-(to)',
-                           '#support_(oral)',
-                           '#support_(orally)-(to)',
-                           '#supporters,cheering_section',
-                           '#surprise',
-                           '#surprise-(to)',
-                           '#surprised',
-                           '#swash',
-                           '#sweet_(metaphor)',
-                           '#swim-(to)',
-                           '#swim_centre',
-                           '#swimming,swim',
-                           '#swimming_hall,indoor_swimming_pool',
-                           '#swimming_rule(s)',
-                           '#table_mat,placemat',
-                           '#tail_lift,lift',
-                           '#tap_(2)',
-                           '#tape_recorder',
-                           '#team',
-                           '#teamwork',
-                           '#tease-(to)',
-                           '#temporary_home',
-                           '#thread,string,cord',
-                           '#tissue',
-                           '#together,attached,appended,fastened,joined',
-                           '#toy_(in_combinations)',
-                           '#tracker',
-                           '#traffic_rule(s)',
-                           '#tragedy',
-                           '#trailer,container_transport',
-                           '#trap',
-                           '#trap-(to)',
-                           '#treat',
-                           '#turn,turning',
-                           '#turn-(to)',
-                           '#type,kind,sort',
-                           '#unfold-(to)',
-                           '#unfolding',
-                           '#waste,garbage,rubbish,trash',
-                           '#weather_forecast',
-                           '#weather_satellite,spy_satellite',
-                           '#whipping_knot',
-                           '#wicket',  //LF = Low frequency
 
-                           '#wire,cable',
 
-                           '#wrap,wind-(to)',
+
+			"#change,alteration",
+
+
+
+
+			"#chase",
+
+
+			"#checked",
+			"#chew-(to)",
+			"#chewing-gum",
+			"#church_ruin,temple_ruin,wreck,wreckage_(church,temple,mosque)_(2)",
+			"#closed",
+			"#colleague",
+			"#collection,pile,tussock_(etc)",
+			"#compartment",
+			"#compression,compressing,squeezing",
+			"#contact_sports",
+			"#continuance,continuation",
+			"#copy,duplicate",
+			"#core_activity",
+			"#corner_(room)",
+			"#court,field",
+			"#crack,gap,cleft",
+
+			"#crew,staff",
+
+
+
+
+			"#current_events",
+			"#decoration,ornament",
+			"#definition",
+			"#depth",
+			"#destroyed,ruined,demolished,deleted,erased,cancelled",
+			"#detachment,separation,breakup",
+			"#development",
+			"#devotee,fan",
+			"#dichotomy,duality",
+			"#dig-(to)",
+			"#dilemma",
+			"#disagree,discord,disaccord-(to)",
+			"#disagreement,discord",
+			"#dispersion,dissemination,scattering,spread,spreading",
+			"#disturbance,unrest",
+			"#divided",
+			"#diving,activity_under_water",
+			"#dotted",
+
+			"#embarrassing",
+			"#empowered",
+
+
+			"#empty",
+
+
+			"#emptying,voidance,evacuation",
+			"#endangered",
+			"#equipment,gear",
+			"#event,happening,occasion",
+			"#exchanger",
+			"#fall,drop,spill,tumble",
+			"#fantasy,phantasy,imagination,illusion",
+			"#fiber,fibre,fibril,filament,strand",
+			"#filled,stuffed",
+			"#filling,fill,fullness",
+			"#finger_spelling,finger_alphabet",
+			"#foundation,base,fundament",
+			"#free,freely",
+			"#function",
+			"#functional",
+			"#generalization",
+			"#glitter",
+
+
+
+			"#good_conscience",
+			"#grid,matrix",
+			"#habit,custom",
+			"#helper,aide,assistant,personal_assistant",
+			"#hoist,lift",
+			"#holding",
+
+			"#hope-(to)",
+
+			"#illustrated,illustrating",
+			"#illustration",
+			"#imported",
+			"#imprint,depression",
+			"#imprint,trace,track",
+			"#intensity",
+			"#interest",
+			"#interview",
+			"#interview-(to)",
+			"#interviewer",
+			"#introduce,present-(to)",
+			"#keep,preserve,save-(to)",
+			"#knot",
+			"#layer,level",
+
+
+
+
+			"#lid",
+			"#lifeline",
+			"#limit(s),limitation,restriction",
+			"#limit,restrict,restrain,confine-(to)",
+			"#limited,restricted,confined",
+			"#line,queue",
+			"#list,inventory",
+			"#little_person",
+			"#live,dwell,reside-(to)",
+			"#load",
+			"#lock",
+			"#lock-(to)",
+			"#long_for,yearn-(to)",
+			"#longing,yearning",
+			"#lump(s)",
+			"#lumpy",
+			"#make_cheese-(to)",
+			"#making,production,fashioning",
+			"#manhole_cover",
+			"#massage",
+			"#massage-(to)",
+			"#mean,signify-(to)",
+			"#meaning,sense,significance",
+			"#memory_game,Kim's_game",
+			"#message,content_(communication)",
+			"#mislead-(to)",
+			"#mistake,error,fault",
+			"#misuse",
+			"#misuse-(to)",
+			"#mouth_(wide-open),open_mouth,gape",
+			"#multi-sport_event",
+			"#mummy_(general)",
+			"#must,have_to,be_forced_to-(to)",
+			"#mysterious,unknown",
+			"#mystery,unknown",
+			"#nag-(to)",
+			"#near,almost,close,nearly",
+			"#necessary,necessarily,needed",
+			"#need-(to)",
+			"#need_(needy_person)",
+			"#negative_dependency",
+			"#net",
+
+			"#newness,novelty",
+
+
+			"#open-(to)",
+
+
+
+
+			"#opening",
+			"#operation",
+			"#overlay",
+			"#overturn,turn_over,tip_over-(to)",
+			"#painful,painfully,sore",
+			"#parting",
+
+
+			"#passive",
+			"#passivity",
+
+
+			"#patient_(in_medical_care)",
+			"#pavement,sidewalk",
+			"#peace_(opposite_war)",
+			"#penetrate,go_through-(to)",
+			"#permission,allowance",
+			"#permission,allowance_(moral)",
+			"#personal_measurement",
+			"#persuade,convince-(to)",
+			"#persuasion",
+			"#pick-(to)",
+			"#picture,image,icon,painting",
+
+			"#pin",
+
+			"#pipe,hose,tube_(2)",
+
+
+			"#pit,stone",
+			"#pit,stone-(to)",
+			"#place,area,location,space",
+			"#place_to_feed,feeding_place,feeding_ground",
+o
+			"#point_of_view",
+
+			"#portability",
+			"#portable",
+
+
+			"#positive",
+			"#power,powerfulness",
+			"#pram_straps,safety_harness",
+			"#predict-(to)",
+			"#preparation,readying,readiness,preparedness",
+			"#pressure",
+			"#print-(to)",
+			"#private",
+			"#problem",
+			"#puddle,pool",
+			"#pump",
+			"#pump-(to)",
+			"#puncture,prick-(to)",
+			"#purpose",
+
+			"#quality",
+			"#quality_(measurement)",
+
+
+			"#quarrel,row",
+			"#racket,racquet",
+			"#rain_gauge",
+			"#raindrop",
+			"#rainy",
+			"#raised_wavy_line",
+			"#ramp",
+			"#react-(to)",
+			"#reaction",
+			"#ready,prepared",
+
+			"#real,really",
+
+			"#reception",
+			"#reclaim_(marshes_etc)-(to)",
+			"#redo-(to)",
+			"#relative,relation",
+			"#repeat,copy,duplicate,reproduce-(to)",
+			"#repetition,copying,duplication,replication",
+			"#request-(to)",
+			"#resource_centre",
+			"#respect,admiration",
+			"#rest-(to)",
+			"#rest_period,break",
+
+			"#return",
+			"#return,come_back,reverse-(to)",
+
+			"#revelry",
+
+			"#ribbon,tape",
+
+			"#robot",
+
+
+			"#roll-(to)",
+			"#rope,hawser",
+
+
+
+			"#ruin,wreck,wreckage_(building)_(2)",
+
+			"#ruin_(castle),castle_ruin",
+
+
+			"#satisfaction,contentment",
+
+			"#score",
+
+			"#scratch",
+			"#scratch-(to)",
+			"#search-(to)",
+			"#secret",
+			"#secret_agent,spy",
+
+			"#send-(to)",
+			"#set_square",
+			"#shallow",
+			"#shallowness",
+
+
+
+			"#shell,crust",
+
+			"#sheltered_workshop",
+			"#shoal,school_(of_fish)",
+			"#should,would-(modal_aux_v)",
+			"#side_(enclosure)",
+
+
+
+
+			"#sign,signal",
+			"#sign-(to)",
+
+			"#signal,broadcast,transmitting",
+
+			"#signature_stamp",
+
+			"#singalong",
+
+			"#sitting_mat",
+			"#slide",
+			"#slide,skid,slip-(to)",
+			"#smash,grind,shatter,splinter-(to)",
+
+			"#social",
+			"#social_worker",
+
+			"#society",
+
+			"#somersault_(2)",
+
+
+
+			"#special,particular",
+			"#spell-(to)",
+
+
+
+
+
+			"#spill,slop-(to)",
+			"#spirit",
+			"#splash-(to)",
+			"#spray,vaporization",
+			"#spray,vaporize-(to)",
+			"#spray_bottle,vaporizer,spray_can",
+			"#spread,paste",
+			"#spread_(cover_with_spread)-(to)",
+			"#stand-in,substitute,alternate",
+
+
+
+
+
+			"#station",
+			"#stave,staff",
+			"#stay,remain-(to)",
+
+
+
+
+			"#stop,arrive,end-(to)",
+			"#storage_jar,preserving_jar",
+			"#strap,string,velcro,rope,cord",
+
+			"#stress-(to)",
+
+			"#stretch_(elongate)-(to)",
+
+
+
+			"#string",
+			"#striped",
+
+
+
+
+			"#suggest,propose-(to)",
+			"#suggestion,proposal",
+
+
+
+
+			"#summary,abstract",
+
+
+			"#support-(to)",
+			"#support_(oral)",
+			"#support_(orally)-(to)",
+			"#supporters,cheering_section",
+
+
+			"#swash",
+
+			"#sweet_(metaphor)",
+
+
+
+			"#table_mat,placemat",
+
+
+			"#tap_(2)",
+			"#tape_recorder",
+			"#team",
+			"#teamwork",
+			"#tease-(to)",
+
+
+
+
+
+			"#thread,string,cord",
+
+			"#together,attached,appended,fastened,joined",
+
+
+
+
+
+
+			"#tragedy",
+
+
+			"#trap",
+			"#trap-(to)",
+
+			"#treat",
+			"#turn,turning",
+			"#turn-(to)",
+
+			"#type,kind,sort",
+
+			"#unfold-(to)",
+			"#unfolding",
+
+
+
+
+
+			"#weather_forecast",
+			"#weather_satellite,spy_satellite",
+
+
+			"#whipping_knot",
+
+
+
+			"#wire,cable",
+			"#wrap,wind-(to)",
+================================================================
+NUMBER SYMBOLS REMAINING TO BE CATEGORIZED:     >>> 349 <<<
+================================================================
