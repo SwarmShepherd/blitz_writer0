@@ -2230,6 +2230,7 @@ Map glsuperWordMap = {
                                    '*tennis,racket_sport,racquet_sport',
                                 '#wrestling_(activity)',
                             'SOFTAB:sports',
+                                "#contact_sports",  //Sport Types
                                 '#baseball_(sport)',
                                    '*home_run',
                                    '*ball_field',   //??only baseball or other sports?
