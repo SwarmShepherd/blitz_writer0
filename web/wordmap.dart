@@ -6367,6 +6367,7 @@ Map glsuperWordMap = {
 
                         '#health',
                         '#open',
+                            "*closed",
 
                         '#high,tall',
                         '#protection,shelter',
