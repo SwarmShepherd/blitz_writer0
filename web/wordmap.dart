@@ -137,6 +137,8 @@ Map glsuperWordMap = {
                                '*cramp,spasm',
                                 "*rub,massage-(to)",
                                 "*stretch_(muscles)-(to)",
+                                "*massage",
+                                "*massage-(to)",
                             '#skin',
                             '#blood_vessel',
                             '#blood',
