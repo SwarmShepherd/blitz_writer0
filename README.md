@@ -16,6 +16,7 @@ WORLD to the far Left - The cold hard stuff of the Universe outside our direct e
 LANGUAGE arcs over the entire screen providing the GLUE needed to express our thought
 
 
+
 LANGUAGE also includes a Grouping named KEYS which provides a useful list of the entire set of BASE SYMBOLS
 
 WE THINK THERE IS A SIMPLE TRICK TO UNDERSTANDING THE INDEX SCHEME USED.  We were all once Babies!  When a PERSON:BABY is born his/her world consists of the people he/she is dependent upon, Milk, and lots of loving care that involves such as POOP, PEE, and Soiled Diapers.  This is a little "Earthy", perhaps but it is also the shared basis for the human experience!  Accordingly Diapers, and the matters they contain, are at the very center of our screen, not just Right to Left, but also top to bottom.
