@@ -32,3 +32,33 @@ Many words, the majority of the words in my opinion, have found a clear SUPERKEY
 To see the more current DISTRIBUTION of the words, please review the file: superkey_groupings_stats.txt in the Root Directory.
 
 
+
+
+VERSION 0.1 NOTES!
+
+    Over 5,000 words have been ROUGHLY/CRUDELY CATEGORIZED ONLY!
+
+    The initial goal has been to TEST the rough layout concepts.
+
+    The SIX SUPERKEY GROUPINGS have not needed changes
+
+    The Number of SUPERKEYS have expanded, and some have been modified over the last week.
+        Some groupings have less than the desired number of Words
+        More than 20 Groupings have more than the desired number of Words
+
+    The Groupings had to evolve naturally, but as they evolved a number of words otherwise categorized could easily better
+    fit in the new category.
+
+    Redundancies have been allowed, although wasteful, under certain circumstances.
+
+    Some words have simply not made sense to the author, or may have been misunderstood
+
+    Very Little effort has been spent organizing the words in their SUPERKEY groupings.  Many refinements to come!  The author, for
+    example, special color and shape modifications in mind for OPPOSITES.
+
+    A refinement to use closely associated words seems to be working, however, as things have evolved it is possible that words
+    already categorized may have not have been re-categorized in consistency with the new word.
+
+    IN SHORT MANY TYPES OF ERRORS ARE WELL KNOWN TO EXIST!
+
+
