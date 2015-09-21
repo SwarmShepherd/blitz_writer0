@@ -2,7 +2,7 @@
 
 Exploratory Project for Bliss Symbols to Bridge Natural Languages
 
-After exploring a heirarchtical system with a depth of up to 6 levels it was decided to attempt a two level system - in end effect.   EVERY WORD OF THE VOCABULARY SHALL BE ACCESSIBLE WITH 2 Keyboard/Mouse Events (such as click).  Never More.  Never Less.   If this works it will be SIMPLE.
+After exploring a hierarchical system with a depth of up to 6 levels it was decided to attempt a two level system - in end effect.   EVERY WORD OF THE VOCABULARY SHALL BE ACCESSIBLE WITH 2 Keyboard/Mouse Events (such as click).  Never More.  Never Less.   If this works it will be SIMPLE.
 
 While there are only two "hard" levels, there are actually at least 5 "soft", or visual levels beginning with the six major Groupings of the Highest Level Keys, henceforth refered to as SUPERKEYS.  See the file ScreenCapture0831.pdf  for a screen capture / first peek at the first peek from end of August, 2015.
 
