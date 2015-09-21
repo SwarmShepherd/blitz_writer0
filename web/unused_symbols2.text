@@ -3,502 +3,131 @@
 
 
 Following is a list of all the missing names:
-
-
 			"#ability_(half_sized)",
 			"#achievement",
 			"#active,actively",
 			"#activity,male_gender_(in_combinations)",
-
-			"#adventure",
-			"#adventurous",
-
-
-
-
-
-			"#advocacy",
-			"#advocacy,representation_(legal)",
-			"#advocate_(legal)",
-			"#advocate_(legal,speaking)",
-			"#advocate_(speaking),spokesperson",
-
 			"#alpana,rangoli_(decoration)",
-
 			"#alternating",
-
-			"#alternation",
 
 
 
 			"#appearance,manifestation",
 			"#appendix,cecum,caecum",
-			"#applause,clapping",
-
 			"#arrow_(bent)",
 
-			"#at_one's_destination,there",
 			"#attachment,appendix,annex",
 			"#attention",
 			"#belief",
 			"#bindi,tika_(decoration)",
 			"#blot",
-
-
-
-			"#bump,press,pressing",
 			"#cannula_(with_needle)",
 			"#case,casing",
 
-
-
-
 			"#change,alteration",
-
-
-
 
 			"#chase",
 
-
 			"#checked",
-			"#chew-(to)",
-			"#chewing-gum",
-			"#church_ruin,temple_ruin,wreck,wreckage_(church,temple,mosque)_(2)",
-
 
 			"#collection,pile,tussock_(etc)",
-			"#compartment",
+
 			"#compression,compressing,squeezing",
-
-			"#contact_sports",
-
 			"#continuance,continuation",
 			"#copy,duplicate",
 			"#core_activity",
 			"#corner_(room)",
-			"#court,field",
-			"#crack,gap,cleft",
-
-			"#crew,staff",
-
-
 
 
 			"#current_events",
 			"#decoration,ornament",
 			"#definition",
-			"#depth",
-
 			"#detachment,separation,breakup",
 			"#development",
-			"#devotee,fan",
-			"#dichotomy,duality",
-			"#dig-(to)",
-			"#dilemma",
-			"#disagree,discord,disaccord-(to)",
-			"#disagreement,discord",
-			"#dispersion,dissemination,scattering,spread,spreading",
+
+
 			"#disturbance,unrest",
-			"#divided",
-			"#diving,activity_under_water",
 			"#dotted",
 
-			"#embarrassing",
 			"#empowered",
-
-
-			"#empty",
-
-
 			"#emptying,voidance,evacuation",
-			"#endangered",
+
+
+
+
 			"#equipment,gear",
-			"#event,happening,occasion",
-			"#exchanger",
-			"#fall,drop,spill,tumble",
+
+
 			"#fantasy,phantasy,imagination,illusion",
-
-			"#fiber,fibre,fibril,filament,strand",
-
-			"#filled,stuffed",
-			"#filling,fill,fullness",
-			"#finger_spelling,finger_alphabet",
-
 			"#foundation,base,fundament",
-
-			"#free,freely",
-
 
 			"#function",
 			"#functional",
-			"#generalization",
-			"#glitter",
 
 
 
-			"#good_conscience",
 
-
-
-			"#grid,matrix",
-			"#habit,custom",
-			"#helper,aide,assistant,personal_assistant",
-			"#hoist,lift",
-			"#holding",
-
-			"#hope-(to)",
-
-			"#illustrated,illustrating",
-			"#illustration",
 
 
 			"#imported",
+
 			"#imprint,depression",
 			"#imprint,trace,track",
 
 
 			"#intensity",
 
-
-			"#interest",
-
-
 			"#interview",
-			"#interview-(to)",
-			"#interviewer",
-
-			"#introduce,present-(to)",
-			"#keep,preserve,save-(to)",
-			"#knot",
-			"#layer,level",
 
 
-
-
-			"#lid",
-			"#lifeline",
 			"#limit(s),limitation,restriction",
-			"#limit,restrict,restrain,confine-(to)",
 			"#limited,restricted,confined",
+
+
 			"#line,queue",
 			"#list,inventory",
-			"#little_person",
-			"#live,dwell,reside-(to)",
-			"#load",
-			"#lock",
-			"#lock-(to)",
-			"#long_for,yearn-(to)",
-			"#longing,yearning",
-			"#lump(s)",
-			"#lumpy",
-			"#make_cheese-(to)",
-			"#making,production,fashioning",
-
-			"#manhole_cover",
-
-			"#massage",
-			"#massage-(to)",
-			"#mean,signify-(to)",
-			"#meaning,sense,significance",
-			"#memory_game,Kim's_game",
 			"#message,content_(communication)",
-			"#mislead-(to)",
-			"#mistake,error,fault",
 			"#misuse",
-			"#misuse-(to)",
-			"#mouth_(wide-open),open_mouth,gape",
-			"#multi-sport_event",
-			"#mummy_(general)",
-			"#must,have_to,be_forced_to-(to)",
-			"#mysterious,unknown",
-			"#mystery,unknown",
-			"#nag-(to)",
-			"#near,almost,close,nearly",
-			"#necessary,necessarily,needed",
-			"#need-(to)",
-			"#need_(needy_person)",
-			"#negative_dependency",
 			"#net",
 
-			"#newness,novelty",
 
 
-			"#open-(to)",
-
-
-
-
-			"#opening",
-			"#operation",
 			"#overlay",
-			"#overturn,turn_over,tip_over-(to)",
-			"#painful,painfully,sore",
 			"#parting",
 
-
-			"#passive",
-			"#passivity",
-
-
-			"#patient_(in_medical_care)",
-			"#pavement,sidewalk",
-			"#peace_(opposite_war)",
-			"#penetrate,go_through-(to)",
-			"#permission,allowance",
-			"#permission,allowance_(moral)",
-			"#personal_measurement",
-			"#persuade,convince-(to)",
 			"#persuasion",
-			"#pick-(to)",
-			"#picture,image,icon,painting",
-
-			"#pin",
-
-			"#pipe,hose,tube_(2)",
-
-
-			"#pit,stone",
-			"#pit,stone-(to)",
-			"#place,area,location,space",
-			"#place_to_feed,feeding_place,feeding_ground",
-o
-			"#point_of_view",
-
 			"#portability",
 			"#portable",
-
-
-			"#positive",
-			"#power,powerfulness",
-			"#pram_straps,safety_harness",
-			"#predict-(to)",
 			"#preparation,readying,readiness,preparedness",
-			"#pressure",
-			"#print-(to)",
-			"#private",
-			"#problem",
+
 			"#puddle,pool",
-			"#pump",
-			"#pump-(to)",
-			"#puncture,prick-(to)",
-			"#purpose",
-
-			"#quality",
-			"#quality_(measurement)",
-
-
 			"#quarrel,row",
-			"#racket,racquet",
-			"#rain_gauge",
-			"#raindrop",
-			"#rainy",
-			"#raised_wavy_line",
-			"#ramp",
-			"#react-(to)",
-			"#reaction",
-			"#ready,prepared",
 
-			"#real,really",
 
-			"#reception",
-			"#reclaim_(marshes_etc)-(to)",
-			"#redo-(to)",
-			"#relative,relation",
-			"#repeat,copy,duplicate,reproduce-(to)",
+
 			"#repetition,copying,duplication,replication",
-			"#request-(to)",
-			"#resource_centre",
-			"#respect,admiration",
-			"#rest-(to)",
-			"#rest_period,break",
 
-			"#return",
-			"#return,come_back,reverse-(to)",
 
 			"#revelry",
 
-			"#ribbon,tape",
-
-			"#robot",
-
-
-			"#roll-(to)",
-			"#rope,hawser",
-
-
-
-			"#ruin,wreck,wreckage_(building)_(2)",
-
-			"#ruin_(castle),castle_ruin",
-
-
-			"#satisfaction,contentment",
-
-			"#score",
-
-			"#scratch",
-			"#scratch-(to)",
-			"#search-(to)",
-			"#secret",
-			"#secret_agent,spy",
-
-			"#send-(to)",
-			"#set_square",
-			"#shallow",
-			"#shallowness",
-
-
-
-			"#shell,crust",
-
-			"#sheltered_workshop",
-			"#shoal,school_(of_fish)",
-			"#should,would-(modal_aux_v)",
-			"#side_(enclosure)",
-
-
-
-
-			"#sign,signal",
-			"#sign-(to)",
-
-			"#signal,broadcast,transmitting",
-
-			"#signature_stamp",
-
-			"#singalong",
-
-			"#sitting_mat",
-			"#slide",
-			"#slide,skid,slip-(to)",
-			"#smash,grind,shatter,splinter-(to)",
-
-			"#social",
-			"#social_worker",
-
-			"#society",
-
-			"#somersault_(2)",
-
-
-
-			"#special,particular",
-			"#spell-(to)",
-
-
-
-
-
-			"#spill,slop-(to)",
 			"#spirit",
-			"#splash-(to)",
-			"#spray,vaporization",
-			"#spray,vaporize-(to)",
+
+
 			"#spray_bottle,vaporizer,spray_can",
-			"#spread,paste",
-			"#spread_(cover_with_spread)-(to)",
+
+
 			"#stand-in,substitute,alternate",
 
-
-
-
-
-			"#station",
-			"#stave,staff",
-			"#stay,remain-(to)",
-
-
-
-
-			"#stop,arrive,end-(to)",
-			"#storage_jar,preserving_jar",
-			"#strap,string,velcro,rope,cord",
-
-			"#stress-(to)",
-
-			"#stretch_(elongate)-(to)",
-
-
-
-			"#string",
 			"#striped",
 
 
-
-
-			"#suggest,propose-(to)",
 			"#suggestion,proposal",
 
 
-
-
-			"#summary,abstract",
-
-
-			"#support-(to)",
-			"#support_(oral)",
-			"#support_(orally)-(to)",
-			"#supporters,cheering_section",
-
-
-			"#swash",
-
 			"#sweet_(metaphor)",
-
-
-
-			"#table_mat,placemat",
-
-
-			"#tap_(2)",
-			"#tape_recorder",
-			"#team",
-			"#teamwork",
-			"#tease-(to)",
-
-
-
-
-
-			"#thread,string,cord",
-
-			"#together,attached,appended,fastened,joined",
-
-
-
-
-
-
-			"#tragedy",
-
-
-			"#trap",
-			"#trap-(to)",
-
+			"#tap_(2)",  //Allow liquid out... as with wine barrel?
 			"#treat",
 			"#turn,turning",
-			"#turn-(to)",
-
-			"#type,kind,sort",
-
-			"#unfold-(to)",
-			"#unfolding",
-
-
-
-
-
-			"#weather_forecast",
-			"#weather_satellite,spy_satellite",
-
-
-			"#whipping_knot",
-
-
-
-			"#wire,cable",
-			"#wrap,wind-(to)",
 ================================================================
-NUMBER SYMBOLS REMAINING TO BE CATEGORIZED:     >>> 349 <<<
-================================================================
+NUMBER SYMBOLS REMAINING TO BE CATEGORIZED:     >>> 96 <<<
+=============================
