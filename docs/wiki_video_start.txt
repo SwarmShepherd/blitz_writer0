@@ -1,0 +1,31 @@
+Welcome to the blitz_writer0 wiki!
+
+Consider this a humble start on how we can confront the difficult and perhaps critical issue of the 5% or so of vocabulary words that defy simple categorization logic.
+
+Blitz-Writer version 0.1 will be based on a simple TWO KEY LEVEL scheme.  Never more keys to define a word, and never less.
+
+There is a price to be paid for this simplicity!   Simply put, the SUPERKEYS must contain an average of some 60 symbols (allowing for some redundancy, and counting Softabs).  On a strictly logical basis a group could contain a single Word.  A strictly logical scheme will easily go 5 and 6 levels deep.
+
+Our TWO LEVEL system actually has at least 5 Display Levels. Right off, at the SUPERKEY level there are 6 groupings:  PEOPLE, SCENES, ANIMATE, CONCEPTS, WORLD, and LANGUAGE.
+
+However, some percent of a working vocabulary, probably from 5-10% are just "fuzzy" and seem to defy simple categorization.
+
+Take the compound word "manhole-cover".   Its a WORD in the Bliss Symbol System, and there are very logical sub-keys.   Most appropriately, it would be in a SCENE, but there is only so much space for SuperKeys, each SuperKey should contain at least 40 Words, and not more than 80 if possible.
+
+How many SCENE:city:street   words could there be?
+
+Street-signs, Gutters...  not too many.  There is no Bliss Symbol for Gutters, except having to do with a house.
+
+There is a SUPERKEY, however named PEOPLE:use:transport
+So we have used a SOFTAB:city:street:
+
+Perhaps it could also be categorized under SCENES:transport:land   although a Manhole-cover has nothing directly to do with Transportation at all.
+
+The point is that although some 85% plus of the words seem to fall solidly into place, some percent will always remain fuzzy.
+
+WHAT CAN BE DONE TO WORK WITH FUZZY CATEGORIZATIONS?
+
+1. Trick our Memories into associating such words specifically with a group by way of a visual sequence.
+
+2. Use UI techniques such as to make active all the KEYS (at whatever level) that contain a certain
+
