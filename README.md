@@ -2,9 +2,11 @@
 
 Exploratory Project for Bliss Symbols to Bridge Natural Languages
 
+(Note: All documents such as about1.txt have been moved to the \docs sub-directory.)
+
 After exploring a hierarchical system with a depth of up to 6 levels it was decided to attempt a two level system - in end effect.   EVERY WORD OF THE VOCABULARY SHALL BE ACCESSIBLE WITH 2 Keyboard/Mouse Events (such as click).  Never More.  Never Less.   If this works it will be SIMPLE.
 
-While there are only two "hard" levels, there are actually at least 5 "soft", or visual levels beginning with the six major Groupings of the Highest Level Keys, henceforth refered to as SUPERKEYS.  See the file ScreenCapture0831.pdf  for a screen capture / first peek at the first peek from end of August, 2015.
+While there are only two "hard" levels, there are actually at least 5 "soft", or visual levels beginning with the six major Groupings of the Highest Level Keys, henceforth referred to as SUPERKEYS.  See the file ScreenCapture0831.pdf  for a screen capture / first peek at the first peek from end of August, 2015.
 
 Note that the Major Groupings are:
 
@@ -36,20 +38,26 @@ To see the more current DISTRIBUTION of the words, please review the file: super
 
 VERSION 0.1 NOTES!
 
-    Over 5,000 words have been ROUGHLY/CRUDELY CATEGORIZED ONLY!
+    Over 5,000 words have recently been categorized.  The Categorization is ROUGH, and there are many levels of
+    refinement before the groupings will be anything like finalized for eventual publication!
 
-    The initial goal has been to TEST the rough layout concepts.
+    The initial goal is to test the feasibility of a 2 Key system.
 
-    The SIX SUPERKEY GROUPINGS have not needed changes
+    The SIX SUPERKEY GROUPINGS have not needed changes.
 
-    The Number of SUPERKEYS have expanded, and some have been modified over the last week.
-        Some groupings have less than the desired number of Words
-        More than 20 Groupings have more than the desired number of Words
+    Note that the word groups such as Articles and Prepositions have been distributed into the LANGUAGE group.
+
+    Many Features such as "favorites" and more will just be missing, as they are unnecessary for the initial evaluations.
+
+    The Number of SUPERKEYS have expanded, and some have been modified over the last week. Perfectly distributed
+    Groupings would all have 60 Words... Realistic TARGET number of words is greater than 40 and less than 80 Some
+    groupings have less than the desired number of Words More than 20 Groupings have more than the desired number of
+    Words SOFTABS help organize the the Grouping Screens
 
     The Groupings had to evolve naturally, but as they evolved a number of words otherwise categorized could easily better
     fit in the new category.
 
-    Redundancies have been allowed, although wasteful, under certain circumstances.
+    Redundancies have been allowed, although they are 'wasteful', under certain circumstances.
 
     Some words have simply not made sense to the author, or may have been misunderstood
 
@@ -59,6 +67,7 @@ VERSION 0.1 NOTES!
     A refinement to use closely associated words seems to be working, however, as things have evolved it is possible that words
     already categorized may have not have been re-categorized in consistency with the new word.
 
-    IN SHORT MANY TYPES OF ERRORS ARE WELL KNOWN TO EXIST!
+    IN SHORT, WE ARE AWARE THAT MANY TYPES OF ERRORS EXIST, early reviews should be done with the preliminary nature of version 0.1
+    in mind.
 
 
