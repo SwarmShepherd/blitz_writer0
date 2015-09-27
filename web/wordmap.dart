@@ -1089,7 +1089,6 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dessert"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sweet,confection"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decorated_cake"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lasagne,lasagna"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vanilla"},
 ],
 
@@ -1108,6 +1107,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shellfish_(without_claws)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shellfish_salad"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shrimp"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prawn"},   //UK term?
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lobster"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "herring,sardine"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crayfish"},
@@ -1258,6 +1258,8 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "egg_(poached),poached_egg"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "omelette,omelet"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "popcorn"},
+                        {STAB: true, FLNM: "pasta"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lasagne,lasagna"},
                         {STAB: true, FLNM: "prepared_foods(not candy):much:sugar"},   //higher carbohydrates
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "molasses,dark_syrup,black_treacle"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jam,jelly,marmalade,preserves"},
@@ -1318,7 +1320,6 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pork,ham"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "porridge"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "potato"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prawn"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "matzo"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bagel"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hot_dog,frankfurter"},
