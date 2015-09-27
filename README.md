@@ -71,3 +71,43 @@ VERSION 0.1 NOTES!
     in mind.
 
 
+
+    =========================================
+
+    VOCABULARY CONTROL - MASKING - CORE VALUES
+
+    EVERY Bliss Symbol has an integer value from 0..9 attached to it.
+
+    How has this number been set?
+
+        INITIALLY -
+
+        Word groupings (by SUPERKEYS) are naturally distributed from only 30 and so, to over 120.
+
+        It is recognized that more than 80 words makes selection difficult, and although buttons can be made smaller, organizations clearer, it is just easier to select from a group of 30 than from a group of 50 and so on.
+
+        The author until end of Sept 2015 has only used values from 0..5, with only a very few exceptions
+
+        Many groupings have had their words valued up or down from the system default value of 3, however most words are now set at 3.
+
+        NOTE!   Those groupings with more than 100 have been rather carefully analyzed for words that:
+
+        1.  words that have closely similar words that will due (eg Stomach)
+        2.  are expected to be used only rarely, in very special circumstances (a particular type of fish)
+        3.  words that are built on a base word and modified to become an action word... these words have often been set up to 5.
+        4.  many words are compound words such as  public_room,   these words have been set to 5 because their existence is strictly a CONVENIENCE.
+
+
+     It is obviously, not logical that a compound word that is in large Group is set to 5, but a compound word in a small group is allowed.
+
+ >>>HOWEVER, to get to a point where the largest groups fit into a single screen (no scolling (or magnifying glass) required)), has required that a considerable number of words be masked off in exactly such a way.
+
+ NOTE:  A certain percent, likely 20%, of the words are rather arbitrarily grouped at this point.  Some groupings of words could be moved to another SUPERKEY grouping, or perhaps two small SUPERKEY grouping can be combined and a new one started.
+ We must not loose the BIG VIEW that such larger organizational changes are entirely possible.  The author has now spent over 2 weeks on these issues, but easily another several weeks of effort can go into the organization at a mix of levels.
+
+ Personal note:   Bliss Symbols are interestingly distributed.  There are probably over 300 words for various types of FOOD.  There is no word for Geometry, there is no Electron.  However not only are there shellfish, but there are shellfish with and without claws!
+
+
+
+
+

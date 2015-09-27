@@ -152,6 +152,9 @@ Map glsuperWordMap = {
                             '#organ,inner_organ,inner_body_part',
                             '#gland',
                             '#stomach,tummy,tum',
+
+========================
+
                         'SOFTAB:torso',
                             '#bladder',
                             '#spleen',
