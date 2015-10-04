@@ -65,8 +65,10 @@ Symbol    CORE   =     new Symbol('CORE');    //VALUE 0..9, see above, default =
 Symbol    FREQ   =     new Symbol('FREQ');    //Use Frequency - overall population average (?)
 Symbol    KEYS   =     new Symbol('KEYS');    //What are the SUB SYMBOLS IN ARRAY... (symbols?)
 
+
 Symbol    SKEY   =     new Symbol("SKEY");    //IS A SUPERKEY == TRUE
 Symbol    STAB   =     new Symbol("STAB");    //SOFTAB
+Symbol    STOP   =     new Symbol("STAB");    //SOFTAB
 
 Symbol    SPCL   =     new Symbol('SPCL');    //Specialized - out of the ordinary with respect to the general vocabulary IN the grouping
 
@@ -89,9 +91,9 @@ Map gLsuperWordMap = {
 /*==================================================================================================================
                                       *****1. PEOPLE******
 ====================================================================================================================*/
-    'PEOPLE:relations:family' : [
-                        {SKEY: true, FLNM: "FAMILY:AND:RELATIONS"},
-                        {STAB: true, FLNM: "family:core"},     //Core
+    'PEOPLE:relations' : [
+                        {SKEY: true, FLNM: "relations"},
+                        {STAB: true, FLNM: "family"},     //Core
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "relative,relation"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mother,mom,mommy,mum"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "father,dad,daddy,papa,pa,pop"},
@@ -100,7 +102,7 @@ Map gLsuperWordMap = {
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "son"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wife"},
 
-                        {STAB: true, FLNM: "family:extended"},      //Core
+                        {STAB: true, FLNM: "relation"},      //Core
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "uncle"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "aunt"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stepfather"},
@@ -133,6 +135,7 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "niece_or_nephew"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "offspring,child"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brother"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "twin_brother"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ancestor"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grandfather_(maternal)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family,couple"},
@@ -167,11 +170,11 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "people,tribe,clan,folk"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fiance,groom-to-be"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "child,kid,youngster"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "twin_brother"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family_(traditional)"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family_(group_home)"},
-                        {STAB: true, FLNM: "from:outside"},
+                        {STAB: true, FLNM: "other:relation"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "twins"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "single_father"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "single_mother"},
@@ -184,8 +187,8 @@ Map gLsuperWordMap = {
     ],
 
 
-    'PEOPLE:body:parts:and:systems' : [
-                            {SKEY: true,  FLNM: "BODY:PARTS:AND:SYSTEMS"},
+    'PEOPLE:body_part' : [
+                            {SKEY: true,  FLNM: "body_part"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "organ,inner_organ,inner_body_part"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gland"},
                             {STAB: true, FLNM: "head"},
@@ -231,7 +234,7 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "body_hair"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hair"},
 
-                            {STAB: true, FLNM: "torso"},
+                            {STAB: true, FLNM: "trunk"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "navel"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "upper_body"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hull,body"},
@@ -254,7 +257,7 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hip"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "waist"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rectum"},
-                            {STAB: true, FLNM: "arms:plus:legs"},
+                            {STAB: true, FLNM: "legs_and_feet"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fingernail,nail"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lower_body"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "finger"},
@@ -328,15 +331,17 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blood_vessel"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blood"},
 
-                        {STAB: true, FLNM: "functions:basic"},
+                        {STAB: true, FLNM: "function:basic"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swallow-(to)"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digestion"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "chew-(to)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digest-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "emptying,voidance,evacuation"}, //??
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "breath"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "breathe-(to)"},
 
-                        {STAB: true, FLNM: "systems"},
+
+                        {STAB: true, FLNM: "system"}, //??JUST WRONG - took
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lymphatic_system"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "respiratory_system"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vascular_system"},
@@ -347,17 +352,17 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nervous_system"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "central_nervous_system,CNS"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "endocrine_system"},
-                        {STAB: true, FLNM: "excretory:system"},
+                        {STAB: true, FLNM: "excretory:system"},//??JUST WRONG - took
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sweat,perspiration"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sweat,perspire-(to)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tear,teardrop"},
 
     ],
 
-    'PEOPLE:BODY:SENSE':    [
-                               {SKEY: true,  FLNM: "BODY:SENSE"},
+    'PEOPLE:body_part:sense':    [
+                               {SKEY: true,  FLNM: "body_part:sense"},
                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sense"},
-                            {STAB: true, FLNM: "visual:light:dark"},
+                            {STAB: true, FLNM: "visual_sense:light:dark"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dark"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "darkness"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "light"},
@@ -366,7 +371,7 @@ Map gLsuperWordMap = {
                             {STAB: true, FLNM: "visual:colour"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "colour"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sight,vision,visual_sense"},
-                            {STAB: true, FLNM:  "colours"},
+                            {STAB: true, FLNM:  "colour"},
                                //WHY ARE THERE MULTIPLES OF THE SAME COLOR, WHAT IS 'ckb' and 'bci'??   [bci == best colour international],
                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "green_(ckb)"},
                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beige"},
@@ -392,7 +397,7 @@ Map gLsuperWordMap = {
                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "green_(bci)"},
                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "purple,violet_(bci)"},
 
-                               {STAB: true, FLNM: "visual:other"},
+                               {STAB: true, FLNM: "visual:other_things"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "see,look,watch-(to)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sight,vision,visual_sense"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shine-(to)"},
@@ -485,18 +490,18 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "loud,noisy"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nosy"},
 
-                            {STAB: true, FLNM: "balance"},   //Probably much less frequent than the other senses
+                            {STAB: true, FLNM: "sense_of_balance"},   //Probably much less frequent than the other senses
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "balance,sense_of_balance"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "balance_(general),poise"},
     ],
 
 
     'PEOPLE:baby:child':   [
-                            {SKEY: true,  FLNM: "BABY:CHILD"},
+                            {SKEY: true,  FLNM: "baby:child"},
                          {STAB: true, FLNM: "birth"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "umbilical_cord"},
 
-                         {STAB: true, FLNM: "newborn:baby"},
+                         {STAB: true, FLNM: "baby"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baby,infant"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baby_boy"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baby_girl"},
@@ -518,7 +523,7 @@ Map gLsuperWordMap = {
 
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "comfortable,restful"},
 
-                         {STAB: true, FLNM: "states"},
+                         {STAB: true, FLNM: "states"}, //?? used state_of_mind, wrong!
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "asleep"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "awake"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "upset,disturbance,agitation"},
@@ -564,19 +569,20 @@ Map gLsuperWordMap = {
                              {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vomiting,vomit,puking"},
                              {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "itch"},
 
-                         {STAB: true, FLNM: "sounds:made"},
+                         {STAB: true, FLNM: "sound:produced"},
                              {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cry,weep-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cry_out,call-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yell,scream-(to)"},
                              {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "laugh-(to)"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whisper-(to)"},
+                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hum-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whistle-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shout-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "knock,tap-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "knock,tap_(sound)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "knocking"},
 
-                         {STAB: true, FLNM: "things:babies:need"},
+                         {STAB: true, FLNM: "baby:need"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dependency"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "depending_on"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "need_(needy_person)"},
@@ -591,8 +597,9 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "babysitter"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wading_pool,paddling_pool"},
 
-                         {STAB: true, FLNM: "things:babies:do"},
+                         {STAB: true, FLNM: "baby:do"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wake_up-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crawl-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "watchful,alert"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wakefulness,alertness"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sleep-(to)"},
@@ -614,7 +621,7 @@ Map gLsuperWordMap = {
                          {STAB: true, FLNM: "places"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baby_clinic"},
 
-                         {STAB: true, FLNM: "toddler:toys"},
+                         {STAB: true, FLNM: "toys"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pacifier,dummy"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "doll"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toy"},
@@ -644,20 +651,20 @@ Map gLsuperWordMap = {
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pram_straps,safety_harness"},  //??
     ],
 
-    'PEOPLE:early:to:childhood:' : [
-                            {SKEY: true,  FLNM: "EARLY:TO:CHILDHOOD"},
-                       {STAB: true, FLNM: "world:expanding"},
+    'PEOPLE:child:plus' : [
+                            {SKEY: true,  FLNM: "child:plus"},
+                       {STAB: true, FLNM: "world:unfolding"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "friend"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "social"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "society"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "habit,custom"}, //?? Weak assoc
 
-                        {STAB: true, FLNM: "sounds:made"},
+                        {STAB: true, FLNM: "sound:produced"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speech"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speech_recognition"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "voice"},
 
-                        {STAB: true, FLNM: "todler:basics"},
+                        {STAB: true, FLNM: "child:basic"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "position"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "balance_(general),poise-(to)"},  //mirror
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "balance_(walking,standing)-(to)"},
@@ -678,7 +685,7 @@ Map gLsuperWordMap = {
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kick-(to)"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "throw-(to)"},
 
-                        {STAB: true, FLNM: "self:transport"},
+                        {STAB: true, FLNM: "child:transport"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "walk,go-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tiptoe-(to)"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "running"},
@@ -692,7 +699,7 @@ Map gLsuperWordMap = {
                         {STAB: true, FLNM: "necessary:communication"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "let,allow,permit-(to)"},
 
-                        {STAB: true, FLNM: "grammar_school:year:basics"},
+                        {STAB: true, FLNM: "school:basic"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "practise,practice,drill,exercise,rehearse-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "young"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "adolescence"},
@@ -716,7 +723,7 @@ Map gLsuperWordMap = {
                              {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "leaf,flap"},   //Not tree, seems to be notebook
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "worksheet"},
 
-                       {STAB: true, FLNM: "do:learning"},
+                       {STAB: true, FLNM: "do:learn"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "education"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "education,didactics,pedagogy"},
 
@@ -740,6 +747,7 @@ Map gLsuperWordMap = {
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "school_way"}, //??
 
                          {STAB: true, FLNM: "do:fun"},
+                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toy_(in_combinations)"}, //What does this mean?, basic symbol?
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "play,recreation"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "partner_(game,dancing,business)"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "play-(to)"},
@@ -756,14 +764,15 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "read-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reclining,lying_(person_lying_down)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jump_rope,skipping_rope"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hop-(to)"},
 
-                        {STAB: true, FLNM: "summer:things:to_do"},
+                        {STAB: true, FLNM: "summer:do"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunbathe-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "sunburn"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "sunscreen,sunblock,sun_lotion"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "suntan"},
 
-                        {STAB: true, FLNM: "places"},
+                        {STAB: true, FLNM: "multiple:place"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "playhouse,play_house"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crayon,coloured_pencil,marker"},
@@ -786,7 +795,7 @@ Map gLsuperWordMap = {
                              {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "constructional_blocks,lego_(etc)"},
 
 
-                         {STAB: true, FLNM: "self:transport"},
+                         {STAB: true, FLNM: "transport"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bicycle"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "bicycle_helmet,crash_helmet"}, //closely associated
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "bike_lamp"},  //closely associated
@@ -794,9 +803,9 @@ Map gLsuperWordMap = {
 
     ],
 
-    'PEOPLE:TEEN:YEARS' : [
-                            {SKEY: true,  FLNM: "TEEN:YEARS"},
-                        {STAB: true, FLNM: "social_lessons"},
+    'PEOPLE:teenager' : [
+                            {SKEY: true,  FLNM: "teenager"},
+                        {STAB: true, FLNM: "social:unfolding"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "folk_tale,legend"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "myth"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "story,report,tale"},
@@ -869,9 +878,9 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "private"},
     ],
 
-    'PEOPLE:adulthood' : [
-                               {SKEY: true,  FLNM: "ADULTHOOD"},
-                               {STAB: true, FLNM: "maturity"},    //A better word, body:changes/ growth?
+    'PEOPLE:adult' : [
+                               {SKEY: true,  FLNM: "adult"},
+                               {STAB: true, FLNM: "world:unfolding"},    //A better word, body:changes/ growth?
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "adult,mature"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shave-(to)"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shave_(beard)-(to)"},
@@ -886,7 +895,7 @@ Map gLsuperWordMap = {
 
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexually_mature"},
 
-                                {STAB: true, FLNM: "activities"},
+                                {STAB: true, FLNM: "do"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "date_(man_woman)"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "date_(two_persons)"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dance,dancing"},
@@ -915,9 +924,9 @@ Map gLsuperWordMap = {
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "female_friend"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "friend"},
 
-                                {STAB: true, FLNM: "changes"},     //facial / chest hair, breasts, sexual maturity.....
+                                //{STAB: true, FLNM: "changes"},     //facial / chest hair, breasts, sexual maturity.....
 
-                                {STAB: true, FLNM: "work:career"},
+                                {STAB: true, FLNM: "career"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "labour"},
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "view_of_life"},
 
@@ -943,9 +952,9 @@ Map gLsuperWordMap = {
                                     {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sacking,dismissal"},
     ],
 
-    'PEOPLE:adult:elderly':  [
-                                {SKEY: true,  FLNM: "ELDERLY:GOLDEN:YEARS"},
-                            {STAB: true, FLNM: "retirement"},
+    'PEOPLE:elderly':  [
+                                {SKEY: true,  FLNM: "elderly"},
+                            {STAB: true, FLNM: "do"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "adult,grownup"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stave,staff"},  //??Strange symbol - horizontal lines
@@ -961,7 +970,7 @@ Map gLsuperWordMap = {
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "retirement_pension"},
 
-                            //???THIS IS A REAL STRETCH..  BUT WHY NOT PUT THE TOURISM STUFF HERE IF DISTRIBUTION IS WEAK HERE
+                            //???THIS IS A REAL STRETCH!!  BUT WHY NOT PUT THE TOURISM STUFF HERE IF DISTRIBUTION IS WEAK HERE
                             {STAB: true, FLNM: "places"},
                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Vatican,Vatican_City"},
                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Olympics,Olympic_games"},
@@ -976,7 +985,7 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wheelchair"},
 
 
-                                //END OF LIFE CYCLE
+                                //END OF LIFE CYCLE - well, that was fast!
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "die-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "funeral"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mourn-(to)"},
@@ -1008,14 +1017,14 @@ Map gLsuperWordMap = {
     ],
 
 
-'PEOPLE:eat:drinks:desserts:spices:more': [
-                            {SKEY: true,  FLNM: "EAT:DRINK:DESSERTS"},
+'PEOPLE:eat:drink:meal:more': [
+                            {SKEY: true,  FLNM: "eat:drink:dessert:"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recipe"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ingredient"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "soup,broth"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stew"},
 
-                        {STAB: true, FLNM: "related"},
+                        {STAB: true, FLNM: "meal:example"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "food"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meal"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "tray"},
@@ -1027,7 +1036,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plant_(edible)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "poison", OPPS: true},  //OPPOSITE
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "fatal,lethal"},
-                        {STAB: true, FLNM: "meal:parts"},
+                        {STAB: true, FLNM: "meal:part_of"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lunch,dinner"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "desert"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "breakfast"},
@@ -1035,7 +1044,7 @@ Map gLsuperWordMap = {
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "main_course"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "appetizer,starter,entree"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snack_(meal)"},
-                        {STAB: true, FLNM: "drinks:plus:fermented"},
+                        {STAB: true, FLNM: "drink:more"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drink,beverage"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "milk"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cream"},
@@ -1057,7 +1066,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fruit_juice,juice"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "juicy"},
 
-                        {STAB: true, FLNM: "drinks"},
+                        {STAB: true, FLNM: "drink"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "soda_pop,pop,soft_drink"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "champagne"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chocolate_drink"},
@@ -1068,7 +1077,7 @@ Map gLsuperWordMap = {
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tea_break,coffee_break"},
 
 
-                        {STAB: true, FLNM: "spices_sauces"},
+                        {STAB: true, FLNM: "spice:sauce"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "spice_box"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pepper_(powder)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pepper_(seasoning)"},
@@ -1100,7 +1109,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vanilla_sauce"},
 
 
-                        {STAB: true, FLNM: "desserts_candies"},
+                        {STAB: true, FLNM: "dessert:candy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chewing-gum"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "candy"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ice_cream_(bar)"},
@@ -1123,10 +1132,11 @@ Map gLsuperWordMap = {
 
 
 'PEOPLE:eat:food:natural': [     //GENERALLY FOODS THAT CAN BE GATHERED ON A FARM/IN NATURE  - not needing involved process
-                              {SKEY: true,  FLNM: "EAT:FOOD:NATURAL"},
-                        {STAB: true, FLNM: "fish:and:seafood"},
+                              {SKEY: true,  FLNM: "eat:food:natural"},
+                        {STAB: true, FLNM: "fish_(food)"},
 //                          {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "fresh"},  //move
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "fish_(food)"},
+
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cod"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "salmon"},
@@ -1152,14 +1162,14 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beef"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "duck_(food)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "veal"},
-                        {STAB: true, FLNM: "vegetables:types"},
+                        {STAB: true, FLNM: "vegetable(s):type"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vegetable_(above_ground)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vegetable_(below_ground)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vegetable_(cylinder-shaped)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lettuce,leafy_vegetable"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pepper_(vegetable)"},
 
-                        {STAB: true, FLNM: "vegetables:specific"},
+                        {STAB: true, FLNM: "vegetables:example"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vegetable(s)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sweet_potato,yam"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "okra,lady's_finger"},
@@ -1188,10 +1198,10 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fruit"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "dried"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "pit,stone"},  //??  as from Fruit (only?)
-                        {STAB: true, FLNM: "types"},
+                        {STAB: true, FLNM: "type"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fruit_(dried)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fruit_(pointed)"},  //??Subsymbols wrong
-                        {STAB: true, FLNM: "instances"},
+                        {STAB: true, FLNM: "example"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "avocado"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lemon"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lime"},
@@ -1223,12 +1233,12 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "peach,nectarine"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grapefruit"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "date_(fruit)"},
-                        {STAB: true, FLNM: "herbs"},
+                        {STAB: true, FLNM: "multiple:herb"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "herb,spice_plant"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "herb_flavouring"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "herb_flavouring_(powder)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "herb_sauce"},
-                        {STAB: true, FLNM: "nut:and:berries"},
+                        {STAB: true, FLNM: "multiple:nut:plus:berry"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nut"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "berry"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blueberry"},
@@ -1263,19 +1273,25 @@ Map gLsuperWordMap = {
 
 
     'PEOPLE:eat:food:prepared': [
-                           {SKEY: true,  FLNM: "EAT:FOOD:PREPARED"},
-                        {STAB: true, FLNM: "fish:prepared"},
+                           {SKEY: true,  FLNM: "eat:food:prepared"},
+                        {STAB: true, FLNM: "fish_(food)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_(dried)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fishball"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_(frozen)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_finger"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fishburger"},
-                        {STAB: true, FLNM: "meat:prepared"},
+                        {STAB: true, FLNM: "meat"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meat_(minced),minced_meat,ground_meat"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meatball"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bacon"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meat_(dried),dried_meat"},
-                        {STAB: true, FLNM: "prepared_foods(not candy):low:sugar"},
+                        {STAB: true, FLNM: "pasta"},
+                           {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lasagne,lasagna"},
+                           {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ravioli"},
+                           {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spaghetti"},
+                           {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farfalle"},   //Italian pasta ("Bow-tie" shape)
+                           {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasta_salad"},
+                        {STAB: true, FLNM: "other"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "taco,taco_shell"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "filled_food,stuffed_food"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "filled_vegetable,stuffed_vegetable"},
@@ -1286,13 +1302,8 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "filled_cabbage,stuffed_cabbage"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "egg_(poached),poached_egg"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "omelette,omelet"},
-//                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "popcorn"},
-                        {STAB: true, FLNM: "pasta"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lasagne,lasagna"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ravioli"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farfalle"},   //Italian pasta ("Bow-tie" shape)
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasta_salad"},
-                        {STAB: true, FLNM: "prepared_foods(not candy):much:sugar"},   //higher carbohydrates
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "popcorn"},
+                        {STAB: true, FLNM: "other:other"},   //higher carbohydrates
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "molasses,dark_syrup,black_treacle"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jam,jelly,marmalade,preserves"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "muffin,bun_(sweet)"},
@@ -1307,7 +1318,7 @@ Map gLsuperWordMap = {
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "French_fries,chips"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "potato_chip(s),chip(s),crisp(s)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spaghetti"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "peanut_butter"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "doughnut"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "filled_leaf,dolma"},
@@ -1319,7 +1330,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cottage_cheese"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "falafel"},
 
-                        {STAB: true, FLNM: "related:to:bread"},
+                        {STAB: true, FLNM: "concerning:bread"},
 //                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yeast"},
 //                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dough"},
 //                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baking_powder"},
@@ -1331,6 +1342,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pita"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bread_(sliced),sliced_bread"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bread_crust"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bread_with_fruit"},   //Why exists as single symbol?
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bread_with_seeds"},   //Why exists as single symbol?
@@ -1343,6 +1355,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "layer,level"},
 
 //                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "slice"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cut_(knife)-(to)"}, //?? where else - this is only one use... tools?
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "slice-(to)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "slice_of_bread,bread_slice"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sliced"},
@@ -1369,7 +1382,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dumpling"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kebab_(Middle_East)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sandwich"},
-                        {STAB: true, FLNM: "prepared_foods(not candy)"},
+                        //{STAB: true, FLNM: "prepared_foods(not candy)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "popsicle"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chocolate_spread"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tahini,sesame_seed_spread"},
@@ -1384,7 +1397,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ice_cream_(cone)"},   //No Subsymbols!
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bar,cake"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meat_sauce"},
-//                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cornmeal"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cornmeal"}, //??Ingredient
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yogurt,yoghurt"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sauerkraut"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasta"},
@@ -1393,13 +1406,13 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cookie,biscuit"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "waffle"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cereal"},
-                        {STAB: true, FLNM: "other"},
+                        {STAB: true, FLNM: "other:other:other"},
                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "food_(frozen)"},
     ],
 
 
-    'PEOPLE:TO:PEOPLE:COMMUNICATIONS': [
-                            {SKEY: true,  FLNM: "TO:PEOPLE:COMMUNICATIONS"},
+    'PEOPLE:with:PEOPLE:communication': [  //e.g. "beg,plead-(to)" is only something one person would do with/to another person
+                            {SKEY: true,  FLNM: "PEOPLE:with:PEOPLE:communication"},
 
                             //More words can be moved to here
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meeting,encounter"},
@@ -1412,7 +1425,13 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "persuasion"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "congratulate-(to)"},
 
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beg,plead-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "command,order-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "must,have_to,be_forced_to-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "persuade,convince-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "introduce,present-(to)"},
+
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "care,protect,defend-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "advise,counsel,recommend-(to)"},   //mirror
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "appear-(to)"},
@@ -1441,7 +1460,7 @@ Map gLsuperWordMap = {
                        {STAB: true, FLNM: "conversation"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "interrupt_(in_conversation)-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "interruption_(in_conversation)"},
-                        {STAB: true, FLNM: "post"},
+                        {STAB: true, FLNM: "mail"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "address"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "letter_carrier,postman,mailman"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stamp"},
@@ -1459,29 +1478,26 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "picture,image,icon,painting"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "news"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "newspaper,bulletin,newsletter"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "current_events"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "interviewer"},
-
                         {STAB: true, FLNM: "internet"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blog,web_blog"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chat_(online)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "website"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "synthetic_speech,text-to-speech,tts"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "MMS"},    //Multimedia Messaging Service
-
-
     ],
 
-
-    'PEOPLE:body:medical:assistance': [
-                            {SKEY: true,  FLNM: "BODY:MEDICAL:ASSISTANCE"},
+    'PEOPLE:body_part:medical_aid': [
+                         {SKEY: true,  FLNM: "body_part:medical_aid"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "aid_store_room"},
 
-                        {STAB: true, FLNM: "senses:hearing"},
+                        {STAB: true, FLNM: "sense_of_sound"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hearing_aid"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ear_mold"},
 
-                       {STAB: true, FLNM: "body:healing"},
+                        {STAB: true, FLNM: "cast"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "splint_(orthopedic)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wrist_splint"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ankle_splint"},
@@ -1490,7 +1506,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bandage,dressing"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cast_(medical)"},
 
-                        {STAB: true, FLNM: "body:excrements"},
+                        {STAB: true, FLNM: "container"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "urine_bottle"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "catheter_(urine)"},
 
@@ -1505,18 +1521,18 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric_wheelchair"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "elevator,lift"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "escalator,moving_stairs"},
-                        {STAB: true, FLNM: "reaching"},
+                        //{STAB: true, FLNM: "reaching"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reaching_aid,grabber"},
-                        {STAB: true, FLNM: "strength"},
 
+                        {STAB: true, FLNM: "strength"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "power,powerfulness",     OPPS: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "weakness_(weak_person)", OPPS: true},  //OPPOSITE, also under health
 
-                        {STAB: true, FLNM: "eating"},
+                        {STAB: true, FLNM: "eat"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "feeding_tube"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "insulin"},
 
-                        {STAB: true, FLNM: "breathing"},
+                        {STAB: true, FLNM: "breath"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "PEP_mask"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "breathing_aid"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cylinder_for_breathing"},
@@ -1526,7 +1542,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "respirator"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "artificial_respiration"},    //Extreme - may not belong here
 
-                        {STAB: true, FLNM: "medicines"},
+                        {STAB: true, FLNM: "medicine"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prescription"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "medical,medically"},
 
@@ -1559,9 +1575,8 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drug_dependency"},
     ],
 
-
-    'PEOPLE:DO:activities:or:career': [
-                            {SKEY: true,  FLNM: "DO:ACTIVITIES:CAREER"},
+    'PEOPLE:do:sometimes:work': [  //NOT careers   //Missing word 'TASK'
+                            {SKEY: true,  FLNM: "do:sometimes:work"},
                         {STAB: true, FLNM: "hobby"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cheerleader"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "magician"},
@@ -1573,18 +1588,24 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "woodcraft"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gamble"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nature_craft"},
-                        {STAB: true, FLNM: "occasional"},
+                        {STAB: true, FLNM: "sometimes"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "voter,elector"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beggar"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "volunteer"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "voluntary"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "voluntary_work,unpaid_work"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "volunteering"},
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "service_(help)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "service_(work)"},
 
-                        {STAB: true, FLNM: "position"},
+                        {STAB: true, FLNM: "transport"},  //??WEAK - not career related, tasks!
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "carry,move,transport-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "portability"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "portable"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "handle"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "sack,bag"},
+
+                            {STAB: true, FLNM: "example:boss"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "boss,supervisor"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chairman"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "board,board_of_directors,executive"},
@@ -1592,10 +1613,10 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prime_minister"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "president"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "staff"},
-                         {STAB: true, FLNM: "SOFTAB:educational"},
+                         {STAB: true, FLNM: "learn"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "city_tour"},
 
-                         {STAB: true, FLNM: "crafts"},
+                         {STAB: true, FLNM: "handicraft"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "metal_craft"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "textile_craft"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "firecraft"},   //??
@@ -1607,20 +1628,23 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "handmade_figure,handicraft_(person)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "handmade_object,handicraft"},
 
-                        {STAB: true, FLNM: "activities:class:room"},
+                        {STAB: true, FLNM: "classroom"},
+                            //??!!NOT SURE WHY THE (CLASS) WORDS SHOULD/NEED TO BE SINGLE WORDS...  TOO MANY, NEED TO BE BROKEN UP SOMEHOW
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chemistry_(class)"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "show,demonstrate-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "glassware"},
+                                {CORE: 0, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "show,demonstrate-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "glassware"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "breakable,fragile"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "biology_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "history_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lesson,lecture,class"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "math,mathematics_(class)_(2)"},
+                            {STOP: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Danish_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "English_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Finnish_(class)"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Bliss_(class)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "German_(class)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Hebrew_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Latvian_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Romanian_(class)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Swedish_(class)"},
@@ -1634,8 +1658,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "geology_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "economics_(class)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "handwriting,penmanship_(class)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_(class)"},
-                        {STAB: true, FLNM: "activities:relaxed"},
+                        {STAB: true, FLNM: "relaxed"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bowling_(activity)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kite_flying"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crochet-(to)"},
@@ -1649,13 +1672,12 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "golf_(activity)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cricket"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fishing"},
-                        {STAB: true, FLNM: "activities:transport"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "carry,move,transport-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "handle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "sack,bag"},
+
+
+
     ],
 
-    'PEOPLE:ARE:career:professions':    [
+    'PEOPLE:are:career:plus:degree':    [
                             {SKEY: true,  FLNM: "ARE:CAREER:PROFESSION"},
                         {STAB: true, FLNM: "professions"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "calling,profession,career"},
@@ -1752,9 +1774,9 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "zoologist"},
                 ],
 
-                'PEOPLE:ARE:career:vocations':    [
-                            {SKEY: true,  FLNM: "CAREER:VOCATIONS"},
-                        {STAB: true, FLNM: "vocations"},
+                'PEOPLE:are:career:minus:degree':    [
+                            {SKEY: true,  FLNM: "are:career:minus:degree"},
+                        //{STAB: true, FLNM: "vocations"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fisherman"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blacksmith"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "auditor,accountant"},
@@ -1822,12 +1844,12 @@ Map gLsuperWordMap = {
     ],
 
     'PEOPLE:wear':   [
-                            {SKEY: true,  FLNM: "WEAR"},
+                            {SKEY: true,  FLNM: "wear"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cloth,fabric,material,textile,net"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dress,wear-(to)"},
                         {STAB: true, FLNM: "hair"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "braid,plait,pigtail(s)"},
-                        {STAB: true, FLNM: "accessories"},
+                        {STAB: true, FLNM: "accessory"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accessory"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mask,false_face"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunglasses"},
@@ -1843,7 +1865,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "glasses,eyeglasses"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "apron,coverall,smock,overall"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "watch,wristwatch"},
-                        {STAB: true, FLNM: "common"},    //to both sexes
+                        {STAB: true, FLNM: "male:plus:female"},    //to both sexes
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "collar"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tie,necktie"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "suit"},
@@ -1895,7 +1917,7 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jewelry,jewellery"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "necklace"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brooch"},
-                        {STAB: true, FLNM: "make-up"},
+                        {STAB: true, FLNM: "makeup"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lipstick"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eyebrow_pencil"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "perfume,fragrance,aroma,scent"},
@@ -1915,20 +1937,20 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pierce-(to)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pierce_(jewellery)-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "piercing_(thing)"},
-                        {STAB: true, FLNM: "sports"},
+                        {STAB: true, FLNM: "multiple:sport"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "helmet"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding_clothes"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding_boots"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding_helmet"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "elbow_pad"},
-                        {STAB: true, FLNM: "winter:north"},
+                        {STAB: true, FLNM: "winter_sports"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowsuit,winter_clothing", NWNT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowshoe", NWNT: true},
     ],
 
 
     'PEOPLE:housing':       [
-                            {SKEY: true,  FLNM: "HOUSING"},
+                            {SKEY: true,  FLNM: "housing"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "apartment_block"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lighthouse"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "row_house,attached_houses"},
@@ -1951,8 +1973,8 @@ Map gLsuperWordMap = {
 
 
     'PEOPLE:illness':       [
-                            {SKEY: true,  FLNM: "ILLNESS"},
-                        {STAB: true, FLNM: "likely:short:duration"},
+                            {SKEY: true,  FLNM: "illness"},
+                        {STAB: true, FLNM: "likely:temporary"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sick,ill"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stomach_flu"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flu,influenza"},
@@ -1976,19 +1998,19 @@ Map gLsuperWordMap = {
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cough-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vomit,throw_up,puke-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stomach_illness"},
-                        {STAB: true, FLNM: "skin:conditions"},
+                        {STAB: true, FLNM: "skin"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "acne"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pimple,blemish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "skin_disease,eczema"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "allergy,hypersensitivity"},
 
-                        {STAB: true, FLNM: "condition:lasting"},
+                        {STAB: true, FLNM: "likely:long_time"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Chronic_Fatigue_Syndrome"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eating_disorder"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "venereal_disease"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "venereal_papilloma"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wart,papilloma_(venereal)"},
-                        {STAB: true, FLNM: "only:sometimes:curable"},  //bad??
+                        {STAB: true, FLNM: "sometimes:mendable"},  //bad??
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cancer"},
 
                         {STAB: true, FLNM: "addiction:alcohol"},
@@ -2013,9 +2035,10 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snuff_(nose)"},
         ],
 
-    'PEOPLE:mind:feelings:attitude': [  //NOTE: Many of these could be (partially) "Paired" as opposites.. but benifit not clear
-                            {SKEY: true,  FLNM: "MIND:FEELINGS:ATTITUDE"},
-                       {STAB: true, FLNM: "general:similar"},
+
+    'PEOPLE:state_of_mind': [  //NOTE: Many of these could be (partially) "Paired" as opposites.. but benefit not clear
+                            {SKEY: true,  FLNM: "state_of_mind"},
+                       {STAB: true, FLNM: "mood"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "feeling,emotion,sensation"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "state_of_mind"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "personality"},
@@ -2150,25 +2173,26 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "peaceful,serene,calm"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pain,suffering"},
 
-                          {STAB: true, FLNM: "feelings:positive"},
+                          {STAB: true, FLNM: "feeling:positive"},
+                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ecstasy"},
                              {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "happy,glad,gladly,happily"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "considerate,thoughtful"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brave,courageous"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "boring,dull,depressing"},
-                          {STAB: true, FLNM: "not,negative,no,don't,doesn't"},
-
+                          {STAB: true, FLNM: "feeling:negative"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anxiety"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "regret-(to)"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sad,sadly,unhappily,unhappy"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "worry"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angry,angrily,mad"},
-                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ecstasy"},
+
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anxious,anxiously"},
-//                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "apologize,apologise,regret_(express)-(to)"},
+//                           {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "apologize,apologise,regret_(express)-(to)"},
     ],
 
-    'PEOPLE:physical:mind:general:' : [
-                            {STAB: true, FLNM: "physical:basic"},
+
+    'PEOPLE:body:mind:general:' : [
+                            {STAB: true, FLNM: "body:basic"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "exhausted,worn_out"},      //Synonym with tired, ???
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tired,exhausted,weary"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dizzy"},
@@ -2176,7 +2200,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "starvation"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thirsty"},
 
-                            {SKEY: true,  FLNM: "MIND:GENERAL"},
+                            {SKEY: true,  FLNM: "mind:general"},
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "energy_(mental)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "memory"},
@@ -2201,7 +2225,7 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nonsense", OPPS: true}, //OPPOSITE
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "behaviour"},
-                        {STAB: true, FLNM: "positive"},
+                        {STAB: true, FLNM: "mind:positive"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brave,courageous"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "love-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "perseverance"},
@@ -2209,7 +2233,8 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "moral,good,right"},
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "altruism,selflessness"},
-                        {STAB: true, FLNM: "SOFTAB:not,negative,no,don't,doesn't"},
+                        {STAB: true, FLNM: "mind:negative"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disagree,discord,disaccord-(to)"},  // ??Weak here, not necessarily 'neg' - so logically faulty also
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "selfish,self-centred,self-centered,egoistic,egoistical,egocentric"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "selfishness,egoism"},
@@ -2227,18 +2252,19 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "voyeurism"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "naughty"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "naughty,not_nice"},
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miss,lose-(to)"},
 
+                        {STAB: true, FLNM: "far:exclamation:exclamation"},  //Used the symbol of far plus
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "suicide", ADLT: true},   //???act: adult?
      ],
 
-
-    'PEOPLE:poetry:music':   [
-                                {SKEY: true,  FLNM: "POETRY:MUSIC"},
+    'PEOPLE:poetry:plus:music':   [
+                            {SKEY: true,  FLNM: "poetry:plus:music"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "poem"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "poetry"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "rhyme"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "singalong"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hum-(to)"},
                             {STAB: true, FLNM: "music:general"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rhythm_instrument"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "music"},
@@ -2266,9 +2292,9 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lullaby"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rap_(music)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "punk_rock"},
-                            {STAB: true, FLNM: "vocal"},
+                            {STAB: true, FLNM: "oral"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tune,melody"},
-                            {STAB: true, FLNM: "percussion"},
+                            {STAB: true, FLNM: "percussion_instrument"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "percussion_instrument"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drum_(2)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "drumstick"},   //for beating a drum
@@ -2279,7 +2305,7 @@ Map gLsuperWordMap = {
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tambourine_(2)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cymbal"},
-                            {STAB: true, FLNM: "wind_instrument"},
+                            {STAB: true, FLNM: "wind"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wind_instrument"},   //Won't be necessary.. is the softab
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reed"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "double_bassoon_(2)"},
@@ -2305,7 +2331,7 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saxophone_(2)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bassoon_(2)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kazoo"},
-                            {STAB: true, FLNM: "string"},
+                            {STAB: true, FLNM: "bow_and_string_(musical)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "string_(for_musical_instrument)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bow_and_string_(musical)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guitar,string_instrument"},
@@ -2345,8 +2371,8 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recorder_(soprano)"},
     ],
 
-    'PEOPLE:names:and:imaginary':         [    //Proper Nouns
-                                {SKEY: true,  FLNM: "NAMES:AND:IMAGINARY"},
+    'PEOPLE:name:plus:imaginary':         [    //Proper Nouns
+                                {SKEY: true,  FLNM: "name:plus:imaginary"},
                             {STAB: true, FLNM: "religious"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Abraham"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Adam"},
@@ -2356,9 +2382,9 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Noah"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Joseph,Saint_Joseph"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mary_(Mother_of_Christ)"},
-                            {STAB: true, FLNM: "mythological:nordic"},
+                            {STAB: true, FLNM: "myth:nordic"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Nordic_God"},
-                            {STAB: true, FLNM: "mythological:names"},
+                            {STAB: true, FLNM: "myth:name"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Woden",       MYTH: true},
                                 {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mjolnir"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Loki",        MYTH: true},
@@ -2377,22 +2403,22 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Saehrimnir",  MYTH: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Hugin_and_Munin", MYTH: true},  //Ravens - thought & memory
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Hattifatteners", MYTH: true},
-                            {STAB: true, FLNM: "mythological:names:places"},
+                            {STAB: true, FLNM: "myth:places"},
                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Valhalla",     MYTH: true},
                             {STAB: true, FLNM: "magic"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "magic",       CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "magical",     CHLD: true},
-                            {STAB: true, FLNM: "european:fairytale"},
+                            {STAB: true, FLNM: "Europe:fairy_tale"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "leprechaun", CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unicorn",     CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mermaid",     CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wand",        CHLD: true},
-                            {STAB: true, FLNM: "modern:superhero"},
+                            {STAB: true, FLNM: "today:super_hero"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Tarzan",      CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Superman",    CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Batman",      CHLD: true},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Spiderman",   CHLD: true},
-                            {STAB: true, FLNM: "modern:cartoon"},
+                            {STAB: true, FLNM: "today:cartoon"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Moominmamma", CHLD: true},   //Cartoon hippopotamus
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Moominpappa", CHLD: true},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Moomintroll", CHLD: true},
@@ -2446,9 +2472,9 @@ Map gLsuperWordMap = {
 
     ],
 
-    'PEOPLE:SPORTS': [
-                                {SKEY: true,  FLNM: "SPORTS"},
-                             {STAB: true, FLNM: "activities"},
+    'PEOPLE:sport': [
+                                {SKEY: true,  FLNM: "multiple:sport"},
+                             {STAB: true, FLNM: "multiple:activity"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "acrobat"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "acrobatics"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hiking"},    //why not an activity?
@@ -2472,7 +2498,7 @@ Map gLsuperWordMap = {
 
                             {STAB: true, FLNM: "places"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "court,field"},
-                            {STAB: true, FLNM: "sports:types"},
+                            {STAB: true, FLNM: "sport:type"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "contact_sports"},  //Sport Types
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baseball_(sport)"},
@@ -2508,7 +2534,7 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "paraskiing"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sailboard"},
 
-                            {STAB: true, FLNM: "outdoor:winter:northern_lands"},
+                            {STAB: true, FLNM: "outdoor:winter_sports"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "winter_sports"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "skateboard"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "skating"},
@@ -2519,8 +2545,7 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ski_pole(s)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "skis_(pair_of)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sky_sports"},
-
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toboggan"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "toboggan"},
 
                             {STAB: true, FLNM: "other"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "roller_skate-(to)"},
@@ -2531,7 +2556,7 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prone_board,scooter-board"},
 
 
-                             {STAB: true, FLNM: "activities:sports"},    //competition SPorts
+                             {STAB: true, FLNM: "contest"},    //competition SPorts
                                  {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "athletics"},
 
                                  {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sport_lesson"},
@@ -2555,7 +2580,7 @@ Map gLsuperWordMap = {
                                  {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shot_put"},
                                  {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "curling"},
 
-                             {STAB: true, FLNM: "traditional"},
+                             {STAB: true, FLNM: "old:time"}, //??traditional
                                  {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fencing"},    //blitz: name incl sport!
                                  {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "archery"},
                                  {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "javelin,spear"},
@@ -2599,6 +2624,8 @@ Map gLsuperWordMap = {
 
                                  {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pole_vaulting"},
                                 //Are these Snow, && || water?
+
+                                {STAB: true, FLNM: "mind_sports"}, //existing
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "orienteering_(sport)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "orienteer,read_map-(to)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "orienteer_(sport)-(to)"},
@@ -2632,8 +2659,8 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "team_(sport)"},
     ],
 
-    'PEOPLE:groupings':  [
-                                {SKEY: true,  FLNM: "GROUPINGS"},
+    'PEOPLE:group':  [
+                                {SKEY: true,  FLNM: "group"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "organization,organizing"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "couple_(two_persons)"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "band,orchestra"},
@@ -2695,7 +2722,7 @@ Map gLsuperWordMap = {
     ],
 
     'PEOPLE:disability':    [
-                            {SKEY: true,  FLNM: "DISABILITY"},
+                            {SKEY: true,  FLNM: "disability_physical"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nonspeaking"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hearing-impaired"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hearing_impairment"},
@@ -2703,16 +2730,6 @@ Map gLsuperWordMap = {
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disabled,impaired,handicapped_(intellectually,mentally)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disabled,impaired,handicapped_(physically)"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mental_illness"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgetting,amnesia"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disability_benefit"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "intellectual_impairment,cognitive_impairment,mental_impairment"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "physical_impairment,physical_disability"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "little_person"}, //????? A disability??  It can be according to US law, but....
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speech_impaired"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speech_impairment,dysarthria"},
@@ -2728,11 +2745,25 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deaf"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deafness"},
 
+                            {SKEY: true,  FLNM: "disability_mental"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mental_illness"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgetting,amnesia"},
+
+                            {SKEY: true,  FLNM: "disability:other"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disability_benefit"},
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "intellectual_impairment,cognitive_impairment,mental_impairment"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "physical_impairment,physical_disability"},
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "little_person"}, //????? A disability??  It can be according to US law, but....
+
+
     ],
 
-    'PEOPLE:books:topics':         [
-                            {SKEY: true,  FLNM: "BOOKS"},
-                        {STAB: true, FLNM: "books"},       //??rename the SUPERKEY somehow - as is this does not belong here.
+
+    'PEOPLE:book:plus:subject':         [
+                            {SKEY: true,  FLNM: "book:plus:subject"},
+                        {STAB: true, FLNM: "part_of:book"},       //??rename the SUPERKEY somehow - as is this does not belong here.
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "book"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "index,list_of_contents_(in_a_book_etc)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "appendix,cecum,caecum"},
@@ -2740,7 +2771,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "publish-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "publisher"},
 
-                        {STAB: true, FLNM: "topics:practice:teach"},
+                        {STAB: true, FLNM: "subject"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "law"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meteorology"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "archeology"},
@@ -2754,8 +2785,6 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chemistry"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "biochemistry"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "physiotherapy"},
-
-                        {STAB: true, FLNM: "ARE:professions"},     //<<<< TO BE MOVED TO SUPERKEY (but then what add'l here??)
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "history_teacher"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "astronomy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mathematics,arithmetic,math_(2)"},
@@ -2775,9 +2804,10 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "psychology"},
     ],
 
+
     'PEOPLE:use:transport': [
-                            {SKEY: true,  FLNM: "USE:TRANSPORT"},
-                        {STAB: true, FLNM: "air"},
+                            {SKEY: true,  FLNM: "use:transport"},
+                        {STAB: true, FLNM: "sky"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hovercraft"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "helicopter"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "airplane,aeroplane,plane"},
@@ -2786,13 +2816,8 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "skytrain,monorail"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "balloon_(hot_air)"},
 
-                        {STAB: true, FLNM: "city:street:"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "manhole_cover"}, //very low frequency?  great symbol!
-
-                        {STAB: true, FLNM: "common:vehicles"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "compartment"}, //?from symbol looks to be assoc with transport (train?)...
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crew,staff"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "station"},
+                        //{STAB: true, FLNM: "city:street:"},
+                        //    {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "manhole_cover"}, //very low frequency?  great symbol!
 
 
                         {STAB: true, FLNM: "land"},
@@ -2856,14 +2881,19 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "catamaran,pontoon_boat"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "boat,ship"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "schooner"},
+
+                        {STAB: true, FLNM: "sky:plus:land:plus:water"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "compartment"}, //?from symbol looks to be assoc with transport (train?)...
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crew,staff"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "station"},
     ],
 
-    'PEOPLE:use':           [
-                            {SKEY: true,  FLNM: "PEOPLE:USE"},
+    'PEOPLE:use:general':           [ //NOT COMPUTER!!
+                            {SKEY: true,  FLNM: "use:general"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "usage,use"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "use-(to)"},
 
-                        {STAB: true, FLNM: "rope:cable:string"},
+                        {STAB: true, FLNM: "bind_together"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "string"},  //??needed
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wire,cable"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rope,hawser"},
@@ -2875,7 +2905,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pipe,hose,tube_(2)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pump"},
 
-                       {STAB: true, FLNM: "study:speak_write"},
+                       {STAB: true, FLNM: "subject"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Bliss_(class)"},
 
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bliss-name"},
@@ -2889,44 +2919,12 @@ Map gLsuperWordMap = {
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "therapy"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "science"},
 
-                        {STAB: true, FLNM: "computer:related"},
+                        {STAB: true, FLNM: "digital_world"},  //THERE IS A CONCEPT:digital also; duplication??!!
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "smartphone,digital_phone"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "earphones,headphones"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "short_message_system_(SMS),text_message"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weather_forecast"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weather_satellite,spy_satellite"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recording_disk"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plug"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pod"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "port_(device)"},
-
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "program,programme"},
-
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "virus_(computer)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anti-virus_program"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "software,computer_program,application,app"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wireless_connection,WiFi"},
-
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "robot"},
-
-                        {STAB: true, FLNM: "pointer:device"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "headmouse"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trackball"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "type-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "undo_(computer)-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tablet_computer,tablet,tablet_PC_(2)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "save_(computer)-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "save_as_(computer)-(to)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "redo_(computer)-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "enter_(computer)"},
-
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "connector,interface_box"},
 
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "can,tin,jar"},
+                            {STAB: true, FLNM: "house:thing"},
+                            //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "can,tin,jar"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "opener"},   //??
  //                           {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "opening"}, //wrong here
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ladder"},
@@ -2951,7 +2949,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bow_(knot)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "machine,appliance,engine,motor"},
 
-                        {STAB: true, FLNM: "tools"},
+                        {STAB: true, FLNM: "tool"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "calendar"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "camera"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "knife,sword"},
@@ -2965,10 +2963,10 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rocking_horse"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chalice"},
 
-                         {STAB: true, FLNM: "medical"},
-                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "syringe"},
+                         //{STAB: true, FLNM: "medical"},
+                         //    {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "syringe"},
 
-                        {STAB: true, FLNM: "utensils"},
+                        {STAB: true, FLNM: "utensil"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "utensil"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "magnet"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cigarette"},
@@ -2982,8 +2980,9 @@ Map gLsuperWordMap = {
 
     ],
 
+
     'PEOPLE:visit:places':         [
-                            {SKEY: true,  FLNM: "VISIT:PLACES"},
+                            {SKEY: true,  FLNM: "visit:places"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "visit"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "visit-(to)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "visitor,guest"},
@@ -2992,6 +2991,8 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tourist"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tourist_(foreign)"},
 
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ruin,wreck,wreckage_(building)_(2)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ruin_(castle),castle_ruin"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "church_ruin,temple_ruin,wreck,wreckage_(church,temple,mosque)_(2)"},
 
                          {STAB: true, FLNM: "art"},
@@ -3003,6 +3004,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "perform-(to)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "performance,show"},
 
+
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "walkway,footpath"},
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recreation_room,moadan"},
@@ -3013,6 +3015,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "work_of_art,art_object"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "exhibition_hall,showplace"},
 
+                            {STAB: true, FLNM: "medical"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "clinic"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hospital,clinic"},
                         //    {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "patient_(in_medical_care)"}, //??
@@ -3022,7 +3025,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "psychology_room"},
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lee,shelter"},
-                        {STAB: true, FLNM: "arts&intertainment"},
+                        //{STAB: true, FLNM: "arts&intertainment"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "art_gallery,gallery"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bull_(fighting)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "concert_hall"},
@@ -3036,7 +3039,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "activity_centre_(leisure_time),after_school_club,youth_club"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "activity_centre_(teenagers)"},
 
-                        {STAB: true, FLNM: "here:house"},
+                        {STAB: true, FLNM: "house"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cloakroom,walk-in_closet"},   //If there is only one word Closet, then should not be "walk in"?!
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shelf"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bathroom,washroom"},
@@ -3049,7 +3052,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "handicraft_shop"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hall"},
 
-                        {STAB: true, FLNM: "neighborhood"},
+                        {STAB: true, FLNM: "near"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cabin,cottage,hut"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "balcony,porch,veranda"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sweet_shop,candy_store"},
@@ -3067,14 +3070,15 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "occupational_therapy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "square_(public)"},
 
-                        {STAB: true, FLNM: "personal_care"},
+                        {STAB: true, FLNM: "personal:care"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "public_room"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barber,hairdresser"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barbershop,beauty_shop"},
-                        {STAB: true, FLNM: "practice_religion"},
+
+                        {STAB: true, FLNM: "religion"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "church,mosque,temple"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mausoleum"},    //NOT CORRECT,,,
-                        {STAB: true, FLNM: "see(near)"}, //THIS IS ALL WRONG HERE!
+
                             //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "floor_(42nd)"},
 
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "theatre"},
@@ -3082,13 +3086,13 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yard"},
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speech_therapy_room"},
-                        {STAB: true, FLNM: "to_exercise"},
+                        {STAB: true, FLNM: "exercise"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gym,gymnasium"},
                         //    {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gymnastics"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weight_lifting"},
                         //    {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gym_mat"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "therapy_centre,rehabilitation_centre"},
-                        {STAB: true, FLNM: "to_learn"},
+                        {STAB: true, FLNM: "learn"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "know-(to)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "zoo"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "library_(room)"},
@@ -3099,7 +3103,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "university"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "activity_centre_(children)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "assessment_room"},
-                        {STAB: true, FLNM: "to_shop:or:repair:items"},
+                        {STAB: true, FLNM: "shop:plus:repair_shop"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toy_shop"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sport_shop"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shopping_centre,mall,plaza"},
@@ -3116,7 +3120,7 @@ Map gLsuperWordMap = {
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "butcher_shop"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "repair_room"},
                              {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "store,shop"},
-                        {STAB: true, FLNM: "to_travel"},
+                        {STAB: true, FLNM: "travel"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "transport,transportation"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "underground_station,subway_station"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "travel-(to)"},
@@ -3130,19 +3134,18 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "airport"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "visa"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stop,arrive,end-(to)"},
-                        {STAB: true, FLNM: "to_work"},
+                        {STAB: true, FLNM: "work"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "workplace"},  //GENERAL
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jobcentre,job-centre"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "laundry_(workplace)"},
     ], //'PEOPLE:visit:places'
 
-
-    'PEOPLE:house:clean:work:repairs':          [
-                            {SKEY: true,  FLNM: "HOUSE:CLEAN:WORK:REPAIRS"},
+    'PEOPLE:house:clean:work:repair':          [
+                            {SKEY: true,  FLNM: "house:clean:work:repair"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "habitation,dwelling_place,site"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "domestic_science,home_economics"},
 
-                        {STAB: true, FLNM: "home-worker:tasks-type1"},  //Nominally "woman" things - "patience, skills"
+                        {STAB: true, FLNM: "house:work"},  //Nominally "woman" things - "patience, skills"
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "home_worker"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "house_work,housekeeping,housework"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "housekeep,housework-(to)"},  //mirror
@@ -3170,24 +3173,27 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sew-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "needle"},
 
-                        {STAB: true, FLNM: "home-worker:tasks-type2"},  //Nominally "guy" things - "Mechanical/strength"
+                        {STAB: true, FLNM: "house:repair"},  //Nominally "guy" things - "Mechanical/strength"
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fix,mend,repair-(to)"},  //mirror
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fixing,fix,mending,mend,repair,reparation"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gutter,eaves_trough"},
 
 
-                        {STAB: true, FLNM: "water:supply"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drilling_rig_(water)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "well,water_well"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_tower"},
+//                        {STAB: true, FLNM: "water:supply"},
+//                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drilling_rig_(water)"},
+//                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "well,water_well"},
+//                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_tower"},
 
-                        {STAB: true, FLNM: "kitchen:utinsils:large"},
+                        {STAB: true, FLNM: "kitchen:utinsil:large"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kitchen_tongs"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kitchen_tool,utensils"},
 
-                         {STAB: true, FLNM: "repair:do-it-yourself:tools"},
+                         {STAB: true, FLNM: "repair:tool"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prepare,set,set_up,ready,gear_up,fix-(to)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pliers"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "knife,sword"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "cut_(knife)-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cut_(scissors)-(to)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nail"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "screw"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hammer,gavel,mallet"},
@@ -3203,7 +3209,7 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tie,bind_together,lash-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tie_whipping_knot-(to)"},
 
-                        {STAB: true, FLNM: "items:large"},
+                        {STAB: true, FLNM: "house:tool:large"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rug,carpet,mat"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drying_cupboard,airing_cupboard"},
@@ -3225,8 +3231,8 @@ Map gLsuperWordMap = {
 ====================================================================================================================*/
 
 
-    'SCENES:transport:air':    [
-                            {SKEY: true,  FLNM: "TRANSPORT:AIR"},
+    'SCENES:transport:sky':    [
+                            {SKEY: true,  FLNM: "transport:sky"},
                         {STAB: true, FLNM:  "airplane"},
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "glider"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "control_tower"},
@@ -3238,8 +3244,6 @@ Map gLsuperWordMap = {
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fuselage"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tail_(airplane)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "takeoff,take-off,airplane_take-off"},
-                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "takeoff_(rocket)"},
-                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "projectile,rocket,spacecraft"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crew_(plane)"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flight_instrument(s)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wreck,wreckage_(airplane)"},
@@ -3261,79 +3265,84 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "baggage,bag,luggage,suitcase"},    //blitz, bad + sack,bag + large
                         {STAB: true, FLNM:  "other"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "craft"},
-                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rocket,spaceship"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rocket,spaceship"},
+                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "takeoff_(rocket)"},
+                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "take_off_(rocket)-(to)"},
+                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "land_(rocket)-(to)"},
 
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "take_off_(rocket)-(to)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "land_(rocket)-(to)"},
+                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "projectile,rocket,spacecraft"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "space_travel,space_voyage,space_flight"},
     ],
 
     'SCENES:transport:land' :     [
-                            {SKEY: true,  FLNM: "TRANSPORT:LAND"},
-                        {STAB: true, FLNM:  "automobile_bus"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tire,tyre"},
-                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "inflate-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "passenger"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Formula_One,NASCAR_Kart"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "road_(2)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "driver,chauffeur"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "traffic_rule(s)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "street"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "road_sign"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "public_transport"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "taxi,cab"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parking_permit"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "taxi_driver,cab_driver"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "traffic"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bus_station"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parking_lot"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bus_stop,bus_bay"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bus_lane"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parking_ticket"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "driving_license"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "go-kart,kart"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "park"},
-                        {STAB: true, FLNM:  "bicycle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tandem_bicycle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brake_(vehicle)-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cycling"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brake_(vehicle)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cycle,ride_a_bike-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bicycle_path"},
-                        {STAB: true, FLNM:  "other"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tram"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sidecar_(motorcycle)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowplow,snowplough", NWNT: true},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowboard", NWNT: true},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cable_car"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "landing_(rocket)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowmobile", NWNT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rickshaw"},
-                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dog_sled", NWNT: true},
+                             {SKEY: true,  FLNM: "transport:land"},
+                             {STAB: true,  FLNM:  "automobile:plus:bus"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: true, FLNM: "car,automobile,motor_vehicle"},
+                                    {CORE: 2, FREQ: -5, KEYS: [], ASSC: true, FLNM: "tire,tyre"},
+                                    {CORE: 4, FREQ: -5, KEYS: [], ASSC: true, FLNM: "inflate-(to)"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "driving_license"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "passenger"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "traffic"},
+                                    {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "traffic_rule(s)"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "street"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "road_(2)"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "road_sign"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "driver,chauffeur"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "public_transport"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "taxi,cab"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "taxi_driver,cab_driver"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bus_station"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bus_stop,bus_bay"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bus_lane"},
 
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sled_dog"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sled_sport"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "park"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parking_lot"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parking_ticket"},
+                                    {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parking_permit"},
 
+                            {STAB: true, FLNM:  "bicycle"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tandem_bicycle"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brake_(vehicle)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cycling"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brake_(vehicle)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cycle,ride_a_bike-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bicycle_path"},
+                            {STAB: true, FLNM:  "train"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "subway,metro,underground,tube"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "railway_track"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "track"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "train_station_(building)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vehicle_(long)"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "van,minibus"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tunnel,subway,underpass"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "train_station_(platforms)"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "train"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vehicle,carriage,railway_car"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trolleybus"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stop,platform_(vehicle)"},
+                            {STAB: true, FLNM:  "other:person:animal"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rickshaw"},
+                                {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dog_sled", NWNT: true},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sled_dog"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_sled,horse-drawn_sleigh"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "craft"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rocket,spaceship"},
-                        {STAB: true, FLNM:  "trains"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "subway,metro,underground,tube"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "railway_track"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "track"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "train_station_(building)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vehicle_(long)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "van,minibus"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tunnel,subway,underpass"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "train_station_(platforms)"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "train"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vehicle,carriage,railway_car"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trolleybus"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stop,platform_(vehicle)"},
+                            {STAB: true, FLNM:  "other:motor"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tram"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sidecar_(motorcycle)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowplow,snowplough", NWNT: true},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowboard", NWNT: true},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cable_car"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowmobile", NWNT: true},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "go-kart,kart"},
+                            {STAB: true, FLNM:  "other:general"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "craft"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rocket,spaceship"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "landing_(rocket)"},
 ],
 
-'SCENES:transport:water' :   [
-                            {SKEY: true,  FLNM: "TRANSPORT:WATER"},
-                      {STAB: true, FLNM:  "boating"},
+    'SCENES:transport:water' :   [
+                            {SKEY: true,  FLNM: "transport:water"},
+                      {STAB: true, FLNM:  "about:boat"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "port_(boat)"},
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keel"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sailor"},
@@ -3358,7 +3367,7 @@ Map gLsuperWordMap = {
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sail"},
                             {CORE: 7, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reef-(to)"},
 
-                        {STAB: true, FLNM:  "boat:terms"},
+                        {STAB: true, FLNM:  "about:boat:term"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stern"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anchor"},
@@ -3397,66 +3406,75 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wind_surfing"},
     ],
 
+
     'SCENES:horse' :         [
-                                {SKEY: true,  FLNM: "TRANSPORT:HORSE"},
-                            {STAB: true, FLNM:  "racing"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "carriage_racing"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "groom_(horse)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tack_room"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "harness"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tail_(horse)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding_school,manege"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rein"},
+                                {SKEY: true,  FLNM: "horse"},
+                            {STAB: true, FLNM:  "type"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stallion,entire"},
-                            {STAB: true, FLNM:  "riding"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_trailer,horsebox"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dressage"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "groom_(horse)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "showjumping_(horse)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gelding"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foal"},
+                            {STAB: true, FLNM:  "places"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding_school,manege"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_box,stall"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "canter-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_sled,horse-drawn_sleigh"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_brush,body_brush"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bolt_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tack_room"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_trailer,horsebox"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hitchrack,hitching_bar"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_rider,equestrian"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hockey_helmet"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_droppings"},
+                            {STAB: true, FLNM:  "part_of"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_neck"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_rump"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tail_(horse)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horsehair"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mane_(horse)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horseshoe"},
+                            {STAB: true, FLNM:  "activity"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding,horseback_riding"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gallop-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trot_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "carriage_racing"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "volte_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bolt_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "groom_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "walk_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ride_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "canter-(to)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gallop"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "go_by_horse-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "harness_(horse)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unharness_(horse)-(to)"},
+                            {STAB: true, FLNM:  "wear"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bridle,headstall"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bit_(horse)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dressage"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "harness"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rein"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "girth,cinch"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "harness_(horse)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gallop-(to)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stirrup"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saddle"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sulky"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saddle_pad,saddle_blanket"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "muzzle"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_cloth"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_neck"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_racing"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_rump"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_sled_sport"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bridle,headstall"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "harness_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "groom_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "go_by_horse-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bit_(horse)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "walk_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ride_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "riding,horseback_riding"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "showjumping_(horse)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trot_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unharness_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "volte_(horse)-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gelding"},
 
+                            {STAB: true, FLNM:  "sport"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equestrian_sports"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_rider,equestrian"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_racing"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_sled_sport"},
 
+                            {STAB: true, FLNM:  "other_thing"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_brush,body_brush"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hoof"},
                                 {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hoof_pick"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foal"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horseshoe_nail"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_droppings"},
+
     ],
 
-    'SCENES:sport':         [
-                                {SKEY: true,  FLNM: "SPORT"},
+    'SCENES:camp:plus:sport':         [
+                                {SKEY: true,  FLNM: "camp:plus:sport"},
                             {STAB: true, FLNM:  "camp"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "summer_day_camp"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "camping_stove"},
@@ -3477,47 +3495,70 @@ Map gLsuperWordMap = {
                             {STAB: true, FLNM:  "fishing"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_cage"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fishnet"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "net"},
                             {STAB: true, FLNM:  "hunt"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bugle_(hunting)"},    //STUPID - pointless
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hunter"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hunt-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hunt,hunting"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "safari,wildlife_expedition"},
-                            {STAB: true, FLNM:  "swimming"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trap"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trap-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "net"},
+                            {STAB: true, FLNM:  "swim"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swimming_pool"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pool"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "bathing_rule(s)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_toy"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swimsuit,swimwear,bathing_suit"},
-                            {STAB: true, FLNM:  "climbing"},
+                            {STAB: true, FLNM:  "climb"},
                                 {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wall_climbing"},
     ],
 
     'SCENES:food:preparation': [   //rename 'prepare_food,cook-(to)' to 'preparation'
-                                {SKEY: true,  FLNM: "FOOD:PREPARATION"},
+                                {SKEY: true,  FLNM: "food:preparation"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prepare_food,cook-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pot,kettle,boiler"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mixing_spoon"},
+
+
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mixture"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mix,blend-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "timer"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mixer,blender"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cooking,cookery,preparation_(general)"},
+
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "batter"},   //involves Mixing / food?
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "teaspoon"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "measuring_cup"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "glass_jar"},
 
+                            {STAB: true, FLNM:  "utensil:container"},
+                                {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cup"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mug,cup"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ladle"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tin,can"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "serving_spoon"},  //?? redundant, also put with Baby:feeding
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saucepan"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spoon"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tablespoon"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "straw,drinking_straw"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pail,bucket"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "case,casing"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "container,basket_(high)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "container,bowl,holder,pouch,basket"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "container_(low)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "funnel"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vase,urn,trophy_cup"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "goblet,wineglass"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pitcher,jug,kettle,pot"},
+                            {STAB: true, FLNM:  "utensil:general"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric_kettle"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fork"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "broil,barbecue,grill-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cooking,cookery,preparation_(hot_food)"},
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fried"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "raw,uncooked"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pickled"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pot_stand,trivet"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "timer"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mixer,blender"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pot,kettle,boiler"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mixing_spoon"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rotisserie,spit"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasta_wheel"},
-
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pot_stand,trivet"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sieve,colander,strainer"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric_pan"},
@@ -3530,27 +3571,20 @@ Map gLsuperWordMap = {
                                 {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whisk,beater"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "can_opener"},
 
+                            {STAB: true, FLNM:  "activity"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deep-fry-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fry,saute-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "broil,barbecue,grill-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cooking,cookery,preparation_(hot_food)"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fried"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "raw,uncooked"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pickled"},
+
+
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "steam-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deep_fryer"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dish_gloves,rubber_gloves"},
-                            {STAB: true, FLNM:  "hold:handle:liquid"},
-                                {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cup"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mug,cup"},
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ladle"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tin,can"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "serving_spoon"},  //?? redundant, also put with Baby:feeding
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saucepan"},
-                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spoon"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tablespoon"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "straw,drinking_straw"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pail,bucket"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "container,basket_(high)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "container,bowl,holder,pouch,basket"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "container_(low)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "funnel"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vase,urn,trophy_cup"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "goblet,wineglass"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pitcher,jug,kettle,pot"},
+
                             {STAB: true, FLNM:  "table:setting:items"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "napkin,serviette"},
 
@@ -3576,14 +3610,17 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cook-(to)"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cookie_jar,biscuit_tin"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cooking,cookery,preparation_(general)"},
+
     ],
 
 
     'SCENES:home':          [   //AT ABOUT 107 - TOO CLOSE TO MAX!  CONSIDER: REMOVE TO PEOPLE:FOOD_PREP FROM KITCHEN??
-                                {SKEY: true,  FLNM: "HOME"},
-                            {STAB: true, FLNM:  "all:any:rooms"},
+                                {SKEY: true,  FLNM: "home"},
+                            {STAB: true, FLNM:  "any:room"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ceiling"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "window"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wall"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "corner_(room)"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "floor"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "living_room,lounge,sitting_room,front_room,parlor,parlour,waiting_room"},
                                 {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fireplace"},
@@ -3611,15 +3648,13 @@ Map gLsuperWordMap = {
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alarm"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drawer"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pillowcase"},
-                             {STAB: true, FLNM:  "home:closet"},
+                             {STAB: true, FLNM:  "closet"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hook,hanger"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "table"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cupboard,closet,wardrobe"},
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wall"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "storeroom"},
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foundation_(building)"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fan_(machine)"},
-                            {STAB: true, FLNM:  "home:kitchen"},    //NOT FOOD PREP....  Furniture/major appliances
+                            {STAB: true, FLNM:  "kitchen"},    //NOT FOOD PREP....  Furniture/major appliances
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tablecloth"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tabletop"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "microwave_oven"},
@@ -3643,8 +3678,13 @@ Map gLsuperWordMap = {
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guest_room"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "garage"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "attic"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foundation_(building)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foundation,base,fundament"},
 
+
+                            {STAB: true, FLNM:  "home:other_things"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "furniture"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cushion"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ironing_board"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "floor_(first)"},
@@ -3666,21 +3706,22 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "room"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric_light,lamp"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "home"},
-                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "window"},
+
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "key"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chimney"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sun_lounger,deck_chair"},
-                            {STAB: true, FLNM:  "home:utility"},
+                            {STAB: true, FLNM:  "home:large:multiple:thing"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "washing_machine,washer"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "washer"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cushion"},
+
     ],
 
+
     'SCENES:playing':   [
-                            {SKEY: true,  FLNM: "PLAYING"},
+                            {SKEY: true,  FLNM: "playing"},
                         {STAB: true, FLNM:  "general"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "game_rule(s)"},
-                        {STAB: true, FLNM:  "castles"},
+                        {STAB: true, FLNM:  "castle"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "castle,palace_(royal)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "castle,palace"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "suit_of_armour"},
@@ -3731,26 +3772,43 @@ Map gLsuperWordMap = {
 
     ],
 
+
     'SCENES:entertainment': [
-                                {SKEY: true,  FLNM: "ENTERTAINMENT"},
-                            {STAB: true, FLNM:  "car_racing"},
+                            {SKEY: true,  FLNM: "entertainment"}, //??
+                            {STAB: true, FLNM:  "contest"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "car_racing,auto_racing"},
-                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "film"},
-                            {STAB: true, FLNM:  "football"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse_racing"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "carriage_racing"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dogsled_sport,dogsled_racing"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sled_sport"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kart_racing,karting,go-karting"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Formula_One,NASCAR_Kart"},
+
+                            {STAB: true, FLNM:  "ball_sports"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "football_team"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "football,soccer_(activity)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "football_rule(s)"},
 
-                            {STAB: true, FLNM:  "television"},
+                            {STAB: true, FLNM:  "movie"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "remote_control"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "amuse,entertain,please-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "TV_programme,TV_show,radio_programme"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "TV_studio,radio_studio"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cartoon,animated_picture"},
 
-
-                            {STAB: true, FLNM:  "entertainment:music_listening"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pay_channel"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "film"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "movie,film.svg"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "DVD,movie_disc"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "DVD_player"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "media_player"},
+
+
+                            {STAB: true, FLNM:  "entertainment:music:listen"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pod"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "port_(device)"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wireless_connection,WiFi"},
+
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "microphone"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cassette,audiocassette,videocassette"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "DVD"},
@@ -3762,13 +3820,12 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disc,disk"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "CD,record"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "CD_cover"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "DVD,movie_disc"},
-                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "DVD_player"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "media_player"},
+
     ],
 
-    'SCENES:conference:study':         [
-                                {SKEY: true,  FLNM: "CONFERENCE:STUDY"},
+
+    'SCENES:conference':         [
+                                {SKEY: true,  FLNM: "conference"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "information"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gathering,assembly,meeting,conference"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dispersion,dissemination,scattering,spread,spreading"},
@@ -3825,11 +3882,10 @@ Map gLsuperWordMap = {
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "influence,affect-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "influenced,affected"},
-
     ],
 
     'SCENES:shopping':      [
-                                {SKEY: true,  FLNM: "SHOPPING"},
+                                {SKEY: true,  FLNM: "shoppping"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ceramics,pottery"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "department_store"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "clothing_shop"},
@@ -3848,36 +3904,52 @@ Map gLsuperWordMap = {
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sale"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "discount_sale"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "salesperson,shop_owner"},
-
     ],
 
+
     'SCENES:farm':          [  //TODO? can add domisticated anaimals here...
-                                {SKEY: true,  FLNM: "FARM"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "domestic_animal"},
-
+                                {SKEY: true,  FLNM: "farm"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farm"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farmer"},
+
+                           {STAB: true, FLNM:  "type"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dairy"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "piggery"},
+
+
+                           {STAB: true, FLNM:  "equipment"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tractor"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "combine_(harvester)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plough"},
+
+
+                           {STAB: true, FLNM:  "places"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farmhouse"},
-
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "paddock"},
-
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barn"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "henhouse,chicken_coop"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cowshed"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sheep_shed,sheep_barn"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "field"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barn,stable,shed"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stable"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "paddock"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasture"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasture,enclosed_field"},
 
-
+                           {STAB: true, FLNM:  "animal"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "domestic_animal"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "piglet"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "baby_animal"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "young_animal"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "piggery"},
-                                //??ADULT - Really not directly part of Farming
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughter"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughter-(to)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughterer"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughterhouse,abattoir"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bull"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hen"},
 
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dairy"},
+
+                                //??ADULT - Really not directly part of Farming, but no SCENE for slaughter...
+                                    {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughter"},
+                                    {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughter-(to)"},
+                                    {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughterer"},
+                                    {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "slaughterhouse,abattoir"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seed"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sow"},
@@ -3885,37 +3957,27 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sprout,germinate-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "raise,grow,bring_up,cultivate-(to)"},
 
+                           {STAB: true, FLNM:  "multiple:plant"},
+
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "harvest"},
-
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bull"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hen"},
-
-
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barley"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wheat"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rye"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "corn"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oats"},
 
+                           {STAB: true, FLNM:  "other"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water-(to)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_bucket"},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "field"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barn,stable,shed"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farm"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stable"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tractor"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "combine_(harvester)"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barrow"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grove"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hay"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasture"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasture,enclosed_field"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pasture,put_out_to_pasture-(to)"},
     ],
 
-    'SCENES:business:industry': [
-                                {SKEY: true,  FLNM: "BUSINESS:INDUSTRY"},
+    'SCENES:business:manufacture': [
+                            {SKEY: true,  FLNM: "business:manufacturee"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "business,economy,commerce,trade"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "budget,business_plan"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "business_idea"},
@@ -3961,7 +4023,7 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "hole"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crane"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "block,brick"},
-                            {STAB: true, FLNM:  "marketing"},
+                            {STAB: true, FLNM:  "market"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "advertisement"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sign,advertisement"},
                             {STAB: true, FLNM:  "meeting"},
@@ -3976,14 +4038,6 @@ Map gLsuperWordMap = {
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "memo,reminder_note"},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "connection_(computer)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fax"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "key"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "key_(computer)"},
-
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keyboard_(computer)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keyboard_(expanded)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keyboard_(mini)"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "joystick"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "file,data_file_(digital)"},
@@ -3992,7 +4046,7 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "account"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "folder"},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keyboard"},
+
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "overlay_keyboard,membrane_keyboard"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "desk,worktable,work_table"},
@@ -4001,37 +4055,37 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "palmtop,PDA"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "attached_(computer)"},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer_case"},
-                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer_screen,monitor"},
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "internet_(2)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "social_network,facebook_(etc)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer_peripheral"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "folder_(digital)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fax_(machine)"},
-                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "desktop_computer"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "laptop"},
-                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "touch_screen"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "touchpad,trackpad"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "attach_(computer)-(to)"},  //??? attachment
-
     ],
 
+
+
     'SCENES:accident':      [
-                            {SKEY: true,  FLNM: "ACCIDENT"},
+                            {SKEY: true,  FLNM: "accident"},
+                            {STAB: true, FLNM:  "event:type"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accident,chance_event"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(car)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(air)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drowning"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disaster,catastrophe"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(forward)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(forward)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(downward)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(downward)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accident"},
+
+                            {STAB: true, FLNM:  "activity"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "injure,hurt-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rescue-(to)"},
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "first_aid"},
-
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ambulance"},
-                                {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "emergency"},
-
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fire_extinguisher"},
 
                                 {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rescue"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rescue-(to)"},
 
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wound,cut,sore"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "painful,painfully,sore"},
 
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "examine_(medically)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "treatment"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "operation"},
 
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "broken"},
@@ -4040,28 +4094,21 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bruise,dent"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bruised,dented"},
 
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "treat,care_for_(medically)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "medical_treatment,medical_care"},
+
+                            {STAB: true, FLNM:  "multiple:thing"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fire_extinguisher"},
+                                {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "emergency"},
+
+                            {STAB: true, FLNM:  "other"},
                                 {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "insurance"},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "treat,care_for_(medically)-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "examine_(medically)-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "medical_treatment,medical_care"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "treatment"},
-
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drowning"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disaster,catastrophe"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(forward)-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(forward)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(downward)-(to)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(downward)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accident"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(air)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accident,chance_event"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crash_(car)"},
     ],
 
 
     'SCENES:court':         [                      //court?
-                                {SKEY: true,  FLNM: "COURT"},
+                                {SKEY: true,  FLNM: "court"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "judge"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "hammer,gavel,mallet"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "judgement,law_(in_combinations)"},
@@ -4083,7 +4130,7 @@ Map gLsuperWordMap = {
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accusation_(legal),charge,prosecution"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "accuse_(legal),charge,prosecute-(to)"},
 
-                            {STAB: true, FLNM:  "example:crimes"},
+                            {STAB: true, FLNM:  "example:crime"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "abuse,assault,violence"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "child_abuse"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "murder-(to)"},
@@ -4091,24 +4138,30 @@ Map gLsuperWordMap = {
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "killer,murderer"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bandit,armed_robber"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hostage_(2)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kidnap-(to)"},
                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "killing,murder,slaughter"},
 
+                            {STAB: true, FLNM:  "multiple:thing"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mask_(disguise)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evidence"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "imprint,trace,track"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "clue"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "detective,investigator"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "badge,shield"},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bad_conscience"},
+                            {STAB: true, FLNM:  "outcome"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guilty",  OPPS: true},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "innocent,not_guilty",  OPPS: true},
 
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kidnap-(to)"},
+                                {STAB: true, FLNM:  "general"},
                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guilt"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guilty"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evidence"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "clue"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bad_conscience"}, //??
+
     ],
 
+
     'SCENES:dentist':       [
-                            {SKEY: true,  FLNM: "DENTIST"},
+                            {SKEY: true,  FLNM: "dentist"},
                                 {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tooth"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toothbrush"},
                                 {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toothpaste"},
@@ -4122,12 +4175,13 @@ Map gLsuperWordMap = {
     ],
 
 
-    'SCENES:training:scouts:soldiers':           [    //Teen is overloaded, thought is to shift youth into this which was originally 'war' related
-                        {SKEY: true,  FLNM: "TRAINING:SCOUTS:SOLDIERS"},
+
+    'SCENES:training:military':           [  //??Not only military but scouts, however very long...
+                        //Teen is overloaded, thought is to shift youth into this which was originally 'war' related
+                        {SKEY: true,  FLNM: "training:military"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "war", OPPS: true},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "peace_(opposite_war)", OPPS: true}, //OPPOSITE
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "practise,practice,drill,exercise,rehearse-(to)"},
-
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "organize,arrange-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "outdoor_(character)"},
@@ -4161,7 +4215,7 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "knife,sword"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sheath"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "uniform"},
-                    {STAB: true, FLNM:  "soldier:type"},
+                    {STAB: true, FLNM:  "military:type"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lead,direct,guide-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "leadership,guidance"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lead"},
@@ -4191,6 +4245,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "terrorist"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "terrorize-(to)"},
 
+                    {STAB: true, FLNM:  "general"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cease-fire,armistice"},
     ],
 
@@ -4200,8 +4255,8 @@ Map gLsuperWordMap = {
 ====================================================================================================================*/
 
     'CONCEPTS:arithmetic':  [     //(1)
-                         {SKEY: true,  FLNM: "ARITHMETIC"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "percent,percentage,%"},
+                         {SKEY: true,  FLNM: "arithmetic"},
+                         {STAB: true, FLNM: "adding:subtracting"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "quarter,one_quarter"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "most,maximum"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "half,one-half"},
@@ -4209,45 +4264,49 @@ Map gLsuperWordMap = {
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "adding,additive"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "subtract,remove,take_away-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "subtraction,loss"},
-                        {STAB: true, FLNM: "subtraction,loss"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "multiplication"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "multiply-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "and,also,plus,too"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plus_sign_(low)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "division"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plus_minus"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "minus,no,without"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "even_number"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "odd_number"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "and,also,plus,too"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plus_sign_(low)"},
+                         {STAB: true, FLNM: "multiply:divide"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "percent,percentage,%"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "multiplication"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "multiply-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "division"},
+                         {STAB: true, FLNM: "other_things"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "even_number",  OPPS: true},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "odd_number",   OPPS: true},
     ],
 
 
     'CONCEPTS:law':         [    //(11
-                            {SKEY: true,  FLNM: "LAW"},
-                         {STAB: true, FLNM:  "child-rights"},   //???
+                         {SKEY: true,  FLNM: "law"},
+                         {STAB: true, FLNM:  "child"},   //???
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "adoption"},  //??
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foster_home"},  //??
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "temporary_home"},  //??home_temporary
 
-                         {STAB: true, FLNM:  "contract:legal"},
+                         {STAB: true, FLNM:  "contract"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sell-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sale"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agreed,in_agreement,harmonious",  OPPS: true},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "disagreement,discord",            OPPS: true}, //Opposite
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agreement"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agreement_(spoken)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agreement_(written),contract"},
-
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agreed,in_agreement,harmonious"},
+                            {STOP: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disagree,discord,disaccord-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "disagreement,discord"}, //Opposite
+                            {STOP: true},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "signature"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "signature_stamp"},
-
+                            {STOP: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "receipt"},
-
+                            {STOP: true},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "promise"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "promise,pledge-(to)"},
 
-                        {STAB: true, FLNM:  "crime:examples"},
+                        {STAB: true, FLNM:  "crime:example"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "steal-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rape"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "theft"},
@@ -4297,67 +4356,81 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "illegal,criminal"},
     ],
 
-    'CONCEPTS:languages':    [
+    'CONCEPTS:language':    [
                             //INVENTED LANGUAGES
-                            {SKEY: true,  FLNM: "LANGUAGES"},
+                            {SKEY: true,  FLNM: "language:"},
+                            {STAB: true,  FLNM: "language:invented"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Bliss,Bliss_language,Blissymbolics"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blissymbolics_resource_centre"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "symbol_display,symbol_board,symbol_chart"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sign_language"},
 
                             //NATURAL PHONETIC LANGUAGES
+                            {STAB: true,  FLNM: "language:natural"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "English_(language)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "German_(language)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Swedish_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Norwegian_(language)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Danish_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Icelandic_(language)"},
+                            {STOP: true},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "French_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Spanish,Castilian_(language)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Italian_(language)"},
+                            {STOP: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Latvian_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Persian_(language)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "French_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Hebrew_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Arabic_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Russian_(language)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Italian_(language)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Hebrew_(class)"},
+
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Irish_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Estonian_(language)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Swedish_(language)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Danish_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Romanian_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Finnish_(language)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Thai_(language)"},
 
-                            {STAB: true, FLNM:  "Other"},
+                            {STAB: true, FLNM:  "other"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "language_(class)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "coarse_slang"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "language"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "slang"},
      ],
 
-
-    'CONCEPTS:communications': [  //(3)
-                            {SKEY: true,  FLNM: "COMMUNICATIONS"},
+    'CONCEPTS:communication': [  //(3)
+                            {SKEY: true,  FLNM: "communication"},
+                            {STAB: true, FLNM:  "paper"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "write-(to)"},  //send
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flyer"},  //give away brochure
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "printer,typewriter"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "print-(to)"}, //NOT BASIC
 
+                            {STAB: true, FLNM:  "early"},  //?? early meaning 60's?,  analog?
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "earphones,headphones"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "microphone"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "satellite_signal"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "code,password"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "signal_receiver_(2)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "communication"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "message,content_(communication)"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "communication_satellite"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "receiver"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "receiver,dish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "relay"},
 
+                            {STAB: true, FLNM:  "digital"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "smartphone,digital_phone"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "television"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "telephone"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "aerial,antenna"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "channel_(programs)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "GPS_(system)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "intranet_(2)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "printer,typewriter"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "print-(to)"}, //NOT BASIC
+
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weather_forecast"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weather_satellite,spy_satellite"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "text_phone"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "telephone_card"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cipher"},
@@ -4371,18 +4444,20 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "message"},
 
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "e-mail,email"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "short_message_system_(SMS),text_message"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "answer,reply"},
 
+                            {STAB: true, FLNM:  "thing:general"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "radio_(2)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "video_recorder"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "receiving"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "satellite"},
-
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "short_message_system_(SMS),text_message"},
     ],
 
-    'CONCEPTS:numbers': [               //(4)
-                            {SKEY: true,  FLNM: "NUMBERS"},
+
+    'CONCEPTS:number': [               //(4)
+                            {SKEY: true,  FLNM: "number"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "zero_(digit),0"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "one_(digit),1"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "two_(digit),2"},
@@ -4393,16 +4468,16 @@ Map gLsuperWordMap = {
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seven_(digit),7"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eight_(digit),8"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nine_(digit),9"},
-                            {STAB: true, FLNM:  "Other"},
+                            {STAB: true, FLNM:  "other"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "first,primary"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "second_(ordinal)"},
     ],
 
     'CONCEPTS:time':        [
-                            {SKEY: true, FLNM:  "TIME"},
+                            {SKEY: true, FLNM:  "time"},
                             {STAB: true, FLNM:  "instrument"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "clock,timepiece"},
-                            {STAB: true, FLNM:  "part:of:day"},
+                            {STAB: true, FLNM:  "part_of:day"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "minute"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "afternoon"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "morning_(early)"},
@@ -4421,19 +4496,8 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ten_o'clock_eating_break"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "four_o'clock_eating_break"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evening"},
-                            {STAB: true, FLNM:  "SOFTAB:holidays"},   //todo  fixed days of calandar to CONCEPTS:...
-                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "national_day"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vacation,holiday"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Good_Friday"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mother's_Day"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Father's_Day"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Children's_Day"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fast_day"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "remembrance_day"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Family_Day"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holiday,festival"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year_(general)"},
-                            {STAB: true, FLNM:  "SOFTAB:days_of_week"},
+
+                            {STAB: true, FLNM:  "part_of:week"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Monday_(day1)"},
                             //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Monday_(day2)"},
                             //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Monday_(day3)"},
@@ -4464,10 +4528,10 @@ Map gLsuperWordMap = {
                             //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Sunday_(day2)"},
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "day_before_holiday"},
-                            {STAB: true, FLNM:  "SOFTAB:days"},
+                            {STAB: true, FLNM:  "day:type"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tomorrow"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "work_day"},
-                            {STAB: true, FLNM:  "SOFTAB:time_months"},
+                            {STAB: true, FLNM:  "example:month"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "month"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last_month"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "January"},
@@ -4482,8 +4546,9 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "October"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "November"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "December"},
-                            {STAB: true, FLNM:  "SOFTAB:year_times:seasons"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "year"},
+                            {STAB: true, FLNM:  "part_of:year"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beginning_of_year"},  //RELATIONSHIP KEY HERE BELOW
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "end_of_year"},        //RELATIONSHIP KEY HERE BELOW
                             //{CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "summer_(ckb)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "season"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "season_of_darkness"},  //Northern/Nordic lands
@@ -4493,8 +4558,8 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "winter_(rain)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "winter_day"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "winter_(snow)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "snow-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "snowflake"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "snow-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "snowflake"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spring"},  //Season
                             //{CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spring_(ckb)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "autumn,fall"},
@@ -4503,23 +4568,18 @@ Map gLsuperWordMap = {
                             //{CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "autumn,fall_(ckb)"},
                             //{CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "winter_(ckb)"},
 
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beginning_of_year"},  //RELATIONSHIP KEY HERE BELOW
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "end_of_year"},        //RELATIONSHIP KEY HERE BELOW
-                            {STAB: true, FLNM:  "SOFTAB:multiple_years"},
+
+                            {STAB: true, FLNM:  "part_of:long_time"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "year"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decade"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "century"},
-                            {STAB: true, FLNM:  "SOFTAB:other"},    //not sorted..
 
-                            //These are not of the CONCEPT time, or SYSTEM of time,  as much as related to PEOPLE somehow
+                            {STAB: true, FLNM:  "other_things"},    //not sorted..
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "early"},
+
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birthday"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "age"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anniversary"},
-
-                            //Not religious
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_Day"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve,end_of_year_(day)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve,end_of_year_(evening)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve_(evening)"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternal"},
                             //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weekend_(7-1)"},
@@ -4533,12 +4593,11 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "second_(time)"},
                             //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weekend_(6-7)"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_week"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "early"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "day_and_night"},
 
 
-                            {STAB: true, FLNM:  "time:duration"},
+                            {STAB: true, FLNM:  "time_interval"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "short"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "limited_time,interval,period,awhile,for_a_while"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "longer"},
@@ -4550,29 +4609,92 @@ Map gLsuperWordMap = {
                         ],
 
 
-    'CONCEPTS:digital':     [    //(6)  TODO
-                            {SKEY: true,  FLNM: "DIGITAL"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_signal"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_memory,RAM"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digits_(computer)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plug_in,connect_(digital)-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plug_in,connect_(power)-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_memory,digital_storage"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "data_(digital_information)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_processing,artificial_intelligence,AI"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mouse,pointing_device"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "signal,broadcast,transmitting"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sign,signal"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "memory_stick,USB-memory"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_device"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "document_(electronic),digital_document"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_storage_device"},
+    'CONCEPTS:computer':     [    //(6)  TODO   PEOPLE:USE    to reference here for computer
+                            {SKEY: true,  FLNM: "computer"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_space_(limited)"},
+                            {STAB: true, FLNM:  "type"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "desktop_computer"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "laptop"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tablet_computer,tablet,tablet_PC_(2)"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_world"},
+                            {STAB: true, FLNM:  "computer:part_of"},
+                                //MISSING!   CPU, MOTHERBOARD, POWER_SUPPLY, ... GRAPHICS_CARD
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer_case"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_memory,RAM"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_storage_device"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plug"},  //???  any appliance, power?  + here?
+
+                            {STAB: true, FLNM:  "softare"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "program,programme"},
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "software,computer_program,application,app"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_processing,artificial_intelligence,AI"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "virus_(computer)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anti-virus_program"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "social_network,facebook_(etc)"},
+
+                            //INPUT TO COMPUTER
+                            {STAB: true, FLNM:  "computer_attachment"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer_peripheral"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keyboard"},
+
+                                {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "computer_screen,monitor"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "touch_screen"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "touchpad,trackpad"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mouse,pointing_device"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "memory_stick,USB-memory"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_memory,digital_storage"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "headmouse"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trackball"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "connector,interface_box"},
+
+
+                            {STAB: true, FLNM:  "job:part_of"}, //??Computer Operations
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "type-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "undo_(computer)-(to)"},
+
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "save_(computer)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "save_as_(computer)-(to)"},
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "redo_(computer)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "enter_(computer)"},
+
+
+                            {STAB: true, FLNM:  "general"}, //??Major sorting to be done, plus cross ref with office ++
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "internet_(2)"},
+
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "folder_(digital)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fax_(machine)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "attach_(computer)-(to)"},  //??? attachment
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_signal"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digits_(computer)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plug_in,connect_(digital)-(to)"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plug_in,connect_(power)-(to)"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "data_(digital_information)"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "signal,broadcast,transmitting"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sign,signal"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_device"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "document_(electronic),digital_document"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_space_(limited)"},
+
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "short_message_system_(SMS),text_message"},
+
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recording_disk"},
+
+                            {STAB: true, FLNM:  "other"}, //??Major sorting to be done, plus cross ref with office ++
+
+                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "robot"},
+
+                                //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "digital_world"},
     ],
+
+
 
     'CONCEPTS:distance(time)':    [    //7   TODO
                             {SKEY: true,  FLNM: "DISTANCE:TIME"},
@@ -4587,11 +4709,12 @@ Map gLsuperWordMap = {
 
 
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "long"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "longer"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "longest"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "odometer"},
 
-                            {STAB: true, FLNM:  "SOFTAB:distance_and_time"},
+                            {STAB: true, FLNM:  "distance:plus:time"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speed"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "speedometer"}, //??distance and time
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tear_along,advance_fast,go_fast-(to)"},
@@ -4600,78 +4723,83 @@ Map gLsuperWordMap = {
 
 
 
-    'CONCEPTS:geometry':    [         //(9)
-                            {SKEY: true,  FLNM: "GEOMETRY"},
-                            {STAB: true, FLNM:  "SOFTAB:basic:shapes"},
+    'CONCEPTS:geometry':    [        //!!?? HAD TO INVENT GEOMETRY FROM AN ANGLE, DOES NOT EXIST!!!
+                            {SKEY: true,  FLNM: "geometry"},
+                            {STAB: true, FLNM:  "shapes_basic"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "line,stripe"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "linear_thing,pole"},
-
-                            {STAB: true, FLNM:  "SOFTAB:instruments"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "protractor"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "area_(meaurement)"},
-                            {STAB: true, FLNM:  "SOFTAB:shapes:not_basic"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval,elliptic,elliptical"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rectangle,oblong"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval_shape"},
-
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "narrow"},
-
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "round,circular"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equilateral_triangle"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "right_triangle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "isosceles_triangle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scalene_triangle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "square_(oblique)"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "curve,curved_line"},
-
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "corner"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horizontal"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shape,form"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "square_(shape)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rectangular,oblong"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "circle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bow,arc"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval,ellipse"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "triangular"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angle_(right),right_angle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "square_(description)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angle_(measurement)"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "round,circular"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equilateral_triangle"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "right_triangle"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "isosceles_triangle"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scalene_triangle"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "square_(oblique)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "triangle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "triangle_(instrument)_(2)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "compass_(drawing)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "perpendicular"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angle"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "linear_thing_(horizontal),bar"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angle_(right),right_angle"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "square_(description)"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "triangular"},
 
-                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grid,matrix"}, //??
-
-                            {STAB: true, FLNM:  "SOFTAB:shapes:not:basic"},
+                        {STAB: true, FLNM:  "shapes_basic:not"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval,elliptic,elliptical"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rectangle,oblong"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval_shape"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bow,arc"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval,ellipse"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "curve,curved_line"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "diamond_(character)"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "diamond_(shape),rhombus,rhomb"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oval_shape"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spiral,curl_(shape)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spiral"},
-                            {STAB: true, FLNM:  "SOFTAB:shapes:solid"},
+
+                        {STAB: true, FLNM:  "shapes:solid"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pyramid"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "box,cube"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cylinder,can"},
 
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "point,tip,peak"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lowness,shortness_(height)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "longer"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shallow"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shallowness"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "depth"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deep"},
 
+                        {STAB: true, FLNM:  "instrument"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "protractor"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "area_(meaurement)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angle_(measurement)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "triangle_(instrument)_(2)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "compass_(drawing)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ruler,measuring_stick,tapeline,tape_measure"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "area_(meaurement)"},   //MISSPELLED!  measurement
+
+                            {STAB: true, FLNM:  "other"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "linear_thing_(horizontal),bar"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horizontal-(a)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "linear,straight"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "parallel"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grid,matrix"}, //??
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "point,tip,peak"},
+
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "zigzag"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "zigzag_line"},  //polyline
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "direction,cardinal_point"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ruler,measuring_stick,tapeline,tape_measure"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "area_(meaurement)"},   //MISSPELLED!  measurement
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "raised_wavy_line"}, //?? NOT A SHAPE,
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dotted"},  //??NOT A SHAPE
+
     ],
 
-    'CONCEPTS:governments': [     //(10)
-                            {SKEY: true,  FLNM: "GOVERNMENTS"},
+    'CONCEPTS:government': [     //(10)
+                            {SKEY: true,  FLNM: "government"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "national"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "culture"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "law,The_Law"},
@@ -4708,7 +4836,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tax_(sales)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tax_(state,regional)"},
 
-                            {STAB: true, FLNM:  "SOFTAB:advocacy"},
+                            {STAB: true, FLNM:  "advocacy"},
                             //Really not sure about these, author associates with Government, but...
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "advocacy"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "advocacy,representation_(legal)"},
@@ -4716,7 +4844,7 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "advocate_(legal,speaking)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "advocate_(speaking),spokesperson"},
 
-                            {STAB: true, FLNM:  "SOFTAB:democracy"},
+                            {STAB: true, FLNM:  "democracy"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ballot,voting_slip"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "monarchy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "republic"},
@@ -4741,14 +4869,13 @@ Map gLsuperWordMap = {
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "discussion,conversation,debate,chat"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "union_(political_unit)"},
-                            {STAB: true, FLNM:  "SOFTAB:symbols:of:nations"},
+                            {STAB: true, FLNM:  "nation:symbol"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "maple-leaf"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shamrock"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Union_Jack_pattern"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "star_of_David_(a)"},
 
-                            {STAB: true, FLNM:  "SOFTAB:protest"},
-
+                            {STAB: true, FLNM:  "protest"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "action,demonstration_(against)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "action,demonstration_(in_favour_of)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "protest,object,oppose-(to)"},
@@ -4763,7 +4890,8 @@ Map gLsuperWordMap = {
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "opposing_forces,counter-forces"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "opposition,counter_purpose"},
-                            {STAB: true, FLNM:  "SOFTAB:priorites:of:government"},
+                            {STAB: true, FLNM:  "responsibility:part_of:government"},  //priority of governments
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "safety,security"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "environment"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "care,protection,defence"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "army,regular_army,ground_forces"},
@@ -4776,9 +4904,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "protector,guard"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pollution"},
 
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "safety,security"},
-
-                            {STAB: true, FLNM:  "SOFTAB:monarchy:historical:royalty"},
+                            {STAB: true, FLNM:  "monarchy::royal_familty"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "king"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "queen"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "royal_family"},
@@ -4791,79 +4917,96 @@ Map gLsuperWordMap = {
     ],
 
     'CONCEPTS:money':       [    //(12)
-                            {SKEY: true,  FLNM: "MONEY"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cost-(to)"},
-                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deflation"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bank_card,money_card"},
+                        {SKEY: true,  FLNM: "money"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "money,cash"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rent,lease,hire,charter-(to)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cheap,inexpensive"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rent,lease,let-(to)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fine_(penalty)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "financial_support"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shekel"},
-
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "goods,contents"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cost,price"},
-                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "betting"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "credit_card"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "paper_money,bill"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "coin"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pound_sterling"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "invoice"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dollar"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rent"},
-                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "price_rise"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "buy,purchase-(to)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "receipt"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "money_on_a_regular_basis"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oere_(currency)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yen"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bet"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cent"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bet-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "inflation"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Euro"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spending_spree"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ATM,cash_machine"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fee"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wage(s),pay,salary"},
+
+                        {STAB: true, FLNM:  "currency:example"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "currency"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "market"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Euro"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crown_(currency)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "expensive"},
-                        {STAB: true, FLNM:  "bank"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bank"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "money,cash"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bank_card,money_card"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pay,spend-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guard_duty"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "paper_money,bill"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "credit"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pound_sterling"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oere_(currency)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dollar"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yen"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shekel"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cent"},
+
+
+                        {STAB: true,  FLNM: "purchase:contract"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "buy,purchase-(to)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "goods,contents"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rent,lease,hire,charter-(to)"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rent,lease,let-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "invoice"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "receipt"},
+
+
+                        {STAB: true,  FLNM: "cost"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cost,price"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "expensive",         OPPS: true},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cheap,inexpensive", OPPS: true},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cost-(to)"},
+
+                        {STAB: true,  FLNM: "money_on_a_regular_basis"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "money_on_a_regular_basis"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "financial_support"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rent"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wage(s),pay,salary"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lend,loan-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "free_of_charge,gratis,for_free"},
 
-                        {STAB: true, FLNM:  "having:not:having"},
+                        {STAB: true, FLNM:  "bank"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bank"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fee"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bank_card,money_card"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ATM,cash_machine"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pay,spend-(to)"},
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "credit"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "credit_card"},
+
+                        {STAB: true, FLNM:  "rich:not:rich"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rich,wealthy"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "poverty"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "poor_(little_money)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "poor_(without_possessions)"},
+
+                        {STAB: true,  FLNM: "long_time:change"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deflation", OPPS: true},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "inflation", OPPS: true},
+
+                        {STAB: true,  FLNM: "general"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "market"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spending_spree"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "price_rise"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fine_(penalty)"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "betting"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "free_of_charge,gratis,for_free"},
+
+        //Under enertainment, addictions/ ????  neg behaviors???
+        //                           {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bet"},
+        //                           {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bet-(to)"},
+        //                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guard_duty"},
+
+
     ],
 
     'CONCEPTS:navigate':    [     //(13)
-                        {SKEY: true,  FLNM: "NAVIGATE"},
+                        {SKEY: true,  FLNM: "navigate"}, //???? missing! exists for airplane + ship?    used orienteer,read_map(to), probably wrong!  closest that made sense
+                            {STAB: true,  FLNM: "navigate"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "navigate_airplane-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "navigational_sign"},
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "map_reading"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sea_chart"},
 
+                        {STAB: true,  FLNM: "compass:direction"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "east"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "south"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "north"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "west"},
 
+                        {STAB: true,  FLNM: "toward:direction"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eastern"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eastward"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "northern"},
@@ -4873,17 +5016,19 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "western"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "westward"},
 
+                        {STAB: true,  FLNM: "general"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "compass"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "GPS,satnav"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "GPS_(system)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "map"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "globe_(map)"},
 
+
     ],
 
     'CONCEPTS:physics:energy':     [      //(14)
 
-                            {SKEY: true,  FLNM: "PHYSICS:ENERGY"},
+                            {SKEY: true,  FLNM: "physics:energy"},
 
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "light_year"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wave_length"},
@@ -4894,7 +5039,7 @@ Map gLsuperWordMap = {
 
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ramp"},
 
-                         {STAB: true, FLNM:  "energy:sources"},
+                         {STAB: true, FLNM:  "energy:capture"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "drilling_rig_(gas)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wind_power,wind_energy,wind_farm"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wind_turbine"},
@@ -4918,7 +5063,20 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "band_(of_frequencies)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric_wire,electric_cord,cord,cable,lead"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "absorbent_material,sponge"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ashes"},
+
+
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gravity,gravitation"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electro_magnet"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "power_(physics)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electromagnetic_radiation"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electricity"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "direct_current,DC"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alternating_current,AC"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "frequency_(wave_motion)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric,electrical"},
+
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "solar_energy,solar_power"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gas_(fuel)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brake_(general)"},
@@ -4962,7 +5120,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pump"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "compression,compressing,squeezing"},
 
-                        {STAB: true, FLNM:  "instruments:meters"},
+                        {STAB: true, FLNM:  "instrument:meter"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thermometer"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "voltmeter"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "microscope"},
@@ -4979,10 +5137,6 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "density,denseness,compactness,tightness_(general)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "density,denseness,concentration_(measurement)"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scale,measurement"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scale_(weighing)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "quality_(measurement)"},  //??
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ammeter"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anemometer"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barometer,manometer"},
@@ -4992,150 +5146,173 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "light_meter"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "amplitude"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electricity_meter"},
-                        //'CONCEPTS:physics:laws':
+                        {STAB: true, FLNM:  "gravity"}, //?? no word "state" - used shape+form
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gravity,gravitation"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weight"},
-
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scale,measurement"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scale_(weighing)"},
+                        {STAB: true, FLNM:  "fundamental:rule"}, //?? no word "state" - used shape+form
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamental_rule"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamental_law"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamental,basic"},
-                        //'CONCEPTS:physics:states':
+                        {STAB: true, FLNM:  "material:form"}, //?? no word "state" - used shape+form
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gas"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "solid_thing"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "liquid"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "powder,dust"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ice"},
-                        //'CONCEPTS:physics:change-states':
+                        {STAB: true, FLNM:  "material:change"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "boil_(liquid)-(to)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "freeze,solidify-(to)"},  //mirror
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spray,vaporization"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spray,vaporize-(to)"},
-                        //'CONCEPTS:physics:sub_atomic':
+                        {STAB: true, FLNM:  "atom:part_of"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nucleus"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "neuron"},
-                        //MISSING!  {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electron"},
-
-
+                            //{CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electron"},  !!??MISSING!
+                        {STAB: true, FLNM:  "other_things"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "quality_(measurement)"},  //??
     ],
 
-    'CONCEPTS:religions:general':   [     //(15) Common to two or more, general
-                            {SKEY: true,  FLNM: "RELIGIONS:GENERAL"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "amen"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angel_(2)"},
-
+    'CONCEPTS:religion:general':   [     //(15) Common to two or more, general
+                            {SKEY: true,  FLNM: "religion:general"},
+                        {STAB: true, FLNM:  "large:multiple:type"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agnosticism"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "polytheism"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "monotheism"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "atheism"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion,naturalism"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_(God_based)"}, //??
+                        {STAB: true, FLNM:  "basic"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "God"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "all_powerful"},
+                                {CORE: 2, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "all_knowing"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "supernatural"},
 
-                            //or maybe better science based?  but where?
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "salvation_(religious)"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prayer"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "supernatural-(noun)"},
+
+
+                        {STAB: true, FLNM:  "mankind"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sin"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sinner"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Heaven,Kingdom_of_God", OPPS: true},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angel_(2)"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hell", OPPS: true},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "devil_(2)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternal_life,immortality"},
+
+
+                        {STAB: true, FLNM:  "basic:concepts"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "perfect"},    //GENERAL
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "perfection"},   //GENERAL
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saint"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_(God_based)"}, //??
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "believer"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "conscience"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamentalist"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "salvation_(religious)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hymn,psalm,gospel_song"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holy_book"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_event"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_ceremony"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mortal"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "divine,holy"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgiven"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternal_life,immortality"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celebration"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "atheism"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "believer_(in_God)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "all_knowing"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celibacy_(religious)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Heaven,Kingdom_of_God"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hell"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_ceremony_(God_based)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ritual"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ceremony"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vestment"},   //ceremonial robe?
+
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "belief_(supernatural)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "monotheism"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grace"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_gathering"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgiveness,pardon"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "offer,sacrifice-(to)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "misericordia_(forgiveness_from_God)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "immoral,bad,wrong"},
+
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternity,infinity"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sanctity_of_life"},
+
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "soul"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sin-(to)"},
 
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_fanatic"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamentalism_(religious)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "devil_(2)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holy_event"},   //blitz: event_holy
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "immoral,bad,wrong"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgiven"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternal_life,immortality_(after_death)"},
-                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prayer_book,Siddur"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_leader"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_fanatic_(God_based)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holiness"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_(science_of),theology"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spiritual_awareness"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "God"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "conversion"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "funeral_(religious)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Holy_Spirit"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prayer"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "supernatural-(noun)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternity,infinity"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "church,mosque,temple"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "missal,liturgical_book"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Holy_City"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sanctity_of_life"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_teacher"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "agnosticism"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "polytheism"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miracle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_(God_based)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "believe-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holy"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion,naturalism"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "all_powerful"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Jesus_Christ"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Brahma"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Moses"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Jerusalem_Day"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamentalist_(religious)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celibacy,chastity,abstinence"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "commandments"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sin"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sinner"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sacrifice"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "theology,philosophy_of_religion"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "altar"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miracle"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prophesy-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgiveness,pardon"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "misericordia_(forgiveness_from_God)"},
+
+                        {STAB: true, FLNM:  "ceremony:example"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "marriage,wedding"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "marriage_(religious)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "married_(to_be)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "marry-(to)"},
-
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pray-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "preach-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_service"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "altar_cloth"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sanctify,consecrate-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "burial_(religious)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "funeral_(religious)"},
+
+                        {STAB: true, FLNM:  "ceremony:activity"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_ceremony_(God_based)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ritual"},  //Synonyms?
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ceremony"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_service"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_event"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_ceremony"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celebration"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pray-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "preach-(to)"},
+
+                        {STAB: true, FLNM:  "ceremony:thing"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "altar"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vestment"},   //ceremonial robe?
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "altar_cloth"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "missal,liturgical_book"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hymn,psalm,gospel_song"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holy_book"},
+                            {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prayer_book,Siddur"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "church,mosque,temple"},
+
+                        {STAB: true, FLNM:  "leadership"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_teacher"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_leader"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_fanatic_(God_based)"},
+
+
+                        {STAB: true, FLNM:  "general"}, //??This is a mess
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "saint"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "amen"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "angel_(2)"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "commandments"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "believer_(in_God)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spiritual_awareness"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grace"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_gathering"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "offer,sacrifice-(to)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sacrifice"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holy_event"},   //blitz: event_holy
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eternal_life,immortality_(after_death)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holiness"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religion_(science_of),theology"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holy"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Holy_Spirit"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "theology,philosophy_of_religion"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prophesy-(to)"},
+
+                        {STAB: true, FLNM:  "other_things"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Holy_City"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "conversion"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celibacy_(religious)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Moses"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamentalist_(religious)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celibacy,chastity,abstinence"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "religious_fanatic"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamentalism_(religious)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fundamentalist"},
      ],
 
-    'CONCEPTS:religions:specific':   [     //(16) 'nominational'
+    'CONCEPTS:religion:example':   [     //(16) 'nominational'
                             {SKEY: true,  FLNM: "RELIGIONS:SPECIFIC"},
                         {STAB: true, FLNM:  "buddism"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "buddhist_(person)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "buddhist"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Buddha"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Buddhism"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Brahma"}, //??
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Dharma_wheel"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bracha,berakah,prayer_(small)"},
                          {STAB: true, FLNM:  "christian"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Jesus_Christ"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "God_the_father"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "God_the_son"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sacrament_of_marriage"},
@@ -5238,31 +5415,53 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Jew"},
     ],
 
-    'CONCEPTS:dates:and:periods:in:time':   [      //(17)
-                            {SKEY: true,  FLNM: "DATE:AND:PERIOD:IN:TIME"},
-                        {STAB: true, FLNM:  "seasonal"},
+    'CONCEPTS:day:particular':   [
+                        {SKEY: true,  FLNM: "day:particular"},
+
+                        {STAB: true, FLNM:  "yourself:particular"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birthday"},
+                        {STAB: true, FLNM:  "not:religion"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_Day"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve,end_of_year_(day)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve,end_of_year_(evening)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve_(evening)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Valentine's_Day"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Jerusalem_Day"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "national_day"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vacation,holiday"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mother's_Day"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Father's_Day"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Children's_Day"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fast_day"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "remembrance_day"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Family_Day"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "holiday,festival"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year_(general)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "New_Year's_eve_(day)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thanksgiving"},
-                        {STAB: true, FLNM:  "religious:celebrations:events"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Halloween,All_Saint's_Day"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Valentine's_Day"},
+                        {STAB: true, FLNM:  "astronomy"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunrise"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunset"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lunar_eclipse"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "solar_eclipse"},
+                        {STAB: true, FLNM:  "religion"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Christmas_Eve_(day)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Good_Friday"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Sabbath,day_of_rest"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Ascension_Day"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Christmas"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "easter"},      //??should be capitalized,
-
-                        {STAB: true, FLNM:  "historical:events"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "easter"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Halloween,All_Saint's_Day"},
     ],
 
-    'CONCEPTS:GENERAL': [
-                         {SKEY: true,  FLNM: "GENERAL:MISCELLANEOUS"},
+    'CONCEPTS:general': [
+                        {SKEY: true,  FLNM: "general"},
                         {STAB: true, FLNM:  "history:mankind"},   //?? belongs in some other category
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stone_age"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bronze_age"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "iron_age"},
 
-                        {STAB: true, FLNM:  "astrological"},
+                        {STAB: true, FLNM:  "astrology"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Pisces_(in_zodiac)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Virgo_(in_zodiac)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Libra_(in_zodiac)"},
@@ -5276,7 +5475,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Scorpio_(in_zodiac)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Gemini_(in_zodiac)"},
 
-                        {STAB: true, FLNM:  "hebrew"},
+                        {STAB: true, FLNM:  "jewish"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Purim"},   //Jewish Holiday
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Nisan,Nissan"},  //Jewish - 1st month of calendar
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Yahrzeit"},     //Jewish  aniversary of someone's death
@@ -5306,13 +5505,9 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Tammuz"},  //Hebrew, 10th month of civil calendar
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Independence_Day_(Israel)"},
-
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Havdalah"},   //Jewish holiday
-
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Elul"},  //Hebrew
-
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Lag_B'Omer"},  //Hebrew - jewish holiday
-
 
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "halva,halvah,halwa"},  //Jewish desserts
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hamentasch"},   //yiddish cookie
@@ -5332,8 +5527,6 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Vishnu"},  //Hindu goddess
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Durga"},  //Hinduism
 
-
-
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "naming_ceremony"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "naming_ceremony_(religious)"},
     ], //CONCEPTS
@@ -5343,29 +5536,32 @@ Map gLsuperWordMap = {
 /*==================================================================================================================
                                       *****4. ANIMATE******
 ====================================================================================================================*/
-    'ANIMATE:animals:HAVE': [
-                            {SKEY: true,  FLNM: "ANIMALS:HAVE"},
+
+
+
+    'ANIMATE:animal:have': [
+                            {SKEY: true,  FLNM: "animal:have"},
+                        {STAB: true, FLNM:  "basic"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "life"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "live_(life)-(to)"},
-
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_droppings"},
+                        {STAB: true, FLNM:  "bird"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wing(s)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "feather"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horsehair"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "claw_(bird)"},
+                        {STAB: true, FLNM:  "land"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "claw_(animal)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_bone"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "paw"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "quills,spines"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horseshoe_nail"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "claw_(bird)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "claw_(shellfish)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mane_(horse)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horn(s),antler(s)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "manure,fertilizer"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horseshoe"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horn(s)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_droppings"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tail"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mane_(lion_etc)"},
+                        {STAB: true, FLNM:  "water"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_bone"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "claw_(shellfish)"},
 
     ],
 
@@ -5377,20 +5573,19 @@ Map gLsuperWordMap = {
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "sniffer_dog"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "watchdog"},  //??
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cat,feline_(animal),felid"},
-                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "scratch"},
-                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "scratch-(to)"},
+                                 {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "scratch"},
+                                 {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "scratch-(to)"},
                              {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kitten"},
                              {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "puppy"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gerbil,guinea_pig,hamster"},
 
-                         {STAB: true, FLNM:  "animals:transport"},
+                         {STAB: true, FLNM:  "animal:transport"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horse"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "camel"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "elephant"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "donkey,mule"},
 
-
-                        {STAB: true, FLNM:  "paddock"},     //field / enclosure
+                        {STAB: true, FLNM:  "paddock"},     //field / enclosure  ??
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chick"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chicken_(bird)"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "cockerel"},
@@ -5399,6 +5594,7 @@ Map gLsuperWordMap = {
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "lamb-(to)"},   //giving birth
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cow"},
                              {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal,beast"},
+                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(bovine),bovine,ovine"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pig"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mare"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "goat"},
@@ -5413,7 +5609,8 @@ Map gLsuperWordMap = {
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chipmunk"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "squirrel"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rabbit,hare"},
-                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hare"},   //REDUNDANT WITH ABOVE
+                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hare"},   //??REDUNDANT WITH ABOVE
+                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(bushy_tailed)"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "frog,toad"},
                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tadpole"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "turtle,tortoise"},
@@ -5456,31 +5653,32 @@ Map gLsuperWordMap = {
                               {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "kangaroo,marsupial_(animal),pouched_mammal"},
                               {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "polar_bear"},
 
-                        {STAB: true, FLNM: "extinct:dinosaur"},
-                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dinosaur"},
-                              {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Triceratops"},
-                              {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Tyrannosaurus_Rex"},
-                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Brontosaurus"},
-                              {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Pterosaur,Pterodactyl"},
+                        {STAB: true, FLNM: "reptile:plus:other"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snail"},  //
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snake"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chameleon"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lizard,reptile_(snake_like_animal)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snake_(dangerous),viper,boa_(etc)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snake_(not_dangerous),grass_snake_(etc)"},
 
-                        {STAB: true, FLNM: "STO:BE:SORTED"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snail"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snake"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "chameleon"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lizard,reptile_(snake_like_animal)"},
-                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snake_(dangerous),viper,boa_(etc)"},
-                                {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snake_(not_dangerous),grass_snake_(etc)"},
-
+                        {STAB: true, FLNM: "dinosaur"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dinosaur"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Triceratops"},
+                            {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Tyrannosaurus_Rex"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Brontosaurus"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Pterosaur,Pterodactyl"},
+                        {STAB: true, FLNM: "other"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "endangered"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(protected)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(wild)"},
     ],
 
- 'ANIMATE:animals:sky': [
-                             {SKEY: true,  FLNM: "ANIMALS:SKY"},
-                        {STAB: true, FLNM:  "feed:live"},
-                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birdfeeder,bird_table"},
-                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birdhouse,house_for_bird"},
-                        {STAB: true, FLNM:  "water"},
+  'ANIMATE:bird': [
+                        {SKEY: true,  FLNM: "bird"},
+                        {STAB: true, FLNM:  "plus:water"},
+
                               {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "duck,bird_(water),waterbird,waterfowl,seabird,seafowl"},
-                        {STAB: true, FLNM:  "smaller"},
+                        {STAB: true, FLNM:  "small"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bat_(animal)"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "songbird,finch,thrush"},
                              {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bluebird"},
@@ -5492,9 +5690,10 @@ Map gLsuperWordMap = {
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gull,seagull,sea_gull"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dove"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hawk,eagle"},
-                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swan"},    //no subsymbols
-                        {STAB: true, FLNM:  "larger"},
+
+                        {STAB: true, FLNM:  "large"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "roadrunner_(bird)"},
+                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swan"},    //no subsymbols
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "peacock"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pelican"},
                              {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ostrich"},
@@ -5505,48 +5704,63 @@ Map gLsuperWordMap = {
                         {STAB: true, FLNM:  "young"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fledgeling"},
 
-                        {STAB: true, FLNM:  "general:types"},
+                        {STAB: true, FLNM:  "feeding"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birdfeeder,bird_table"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birdhouse,house_for_bird"},
+
+                        {STAB: true, FLNM:  "general:type"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bird_(domestic)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bird_(protected)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bird_(wild)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bird_nest,birdnest"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bird_of_prey,raptor"},
+
+                        {STAB: true, FLNM: "other"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "endangered"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(protected)"},
    ],
 
- 'ANIMATE:animals:water': [
-                          {SKEY: true,  FLNM: "ANIMALS:WATER"},
+
+    'ANIMATE:animal_water': [
+                         {SKEY: true,  FLNM: "animal_water"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(water)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_creature"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish-(to)"},
                          {STAB: true, FLNM:  "small"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "goldfish,guppy,pet_fish"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish_(animal)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shoal,school_(of_fish)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sea_anemone"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jellyfish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flatfish"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "starfish"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swordfish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tuna_fish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_snake"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eel"},
                         {STAB: true, FLNM:  "large"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_animal_(big_tail)"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dolphin,porpoise_(etc)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "walrus"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whale"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "octopus"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swordfish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shark"},
+                         {STAB: true, FLNM:  "large:plus:land"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alligator,crocodile"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sea_lion"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seal"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "penguin"},
                         {STAB: true, FLNM:  "other"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "amphibian"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sea_cucumber"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jellyfish"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sea_urchin"},
-      ],
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sea_anemone"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "starfish"},
+ ],
 
-    'ANIMATE:animals:do':   [
-                      {SKEY: true,  FLNM: "ANIMALS:DO"},
+    'ANIMATE:animal:do':   [
+                      {SKEY: true,  FLNM: "animal:do"},
                       {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "place_to_feed,feeding_place,feeding_ground"}, //?? animals?
 
-                    {STAB: true, FLNM:  "DO"},
+                    {STAB: true, FLNM:  "do"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mew,meow-(to)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "roar_(lion)-(to)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "purr_(cat)-(to)"},
@@ -5562,66 +5776,75 @@ Map gLsuperWordMap = {
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hibernation"},
     ],
 
-    'ANIMATE:plants:not:food': [
-                        {SKEY: true,  FLNM: "PLANTS:NOT:FOOD"},
+    'ANIMATE:plant:not:food': [
+                     {SKEY: true,  FLNM: "plant:not:food"},
+                     {STAB: true, FLNM:  "flower"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "flower_(dried)"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bulb_(flower)"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower_(from_bulb)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower_(protected)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower,bloom,blossom"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bush,shrub"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "palm"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forest,bush,wood,woods"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_flower,water_lily"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunflower"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rose"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower_meadow"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "four-leaf_clover"},  //associated with luck...  seems strange that this even shows up
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grass"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reed,bamboo_(tall_grass)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cactus"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bulb_(flower)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower_(dried)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seaweed"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "coral_reef"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flower_(from_bulb)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wildflower"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "coral"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "orchard"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "flower_meadow"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "four-leaf_clover"},  //associated with luck...  seems strange that this even shows up
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bulb_(plant)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wild_strawberry"},
-                    {STAB: true, FLNM:  "trees:parts:products"},
+                   {STAB: true, FLNM:  "plant:water"},
+                       {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_flower,water_lily"},
+                       {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seaweed"}, //??? multiple issues, incl used as food in japan
+                   {STAB: true, FLNM:  "plant:substance:water"},
+                       {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "coral"},   //??coral is the remainder from plants ++
+                       {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "coral_reef"}, //??
+                   {STAB: true, FLNM:  "plant:other"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cactus"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grass"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reed,bamboo_(tall_grass)"},
+                   {STAB: true, FLNM:  "tree:part_of"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tree"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "palm"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stem,stalk"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trunk,tree_trunk,bole"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stick,log"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bark"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "root(s),rootage,root_system"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "branch"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "leaf"},  //??
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cone"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "root"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evergreen_tree,spruce,fir,fir_tree"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cone,conifer_cone,strobilus"},
+                    {STAB: true, FLNM:  "tree:type"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birch"},   //tree
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brush"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "orchard"},  //??collection of trees with EDIBLE FRUIT...
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bush,shrub"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forest,bush,wood,woods"},
+                    {STAB: true, FLNM:  "tree:other"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wood,lumber,timber"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cardboard,paperboard"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tree_or_wood_destruction"},
-
-                    {STAB: true, FLNM:  "trees:types"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birch"},   //tree
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "brush"},
-
     ],
 
-    'ANIMATE:materials:substances':    [
-                        {SKEY: true,  FLNM: "MATERIALS:SUBSTANCES"},
+    'ANIMATE:substance':    [
+                    {SKEY: true,  FLNM: "substance"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "substance"},
 
-                    {STAB: true, FLNM:  "derived:from:animal"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wool"},
+                    {STAB: true, FLNM:  "from:plant:plus:animal"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dirt,soil"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wool"},
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cotton_fabric"},
 
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cotton"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "silk"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "silk_fabric"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "leather"},
-                    {STAB: true, FLNM:  "organic:substance"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_skin,hide,pelt"},
+                    {STAB: true, FLNM:  "organic_compound"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "biochemical_product,organic_compound"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flax"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "linen,flax_fabric"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fiber,fibre,fibril,filament,strand"}, //??
@@ -5630,11 +5853,11 @@ Map gLsuperWordMap = {
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "synthetic_fabric"},   //Bio chemical
     ],
 
-    'ANIMATE:insects':      [
-                             {SKEY: true,  FLNM: "INSECTS"},
-                        {STAB: true, FLNM:  "flying"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "butterfly,moth"},
 
+    'ANIMATE:insect':      [
+                             {SKEY: true,  FLNM: "insect"},
+                        {STAB: true, FLNM:  "flying_insect"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "butterfly,moth"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "insect_(pest)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "louse,stinging_insect"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plant-louse"},
@@ -5643,7 +5866,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flea"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ladybird"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mosquito"},
-                        {STAB: true, FLNM:  "NOT:flying"},
+                        {STAB: true, FLNM:  "NOT:flying_insect"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spider"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "spider_web,cobweb,orb_web"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scorpion"},
@@ -5660,38 +5883,29 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bedbug,wall_louse"},
     ],
 
-    'ANIMATE:micro':        [
-                            {SKEY: true,  FLNM: "MICRO:ORGANIZMS"},
+    'ANIMATE:micro_organism':        [
+                         {SKEY: true,  FLNM: "micro_organism"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "micro-organism"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "virus"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bacterium"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "organism"},
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "yeast"},
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cell"},   //?? Biological only   (jail cell?)
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cellular_fluid"},
     ],
 
-    'ANIMATE:ANIMALS:reproduction': [
-                            {SKEY: true,  FLNM: "ANIMALS:REPRODUCTION"},
+
+    'ANIMATE:animal:reproduction': [
+                            {SKEY: true,  FLNM: "animal:reproduction"},
                         {STAB: true, FLNM:  "animals:mammals"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reproduction"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "creature,being"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "premature_birth"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexual_pleasure"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fallopian_tube"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "placenta"},
-
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "give_birth-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birth_(reproduction)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birth"},
-
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sex_drive,sexual_urge,libido"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miscarriage,abortion_(spontaneous)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "abortion_(induced)"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seminal_vesicle"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "infertile,sterile"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "semen"},
@@ -5716,48 +5930,45 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "orgasm"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexuality"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "conception,fertilization,fertilized_egg"},
-                        {STAB: true, FLNM:  "human:reproduction"},
+                        {STAB: true, FLNM:  "human:concepts"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "virginity"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vasectomy",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hysterectomy",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tubal_ligation",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sterilization",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pregnant"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birth_control_pill,pill",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rhythm_method",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sperm_destruction",          ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "intrauterine_device,IUD",          ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "artificial_insemination",          ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celebration_of_life"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "abstention"},
+                        {STAB: true, FLNM:  "human:reproduction"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexual_pleasure"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pregnant"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "masturbation",          ADLT: true},   //adult
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nocturnal_emission,wet_dream"},  //adult
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexual_aid",           ADLT: true},  //adult
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "diaphragm_(contraceptive),pessary"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "celibacy,chastity"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fertilized"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family_planning_clinic"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "menopause",             ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "menstrual_blood"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sanitary_napkin,sanitary_towel,tampon"},  //??closely associated?
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miscarriage,abortion_(general)",          ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "uterine_contraction",    ADLT: true},
-
-
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vaginal_discharge",      ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "caesarean_section,C-section",          ADLT: true},
+                        {STAB: true, FLNM:  "birth:control"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family_planning_clinic"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birth_control_pill,pill",          ADLT: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rhythm_method",          ADLT: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sperm_destruction",          ADLT: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "intrauterine_device,IUD",          ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spermicide",             ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "barrier_(contraceptive)",          ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fertility_counselling",  ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "condom",                 ADLT: true},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "birth_control",          ADLT: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "family_planning"},
-                        {STAB: true, FLNM:  "human:body:parts:reproduction"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vasectomy",          ADLT: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hysterectomy",          ADLT: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tubal_ligation",          ADLT: true},
+                        {STAB: true, FLNM:  "human:body_part:reproduction"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "genitals,sex_organs"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fetus"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anus"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "genitals,sex_organs_(female)"},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "abstention"},
-
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "clitoris",                ADLT: true},
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "penis",                   ADLT: true},
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "testicle",                ADLT: true},
@@ -5769,12 +5980,15 @@ Map gLsuperWordMap = {
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vagina",                  ADLT: true},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "genitals,sex_organs_(male)",      ADLT: true},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "male_genitals_(man_with_penis)",  ADLT: true},
-
-                        {STAB: true, FLNM:  "human:physical:variations"},    //Politically Correct?
+                        {STAB: true, FLNM:  "adult:sexuality:activities"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anal_intercourse",        ADLT: true},   //adult
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oral_sex",                ADLT: true},  //adult
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prostitution",            ADLT: true}, //??adult
+                        {STAB: true, FLNM:  "human:other:body_part"},    //??Politically Correct?
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "woman_(below_waist)",    ADLT: true},
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "transvestite_(female)",  ADLT: true},
                             {CORE: 6, FREQ: -5, KEYS: [], ASSC: false, FLNM: "transvestite_(male)",    ADLT: true},
-                        {STAB: true, FLNM:  "human:sexual:orientation"},
+                        {STAB: true, FLNM:  "human:sexuality:other"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "heterosexuality",        ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "heterosexual",           ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bisexuality",            ADLT: true},
@@ -5785,150 +5999,137 @@ Map gLsuperWordMap = {
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "homosexual",              ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "homosexual_(female),lesbian",          ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bisexual",                ADLT: true},
-                        {STAB: true, FLNM:  "adult:acts"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "incest",                  ADLT: true},   //adult
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "incense",                 ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anal_intercourse",        ADLT: true},   //adult
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "oral_sex",                ADLT: true},  //adult
+                        {STAB: true, FLNM:  "adult:sexuality:immoral"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexual_abuse,sexual_assault,sexual_violence", ADLT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sexual_harassment",       ADLT: true},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "prostitution",            ADLT: true}, //adult
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "incest",                  ADLT: true},   //adult
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "incense",                 ADLT: true},
+                        {STAB: true, FLNM:  "medical"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "abortion_(induced)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "caesarean_section,C-section",          ADLT: true},
+                        {STAB: true, FLNM:  "fail:other"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "premature_birth"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miscarriage,abortion_(spontaneous)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "miscarriage,abortion_(general)",          ADLT: true},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sterilization",          ADLT: true},
     ],
 
-    'ANIMATE:GENERAL': [
-                            {SKEY: true,  FLNM: "GENERAL"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "creature,being"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alligator,crocodile"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(bovine),bovine,ovine"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(bushy_tailed)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(protected)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(water)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_(wild)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "animal_skin,hide,pelt"},
 
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "endangered"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_animal_(big_tail)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_creature"},
-
-                            //PARTS OF TREES / PLANTS / BUSHES
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bark"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "root(s),rootage,root_system"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "branch"},
-    ],
 
 /*==================================================================================================================
                                       *****5. WORLD******
 ====================================================================================================================*/
 
-    'WORLD:continents:groupings':     [
-                            {SKEY: true,  FLNM: "CONTINENTS:GROUPINGS"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "South_America"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "South_Pole"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Asia"},
+    'WORLD:about:continent':     [
+                            {SKEY: true,  FLNM: "about:continent"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "North_Pole"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Antarctic"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "North_America"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Europe"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Africa"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "The_Nordic_countries"},
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Europe"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Asia"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Africa"},
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "North_America"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "South_America"},
+
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "South_Pole"},
+                         {STAB: true, FLNM:  "other"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "world"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "universal,world-wide"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sky"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horizon"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Earth_axis"},
     ],
 
 
-    'WORLD:natural:events': [    //65 elements - OK
-                             {SKEY: true,  FLNM: "NATURAL:EVENTS"},
+'WORLD:natural:event': [    //65 elements - OK
+                        {SKEY: true,  FLNM: "natural:event"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "event,happening,occasion"},
-                        {STAB: true, FLNM:  "atmosphere"},
+                        {STAB: true, FLNM:  "atmosphere:low:energy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "air,atmosphere"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "calm,lull"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blow_(wind)-(to)"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fog"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rain"},  //ROOT
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "raindrop"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cloud"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "breeze"},
+
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cloudy"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rain"},  //ROOT
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "rain_gauge"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rain-(to)"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "raindrop"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "rainy"},  // modifier v to rain
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "rain_gauge"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gale"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snow"},
+
+
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dryness,drought"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "calm_(weather)"},
+
+                        {STAB: true, FLNM:  "atmosphere:high:energy"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowstorm", NWNT: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "storm"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hail"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wind"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gale"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hurricane"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tsunami"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sandstorm"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dust_storm,duster,sirocco"},
-
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snowstorm", NWNT: true},
-                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hail"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wind"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cloud"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "breeze"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "snow"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hurricane"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tornado"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lightning"},
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dryness,drought"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thunder"},
-                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cloudy"},
+
                         {STAB: true, FLNM:  "land"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "earthquake"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "geothermal_energy"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eruption"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hill"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mountain"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "geyser"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hot_spring"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "avalanche"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lava,magma"},
                         {STAB: true, FLNM:  "nature"},               //WEAK LOGIC HERE?!  Relocate
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gravity,gravitation"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "climate"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electro_magnet"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "power_(physics)"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lunar_eclipse"},
-
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electromagnetic_radiation"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "humidity"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electricity"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "direct_current,DC"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alternating_current,AC"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "frequency_(wave_motion)"},
+
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "weather"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "light_(not_dark)"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "steam"},
-
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "electric,electrical"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunny"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rainbow"},
 
-                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunrise"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sunset"},
-                            //Perhaps under Energy...
+
+                        {STAB: true, FLNM:  "fire"},               //WEAK LOGIC HERE?!  Relocate
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "burning"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fire"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "match"},    //to start a fire
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "spark"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "glow"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flame"},
+                                {CORE: 3, FREQ: -5, KEYS: [], ASSC: true, FLNM: "ashes"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "burn-(to)"},
 
-
-                        {STAB: true, FLNM:  "water"},
+                        {STAB: true, FLNM:  "water:low:energy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "low_water"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rough_sea"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "low_tide,ebb"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "icy,frozen"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "waterfall"},
-
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tidal_wave"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wave"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tide"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flood"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "low_tide,ebb"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "high_water"},
-                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rapids"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "high_tide"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water_on_ground_(flooding)"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "puddle,pool"}, //?? not natural/ not an event, but where better???
 
+                        {STAB: true, FLNM:  "water:high:energy"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tidal_wave"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "waterfall"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rough_sea"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flood"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rapids"},
 
                         {STAB: true, FLNM:  "ice"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ice"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "icy,frozen"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "iceberg", NWNT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ice_field", NWNT: true},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "freezing,hardening,solidifying"},
@@ -5939,74 +6140,70 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ice_layer", NWNT: true},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "layer,level"},
                             {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "icing"},    //???to do with cake??  Also?
-
-                        {STAB: true, FLNM:  "terrains"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tropical_rain_forest,jungle"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wilderness"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swamp,bog,marsh"},
     ],
 
-   'WORLD:countries':      [
-                            {SKEY: true,  FLNM: "COUNTRIES"},
+    'WORLD:countries':      [
+                            {SKEY: true,  FLNM: "country"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "country,state"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nation"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "international"},
-                        {STAB: true, FLNM:  "africa"},
+                        {STAB: true, FLNM:  "part_of:africa"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "South_Africa"},
-                        {STAB: true, FLNM:  "americas"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Switzerland"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Ireland"},
+                        {STAB: true, FLNM:  "part_of:nordic"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Norway"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Iceland"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Sweden"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "USA"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Canada"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Poland"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Turkey"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Portugal"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Brazil"},
-                        {STAB: true, FLNM:  "asia"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Finland"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Denmark"},
+                        {STAB: true, FLNM:  "part_of:eastern"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Thailand"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Australia"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Tibet"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Japan"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "China"},
-                       {STAB: true, FLNM:  "europe"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Russia"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Belarus"},
+                        {STAB: true, FLNM:  "part_of:europe"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Germany"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Austria"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Switzerland"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "France"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Scotland"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Ireland"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Poland"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Spain"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Romania"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Latvia"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "United_Kingdom"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Iceland"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Portugal"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Belgium"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Italy"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "England"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Estonia"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Finland"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "France"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Denmark"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Hungary"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Netherlands_(The),Holland"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Ukraine"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Greece"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Czech_Republic"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Austria"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Netherlands_(The),Holland"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Norway"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Spain"},
-                        {STAB: true, FLNM:  "middleast"},
+                        {STAB: true, FLNM:  "part_of:western"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "USA"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Canada"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Brazil"},
+                        {STAB: true, FLNM:  "part_of:southern"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Turkey"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Egypt"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Iraq"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Israel"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "country,state"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Bangladesh"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Russia"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nation"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Iran"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "India"},
-                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Belarus"},
+
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Afghanistan"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Kazakhstan"},
-
     ],
 
-   'WORLD:geological': [
-                            {SKEY: true,  FLNM: "GEOLOGICAL"},
+    'WORLD:geological': [
+                            {SKEY: true,  FLNM: "geological"},
                         {STAB: true, FLNM:  "land"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swamp,bog,marsh"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "earth,ground,land"},
@@ -6020,6 +6217,9 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crack,gap,cleft"},
 
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cave"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mine"},  //mine as in extract metal, man made, does not really belong here
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hill"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mountain"},
 
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spring_(water)"},
 
@@ -6046,17 +6246,23 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "glacier"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fjord"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "canal_(water)"},
+
+                        {STAB: true, FLNM:  "general:type:land"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tropical_rain_forest,jungle"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wilderness"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swamp,bog,marsh"},
+
     ],
 
-    'WORLD:materials':      [
-                         {SKEY: true,  FLNM: "MATERIALS"},
-                         {STAB: true, FLNM:  "basic:substances:types"},
+    'WORLD:material':      [
+                         {SKEY: true,  FLNM: "material"},
+                         {STAB: true, FLNM:  "basic:substance:type"},
                             {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "water,fluid,liquid"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "permeable_material"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "material,raw_material,stuff"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "impermeable_material,insulation_(material)"},
 
-                        {STAB: true, FLNM:  "basic:substances:instances"},
+                        {STAB: true, FLNM:  "basic:substance:example"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plastic"},
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "salt_crystal"},
                             {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "salt"},
@@ -6067,7 +6273,7 @@ Map gLsuperWordMap = {
                             {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "jewel"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "glass_material"},
 
-                        {STAB: true, FLNM:  "metals"},
+                        {STAB: true, FLNM:  "metal:example"},
                             {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mercury"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tin"},
                             {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gold"},
@@ -6079,81 +6285,82 @@ Map gLsuperWordMap = {
 
     ],
 
-    'WORLD:universe':       [
-                         {SKEY: true,  FLNM: "UNIVERSE"},
-                     {STAB: true, FLNM:  "elements:particles:of"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "atom"},
-                     {STAB: true, FLNM:  "solar_system:our"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "solar_eclipse"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "solar_system"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Ceres_(dwarf_planet)"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "star"},
-                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sun"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "comet"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "asteroid"},
-                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "moon"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mercury_(planet)"},
 
+    'WORLD:universe':       [
+                     {SKEY: true,  FLNM: "universe"},
+                     {STAB: true, FLNM:  "part_of:universe"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "atom"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "solar_system"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "constellation_of_stars"},
+                     {STAB: true, FLNM:  "solar_system:our"},
+                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sun"},
+                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "moon"},    //??Of the planet earth
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mercury_(planet)"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Venus_(planet)"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Earth,Tellus_(planet)"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Saturn_(planet)"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Pluto_(dwarf_planet)"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Neptune_(planet)"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Mars_(planet)"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Uranus_(planet)"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Uranus_(planet)"}, //?? = whatever
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Jupiter_(planet)"},
-                     {STAB: true, FLNM:  "Universe"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gas_planet"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Ceres_(dwarf_planet)"},
                          {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Eris_(dwarf_planet)"},
+                     {STAB: true, FLNM:  "universe:other_things"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "star"},
+                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "moon"},  //Generic
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "comet"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "asteroid"},
+                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gas_planet"},
                          {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "galaxy"},
                          {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "elf_(star)"},
-                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "constellation_of_stars"},
                          {CORE: 4, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dwarf_planet"},
-    ],
-
-
-
-//========================================================================================================================
-
-
-    'WORLD:GENERAL': [
-                        {SKEY: true,  FLNM: "GENERAL"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "space_travel,space_voyage,space_flight"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "universal,world-wide"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Universe"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sky"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "horizon"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Earth_axis"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "world"},
     ],
 
 
 /*==================================================================================================================
                                       *****6. LANGUAGE******
 ====================================================================================================================*/
-    'LANGUAGE:how_many_question:groupings': [
-                        {SKEY: true,  FLNM: "HOW:MANY:QUESTIONS:GROUPINGS"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nothing,none"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "quantity_(measurement)"},    //count
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unit,example,sample"},   //instance
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "much,many,very"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "very_much,very_many"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "indefinite"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "collection,pile,tussock_(etc)"}, //nice
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "count"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "a,an,any"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fewer,less"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pair"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "multitude"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "more"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "enough"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "greater_than_(relation)"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "infiniteness,boundlessness,limitlessness"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "some,any"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "too_much,too_many"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "once"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "number"},
 
+
+    'LANGUAGE:frequently:used': [ //TRY TO KEEP SMALL!
+                    {SKEY: true,  FLNM: "frequently:used"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "and,also,plus,too"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "if"},
+                    {STOP: true},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "either"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "neither"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "but,except"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "both"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
+                    {STOP: true},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "or"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nor"},
+                    {STOP: true},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "not,negative,no,don't,doesn't"},
+                    {STOP: true},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "because"},
+
+                    {STOP: true},  //Modifiers that do not belong here?
+                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ability_(half_sized)"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "active,actively"},
+                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "activity,male_gender_(in_combinations)"},
+    ],
+
+
+    'LANGUAGE:how_many_question': [
+                    {SKEY: true,  FLNM: "how_many_question"},
+
+                    {STAB: true, FLNM:  "few"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "few,little"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "once"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nothing,none"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "a,an,any"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "several"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "pair"},
+
+                    {STAB: true, FLNM:  "number"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "number"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "zero_(index_number)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "one_(index_number)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "two_(index_number)"},
@@ -6165,386 +6372,360 @@ Map gLsuperWordMap = {
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "eight_(index_number)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nine_(index_number)"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "few,little"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "infinite,limitless"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fewest,least"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "several"},
+                    {STAB: true, FLNM:  "question"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "how"}, //??
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "how-(question)"}, //??
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "how_much,how_many"},
 
+                    {STAB: true, FLNM:  "more"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "more"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "multitude"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "very_much,very_many"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "much,many,very"},
+
+                    {STAB: true, FLNM:  "many:many"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "indefinite"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "infinite,limitless"},
+
+                    {STAB: true, FLNM:  "evaluation"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fewer,less", OPPS: true},//Evaluative
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "enough"},//Evaluative
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "greater_than_(relation)"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "less_than_(relation)"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "too_much,too_many"}, //Evaluative
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guess,estimate-(to)"},
+
+                    {STAB: true, FLNM:  "group"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "quantity_(measurement)"},    //count
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unit,example,sample"},   //instance
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "collection,pile,tussock_(etc)"}, //nice
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "count"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "infiniteness,boundlessness,limitlessness"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "some,any"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "group_of,much_of,many_of,quantity_of"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "group"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "how"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "how-(question)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "how_much,how_many"},
+
     ],
 
     'LANGUAGE:when_question': [  //These are relative references
-                        {SKEY: true,  FLNM: "QUESTION:WHEN"},
+                        {SKEY: true,  FLNM: "when_question"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "when"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "when,what_time-(question)"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "fresh"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "newness,novelty"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anytime,sometime"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "during,while"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "often,frequent,frequently"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "frequency"},
-                        {CORE: 4, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "frequency_(wave_motion)"},   //Physics also
-
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "suddenly,abrupt,sudden"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anytime,sometime"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "always,ever,forever"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "usually_do,habitually_do-(to)"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wait,waiting"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wait-(to)"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recent,recently"},
-
+                     {STAB: true, FLNM:  "now"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "present"},    //or soon... approximately, indefinite
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "now"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "today"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "finally,at_last"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "this_year"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "this_month"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "still,continuing,ongoing"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "still,continuously"},
-
+                    {STAB: true, FLNM:  "future"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wait,waiting"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wait-(to)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "future"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "future_(uncertain)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "soon"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "today"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tonight"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_week"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_month"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_year"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tomorrow_night"},
+                        //break
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "any_day,someday"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_week"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "this_month"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_month"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "this_year"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next_year"},
 
+                    {STAB: true, FLNM:  "past"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "recent,recently"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "past"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last_night"},
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last_week"},
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last_year"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ago,then_(past)"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sometimes"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "preceding,previous,former,earlier"},
+                    {STAB: true, FLNM:  "not"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
+
+                    {STAB: true, FLNM:  "how_often"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "again"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "late"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "at"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sometimes"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "usually,usual"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ever,whenever"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "often,frequent,frequently"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "frequency"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "still,continuing,ongoing"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "still,continuously"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "during,while"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "usually_do,habitually_do-(to)"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "until,till,to"},
+
+                    {STAB: true, FLNM:  "evaluation"},  //??NO CLEAR LOGIC WITH THESE
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beginning,start"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "fresh"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "newness,novelty"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "preceding,previous,former,earlier"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "late"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "new", OPPS: true},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "old", OPPS: true},  //! OPPOSITE
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "usually,usual"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "current"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "then,so,later"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beginning,start"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ago,then_(past)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "next"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "any_day,someday"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "early"},
-      //SEE CONCEPT:TIME also (absolute)
+
     ],
 
 //============================================================================================
 
 
     'LANGUAGE:where_question': [
-                        {SKEY: true,  FLNM: "QUESTION:WHERE"},
+                        {SKEY: true,  FLNM: "where_question"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "where"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "where-(question)"},
-
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nowhere,no_place"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anywhere,anyplace,someplace,somewhere"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "place,area,location,space"},
 
                     {STAB: true, FLNM:  "where:from"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "imported"},
-
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "return"},
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "return,come_back,reverse-(to)"},
-
 
                     {STAB: true, FLNM:  "where:now"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "near,almost,close,nearly"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nearness,closeness,proximity"},
-
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "near,almost,close,nearly"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "point_of_view"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "top"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "top,top_of_a_thing"},
 
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hidden_thing"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "position"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "height,altitude"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "under_(ground_level)"},
-
+                    {STAB: true, FLNM:  "direction"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "left"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "right"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rear,back_of_a_thing"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "edge"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "side_(enclosure)"}, //??  Wall
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bottom,bottom_of_a_thing"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "top"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "top,top_of_a_thing"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beyond,past"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nowhere,no_place"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "front,front_of_a_thing"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rear,back_of_a_thing"},
+
+                    {STAB: true, FLNM:  "movement"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "end,arrival,stop"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "on"},
-
-                   {STAB: true, FLNM:  "positions:relative"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "over,above,superior"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "under,below,inferior"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "at"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "depth"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deep"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shallow"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shallowness"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "with"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "there"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anywhere,anyplace,someplace,somewhere"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "in,inside,interior,internal"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "from"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "down,downward"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "approach"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "into"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lowness,shortness_(height)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "across"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "up_and_down"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "middle,centre"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "about,concerning,in_relation_to,of,on"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "against,opposed_to"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "between"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farness,remoteness,farawayness"},
-
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "to,toward,towards"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "along_with"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "after,behind"},
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "downward_and_forward"},
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "downward_and_backward"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bottom,base"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "around"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "here"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "before,in_front_of,prior_to"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "down,downward"},
 
+                   {STAB: true, FLNM:  "positions:relative:basic"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "at"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "around"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "on"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "with"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "into"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "across"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "here"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "from"},
+                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "there"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "approach"},
+
+                   {STAB: true, FLNM:  "positions:relative:other"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "along_with"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "before,in_front_of,prior_to"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "after,behind"},
+                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "between"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "through"},   //???
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "point_of_view"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "over,above,superior"},
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "under,below,inferior"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "in,inside,interior,internal"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "middle,centre"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "farness,remoteness,farawayness"},
+
+                   {STAB: true, FLNM:  "at:something:part_of"},  //?? where is IT?   it lies at table EDGE,  is INSIDE bucket...., AGAINST wall...
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "edge"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "side_(enclosure)"}, //??  Wall
+                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bottom,bottom_of_a_thing"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "about,concerning,in_relation_to,of,on"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "against,opposed_to"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bottom,base"},
     ],
 
     'LANGUAGE:which_question': [
-                        {SKEY: true,  FLNM: "QUESTION_WHICH"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "which,that-(relative)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "which-(question)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "all,every,everything,total,whole"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "a,an,any"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "the"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "it"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "special,particular"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "other,another_(thing)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "these"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "this"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "its"}, //??whose
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last,final"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "that_(there)"},
-                        {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "current"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "that_(conj)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "those"},
-
-
-                     {STAB: true, FLNM:  "general"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "special,particular"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "specific"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "switch-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surrounded,encircled,surrounding"},
-
-    ],
-
-    'LANGUAGE:who_question': [
-                        {SKEY: true,  FLNM: "QUESTION:WHO"},
-
-                        {STAB: true, FLNM:  "single"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "I,me,myself"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "I,me,myself-(feminine)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "I,me,myself-(masculine)"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "he,him,himself"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "she,her,herself"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourself"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourself-(masculine_singular)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourselves-(plural)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourself-(feminine_singular)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourselves-(feminine_plural)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(plural)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "self,oneself,ego_(person)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "female,feminine_(person)"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "other,another_(person)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourselves-(masculine_plural)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "he,she,him,her,one"},
-
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anyone,anybody,somebody,someone"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anything,something"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "her,hers"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "we,us,ourselves-(feminine)"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "we,us,ourselves"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(masculine_singular)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "we,us,ourselves-(masculine)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last_(person,etc)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "no_one,nobody"},
+                        {SKEY: true,  FLNM: "which_question"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "which,that-(relative)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "which-(question)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "all,every,everything,total,whole"},
+                        {STAB: true, FLNM:  "alone"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "a,an,any"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "that_(there)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "that_(conj)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "this"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "the"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "it"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "other,another_(thing)"},
 
                         {STAB: true, FLNM:  "plural"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "those"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "these"},
+                        {STAB: true, FLNM:  "time"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last,final"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "current"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "everybody,everyone"},
+                         {STAB: true, FLNM:  "general"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "special,particular"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "its"}, //??whose
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "special,particular"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "specific"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "switch-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surrounded,encircled,surrounding"},
 
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(persons)"},
-
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(feminine_plural)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(indefinite)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(masculine_plural)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "who,that,which-(relative)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "who,whom,that-(relative)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "who,whom-(question)"},
     ],
 
-    'LANGUAGE:whose_question': [  //Ownership
-                        {SKEY: true,  FLNM: "QUESTION:WHOSE"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "belongs_to,of_(possessive)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "own,possess-(to)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ownership,possession"},
+    'LANGUAGE:whose_question': [
+                        {SKEY: true,  FLNM: "whose_question"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "who,that,which-(relative)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "who,whom,that-(relative)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "who,whom-(question)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whose-(question)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whose_(neutral)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whose_(person)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "belongs_to,of_(possessive)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "own,possess-(to)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ownership,possession"},
+                        {STAB: true, FLNM:  "person1"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "my,mine"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "my,mine-(feminine)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "my,mine-(masculine)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "our,ours"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "others_(persons)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "our,ours-(feminine)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "our,ours-(masculine)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "self,oneself,ego_(person)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "I,me,myself"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "I,me,myself-(feminine)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "I,me,myself-(masculine)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "we,us,ourselves"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "we,us,ourselves-(feminine)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "we,us,ourselves-(masculine)"},
+                        {STAB: true, FLNM:  "person2"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourself"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(singular)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourselves-(masculine_plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourself-(masculine_singular)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourselves-(plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourself-(feminine_singular)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "you,yourselves-(feminine_plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "female,feminine_(person)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "other,another_(person)"},
+                        {STAB: true, FLNM:  "person3"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "his"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "his,her,hers,one's"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "he,him,himself"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "she,her,herself"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "he,she,him,her,one"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "her,hers"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "everybody,everyone"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(persons)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(feminine_plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(indefinite)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "they,them,themselves-(masculine_plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(feminine_plural)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(indefinite)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(masculine_plural)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(persons)"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "my,mine"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mine"},  //mine as in extract metal??
+                        {STAB: true, FLNM:  "other"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anyone,anybody,somebody,someone"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "anything,something"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "last_(person,etc)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "no_one,nobody"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Little_My"},    //???
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "borrow-(to)"},    //??????????????
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "common,mutual,shared"},   //???
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "share-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "find-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lose_(fail_to_keep)-(to)"},
+        ],
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Little_My"},    //???
 
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "my,mine-(feminine)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "my,mine-(masculine)"},
+//    'LANGUAGE:what(thing)_question': [ //??How is this different from which_question (overlap with where_question also?)  DROP??
+//                        {SKEY: true,  FLNM: "what(thing)_question"},
+//                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thing,object"},
+//                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "type,kind,sort"},
+//                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what"},
+//                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what,question_mark"},
+//                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what_(thing)-(question)"},
+//                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what_kind-(question)"},
+//    ],
 
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(feminine_singular)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(singular)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(plural)"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "her,hers"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "his"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "his,her,hers,one's"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(feminine_plural)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(indefinite)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(masculine_plural)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "their,theirs-(persons)"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "our,ours"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "others_(persons)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "our,ours-(feminine)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "our,ours-(masculine)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(feminine_plural)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "your,yours-(masculine_plural)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whose-(question)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whose_(neutral)"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "whose_(person)"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "borrow-(to)"},    //??????????????
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "common,mutual,shared"},   //???
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "share-(to)"},
-
-                    {STAB: true, FLNM: "ownership:change:possible"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "find-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "lose_(fail_to_keep)-(to)"},
-    ],
-
-    'LANGUAGE:what': [
-                        {SKEY: true,  FLNM: "QUESTION:WHAT"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thing,object"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "type,kind,sort"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what,question_mark"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what_(thing)-(question)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "what_kind-(question)"},
-    ],
 
     'LANGUAGE:likelyhood' : [
-                        {SKEY: true,  FLNM: "QUESTION:HOW:LIKELY"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trust,confidence"},
+                        {SKEY: true,  FLNM: "likelyhood"},
+                        {STAB: true, FLNM: "basic"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "certain,sure"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "possibility"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "uncertain,unsure"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hope-(to)"},
+                        {STAB: true, FLNM: "outside"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trust,confidence"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "probable,likely,probably"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hope-(to)"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "must_(a)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trust-(to)"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trust-(to)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
+                        {STAB: true, FLNM: "evaluation:future"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "maybe,perhaps,possibly"}, //GENERAL
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guess,estimation"},  //GENERAL
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seem-(to)"}, //??
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "possible"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surprise"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surprise-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surprised"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "seem-(to)"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "probable,likely,probably"},
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "maybe,perhaps,possibly"}, //GENERAL
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guess,estimation"},  //GENERAL
-
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "possibility"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "possible"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "uncertain,unsure"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "certain,sure"},
+                        {STAB: true, FLNM: "evaluation:past"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surprise"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surprise-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "surprised"},
     ],
+
 
     'LANGUAGE:size:about':  [
-                        {SKEY: true,  FLNM: "QUESTION:ABOUT:AND:SIZE"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "size"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "little,small"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thinness,narrowness"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thin,slim,narrow"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fatness,thickness"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fat,thick"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dense,thick,compact,tight,jammed"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "increase,enlarge-(to)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "littleness,smallness"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "part,bit,piece,portion,part_of"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wideness,broadness"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flat"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bigness,largeness"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "big,large"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gigantic"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "enormous"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "huge"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wide,broad"},
-
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "low,short"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "length,longness"},
+                        {SKEY: true,  FLNM: "size:about"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "length,longness"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bigness,largeness"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "littleness,smallness"},
+                        {STAB: true, FLNM: "listtle,small"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "size"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "little,small"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thinness,narrowness"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thin,slim,narrow"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "narrow"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "low,short"},
+                        {STAB: true, FLNM: "big,large"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "big,large"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gigantic"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "enormous"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "huge"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fatness,thickness"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wideness,broadness"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wide,broad"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fat,thick"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dense,thick,compact,tight,jammed"},
+                        {STAB: true, FLNM: "change"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "increase,enlarge-(to)", OPPS: true},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decrease,reduce-(to)",  OPPS: true},
+                        {STOP: true},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "part,bit,piece,portion,part_of"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "flat"},
     ],
 
+
+    //@@@===============================================================================================================
+
     'LANGUAGE:motion:force':[
-                        {SKEY: true,  FLNM: "QUESTION:MOVEMENT:FORCE"},
+                        {SKEY: true,  FLNM: "motion:force"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "move_(change_position)-(to)"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "move,movement"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "move-(to)"},
@@ -6558,11 +6739,9 @@ Map gLsuperWordMap = {
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meeting,encounter"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "meeting_and_parting"},
 
-
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bump,press,pressing"}, //??
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "roll-(to)"}, //??
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "slide"}, //??
-
                         //opposites, gathering/dispersion
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gathering,assembly,meeting,conference"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dispersion,dissemination,scattering,spread,spreading"},
@@ -6629,8 +6808,8 @@ Map gLsuperWordMap = {
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "wiggly"},
     ],
 
-    'LANGUAGE:evaluate':    [
-                        {SKEY: true,  FLNM: "EVALUATE"},
+    'LANGUAGE:evaluate':    [  //??NOTE - Seems like an opportunity for "scales" exist here, e.g. from Best->better->good....->worst
+                        {SKEY: true,  FLNM: "evaluate"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evaluate-(to)"},
 
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "should,would-(modal_aux_v)"},  //??? GENERAL
@@ -6642,6 +6821,8 @@ Map gLsuperWordMap = {
 
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evaluation,value"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "evaluation,value_(half-sized)"},
+
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guess,estimate-(to)"},
 
 
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "checked"},
@@ -6719,7 +6900,6 @@ Map gLsuperWordMap = {
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "book"},
                         {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "metal_bar"},
 
-
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "filled,stuffed"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "filling,fill,fullness"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "empty"},
@@ -6793,90 +6973,96 @@ Map gLsuperWordMap = {
 
     'LANGUAGE:logic':       [
                         {SKEY: true,  FLNM: "LOGIC"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mental,intellectual,rational,thinking"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "correct_thinking"},  //WHY_WORD?
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "incorrect_thinking"}, //WHY_WORD?
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "mistake,error,fault"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "problem"}, //??
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "think,reason-(to)"},   //GENERAL
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plan,design-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dichotomy,duality"}, //??   also artistic?
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "correct_thinking"},  //WHY_WORD?
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "plan,design-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dichotomy,duality"}, //??   also artistic?
+                        {STAB: true, FLNM:  "begin"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "problem"}, //??
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "idea,thought"},  //GENERAL
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "causality"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mental,intellectual,rational,thinking"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sceptical,skeptical,questioning"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scepticism,skepticism"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "think,reason-(to)"},   //GENERAL
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hypothesis,theory"},  //GENERAL
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fact"},
 
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "idea,thought"},  //GENERAL
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hypothesis,theory"},  //GENERAL
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dilemma"}, //??  not a bad place for this?
+                        {STAB: true, FLNM:  "part_of:logic"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "statement"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "function"},  //?? not sure of use here, weak assoc here?
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "if"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "either"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "neither"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "but,except"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "both"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "because"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "must_(a)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "or"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nor"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "and,also,plus,too"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equal-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "not,negative,no,don't,doesn't"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "generalization"},
+                        {STAB: true, FLNM:  "logic:tool"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "exchange,substitution"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "opposite_meaning,opposite_of,opposite"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cause-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "outcome,result"},
 
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "truth", OPPS: true},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "lie",   OPPS: true},   //OPPOSITE
+                        {STAB: true, FLNM:  "arithmetic"},
+                            {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "greater_than_(relation)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "less_than_(relation)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "limit(s),limitation,restriction"},
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "limited,restricted,confined"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "for_(in_exchange_for)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "most,maximum"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "minus,no,without"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "addition,gain"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "add,gain-(to)"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sceptical,skeptical,questioning"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "scepticism,skepticism"},
+                        {STAB: true, FLNM:  "result:success"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "truth"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "true,truly,truthful,truthfully"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "same,equal,equality"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equal,same"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "correctness"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "correct,accurate,good,right"},
+
+                        {STAB: true, FLNM:  "result:failure"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "incorrect,bad,inaccurate,wrong"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "incorrect_thinking"}, //WHY_WORD?
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "mistake,error,fault"},
+                            {CORE: 0, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "lie"},   //OPPOSITE
+                            {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mislead-(to)"},  //??This is a difficult one, point - purposeful or not?
 
 
-                        {CORE:1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "exchange,substitution"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "error,mishap"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fail-(to)"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "not,negative,no,don't,doesn't"},
+                        {STAB: true, FLNM:  "other"}, //numbers
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "although"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dilemma"}, //??  not a bad place for this?
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "generalization"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "therefore,so,so_that"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "different,other"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unless"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "by,by_means_of,of"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "same,equal,equality"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cause"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "each,every"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grow-(to)"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "each_other,one_another"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "apparent(ly),clear(ly),evident(ly),obvious(ly),plain(ly)"},
+                            {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "effect,result"},
 
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "therefore,so,so_that"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "different,other"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "most,maximum"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unless"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "by,by_means_of,of"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "longer"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cause"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "much,many,very"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "each,every"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "or"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "causality"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "correct,accurate,good,right"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "grow-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "each_other,one_another"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cause-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "outcome,result"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "apparent(ly),clear(ly),evident(ly),obvious(ly),plain(ly)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fewer,less"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "more"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "if"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decision"},
 
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "effect,result"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "opposite_meaning,opposite_of,opposite"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decision"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dependent"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "about,concerning,in_relation_to,of,on"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "existence,being_(2)"},
 
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "for_(in_exchange_for)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "minus,no,without"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equal,same"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "both"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "never"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "correctness"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dependent"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "about,concerning,in_relation_to,of,on"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "addition,gain"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "add,gain-(to)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "but,except"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "always,ever,forever"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "true,truly,truthful,truthfully"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "existence,being_(2)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "until,till,to"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "incorrect,bad,inaccurate,wrong"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "either"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "must_(a)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deletion,cancellation,destruction"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "guess,estimate-(to)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "equal-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "although"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "neither"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "error,mishap"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "statement"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fail-(to)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "and,also,plus,too"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "nor"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "less_than_(relation)"},
-                        {CORE: 0, FREQ: -5, KEYS: [], ASSC: false, FLNM: "because"},
-                        {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fact"},
+                            {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deletion,cancellation,destruction"},
     ],
 
     'LANGUAGE:PHRASES:': [
@@ -6958,8 +7144,8 @@ Map gLsuperWordMap = {
 //         */
 //    ],
 
-    'LANGUAGE:GENERAL': [
-                        {SKEY: true,  FLNM: "GENERAL"},
+    'LANGUAGE:general': [
+                        {SKEY: true,  FLNM: "general"},
                     {STAB: true, FLNM:  "sentence:parts"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "sentence,clause,phrase"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "comma"},
@@ -7020,7 +7206,7 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "be_named,be_called-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "be_patient-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "beg,plead-(to)"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "begin,start-(to)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bend-(to)"},
@@ -7160,7 +7346,9 @@ Map gLsuperWordMap = {
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fall_asleep-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fast-(to)"},
+//                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fast-(to)"}, //Go without eating
+
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fasten,attach,join,append,connect-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fax-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fear,be_afraid,dread-(to)"},
@@ -7169,11 +7357,15 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fill-(to)"},  //mirror
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fingerspell-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "finish,complete-(to)"},  //mirror
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fish-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: true,  FLNM: "shoal,school_(of_fish)"},
+                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "finish,complete-(to)"},  //mirror/
+
+
+
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "float-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fly-(to)"},
+
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fold,pleat-(to)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "follow-(to)"},
@@ -7181,7 +7373,7 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forget-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "forgive,pardon-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "fry,saute-(to)"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "function-(to)"}, //mirror
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "gamble-(to)"},
 
@@ -7230,21 +7422,23 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "exchange,substitute,trade-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "exclude-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crawl-(to)"},
+
+
+
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "create-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cremate-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cross-(to)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crush,squeeze-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cure-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cut_(knife)-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cut_(scissors)-(to)"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "cut_and_paste_(computer)-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dance-(to)"},  //mirror
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dare-(to)"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decide-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deep-fry-(to)"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "defend_(speak)-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "deflate,let_out_air-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "delete_(computer)-(to)"},
@@ -7258,13 +7452,11 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "detest,despise-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "develop-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hop-(to)"},
-
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vertical"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "vertical-(a)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hurry,rush-(to)"}, //mirror
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "hum-(to)"},
+
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "illustrate-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "import-(to)"},  //mirror
@@ -7273,8 +7465,7 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "improve-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "include-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "increase,enlarge-(to)", OPPS: true},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decrease,reduce-(to)",  OPPS: true},
+
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "penetrate,go_through-(to)"},
 
@@ -7308,17 +7499,13 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stretch_(elongate)-(to)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "interview-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "disagree,discord,disaccord-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "mislead-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "must,have_to,be_forced_to-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "react-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "turn-(to)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dig-(to)"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "persuade,convince-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "introduce,present-(to)"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "keep,preserve,save-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "limit,restrict,restrain,confine-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "live,dwell,reside-(to)"},
@@ -7430,25 +7617,16 @@ Map gLsuperWordMap = {
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "indicator_(things)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "indicator_(third_person)"},
 
-
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Valentine_(card)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "same_sound"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "select_all,mark_all-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "reclaim_(marshes_etc)-(to)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "raised_wavy_line"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crossed_racquets"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "metal_bar"},    //metal_rod, metal_stick, plastic_bar?    ... why would 'metal_bar' be a word???  hint - is a subsymbol, but so??
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shipping_forecast"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tuft_of_grass,tussock"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "conductive_education"},   //educational system that has been specifically developed for children &adults who have motor disorders
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "floating_container"},     //what would this be,not a boat but... raft?
+
+
+
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "negative_dependency"},   //??What is a negative dependency?  an independency?
 
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "finger_spelling,finger_alphabet"}, //??
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trap"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "trap-(to)"},
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unfold-(to)"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "unfolding"},
@@ -7457,66 +7635,84 @@ Map gLsuperWordMap = {
 
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "thread,string,cord"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "together,attached,appended,fastened,joined"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ruin,wreck,wreckage_(building)_(2)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ruin_(castle),castle_ruin"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swash"}, //??noun The rush of seawater up the beach after the breaking of a wave.
 
                         //THESE ARE THE VERY LAST ~50 WORDS AFTER FIRST EFFORTS AT CATEGORIZING
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ability_(half_sized)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "active,actively"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "activity,male_gender_(in_combinations)"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alpana,rangoli_(decoration)"},
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alternating"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "arrow_(bent)"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "attachment,appendix,annex"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bindi,tika_(decoration)"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "blot"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "case,casing"},
 
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "core_activity"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "corner_(room)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "current_events"},
+
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "decoration,ornament"},
+
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "definition"},
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "detachment,separation,breakup"},
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "development"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "dotted"},
+
+
+
+
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "empowered"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "emptying,voidance,evacuation"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "foundation,base,fundament"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "function"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "imported"},
+
+
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "imprint,depression"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "imprint,trace,track"},
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "intensity"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "limit(s),limitation,restriction"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "limited,restricted,confined"},
+
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "list,inventory"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "message,content_(communication)"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "net"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "overlay"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "portability"},
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "portable"},
 
                         {CORE: 2, FREQ: -5, KEYS: [], ASSC: false, FLNM: "ready,prepared"},
                         {CORE: 1, FREQ: -5, KEYS: [], ASSC: false, FLNM: "preparation,readying,readiness,preparedness"},
 
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "puddle,pool"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spirit"},
+
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "spray_bottle,vaporizer,spray_can"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "stand-in,substitute,alternate"},
                         {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "striped"},
-
-                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tap_(2)"},
+                        {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tap_(2)"},  //??
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "treat"},
                         {CORE: 3, FREQ: -5, KEYS: [], ASSC: false, FLNM: "turn,turning"},
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "out_of_body_(upward)"},  //where would this be used.
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rack,single-foot-(to)"},  //WHAT THE HECK?
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tuft_of_grass,tussock"},  //Can't think how to use
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "toy_(in_combinations)"}, //What does this mean?, basic symbol?
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "suicide", ADLT: true},   //adult?
-                        {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tracker", NUBA: true},   //Not sure what is meant here, as attached to ankle?
+
+                    /* NOTES ON MISSING WORDS, ISSUES
+
+                        'task' seems to be a missing word, "Job" is too big for something that takes 20 minutes...
+
+
+
+
+
+
+                     */
+
+
+                    //QUESTIONABLE/AND OR DIFFICULT WORDS (TO CATEGORIZE), PERHAPS CAN/SHOULD BE CONSIDERED FOR REMOVAL FROM THE VOCABULARY
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "same_sound"},  //How used?, does this need to be one word?
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "crossed_racquets"},
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "metal_bar"},    //metal_rod, metal_stick, plastic_bar?    ... why would 'metal_bar' be a word???  hint - is a subsymbol, but so??
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "Valentine_(card)"},
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "alpana,rangoli_(decoration)"},  //India art form
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "bindi,tika_(decoration)"},
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "swash"}, //??noun The rush of seawater up the beach after the breaking of a wave.
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "shipping_forecast"},
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tuft_of_grass,tussock"},
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "conductive_education"},   //educational system that has been specifically developed for children &adults who have motor disorders
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "floating_container"},     //what would this be,not a boat but... raft?
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "out_of_body_(upward)"},  //where would this be used.
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "rack,single-foot-(to)"},  //WHAT THE HECK?
+//                       {CORE: 5, FREQ: -5, KEYS: [], ASSC: false, FLNM: "tracker", NUBA: true},   //Not sure what is meant here, as attached to ankle?
+
     ],
 
 };
