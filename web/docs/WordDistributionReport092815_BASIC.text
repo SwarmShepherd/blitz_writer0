@@ -1,784 +1,903 @@
-index.html:1 Observatory listening at http://127.0.0.1:44942/
+index.html:1 Observatory listening at http://127.0.0.1:34463/
 
-SUPERKEYGROUP:   PEOPLE::FAMILY:AND:RELATIONS,     SuperKeyN: 1
+SUPERKEYGROUP:   PEOPLE::relations,     SuperKeyN: 1
 =============================================================================
-CoreLvlN: Lvl0:15, Lvl1: 5, Lvl2: 13, Lvl3: 24, Lvl4: 3, Lvl5: 22  nWords: 82
-nWords <= maxCoreLevel (4)     is: 60
+CoreLvlN: Lvl0:16, Lvl1: 4, Lvl2: 12, Lvl3: 29, Lvl4: 4, Lvl5: 17  nWords: 82
+nWords <= maxCoreLevel (4)     is: 65
 
 
 
-SUPERKEYGROUP:   PEOPLE::BODY:ORGAN:GLANDS:INTERNAL:NOT:REPRODUCTION,     SuperKeyN: 2
+SUPERKEYGROUP:   PEOPLE::body_part,     SuperKeyN: 2
 =============================================================================
-CoreLvlN: Lvl0:15, Lvl1: 11, Lvl2: 16, Lvl3: 28, Lvl4: 4, Lvl5: 71  nWords: 146
-nWords <= maxCoreLevel (4)     is: 74
+CoreLvlN: Lvl0:15, Lvl1: 11, Lvl2: 17, Lvl3: 29, Lvl4: 4, Lvl5: 73  nWords: 150
+nWords <= maxCoreLevel (4)     is: 76
 
 
 
-SUPERKEYGROUP:   PEOPLE::BODY:SENSE,     SuperKeyN: 3
+SUPERKEYGROUP:   PEOPLE::body_part:sense,     SuperKeyN: 3
 =============================================================================
-CoreLvlN: Lvl0:15, Lvl1: 16, Lvl2: 19, Lvl3: 29, Lvl4: 0, Lvl5: 25  nWords: 104
+CoreLvlN: Lvl0:15, Lvl1: 16, Lvl2: 19, Lvl3: 29, Lvl4: 0, Lvl5: 27  nWords: 106
 nWords <= maxCoreLevel (4)     is: 79
 
 
 
-SUPERKEYGROUP:   PEOPLE::BABY:CHILD,     SuperKeyN: 4
+SUPERKEYGROUP:   PEOPLE::baby:child,     SuperKeyN: 4
 =============================================================================
-CoreLvlN: Lvl0:14, Lvl1: 35, Lvl2: 10, Lvl3: 10, Lvl4: 4, Lvl5: 38  nWords: 112
-nWords <= maxCoreLevel (4)     is: 73
+CoreLvlN: Lvl0:14, Lvl1: 37, Lvl2: 11, Lvl3: 15, Lvl4: 3, Lvl5: 42  nWords: 123
+nWords <= maxCoreLevel (4)     is: 80
 
 
 
-SUPERKEYGROUP:   PEOPLE::EARLY:TO:CHILDHOOD,     SuperKeyN: 5
+SUPERKEYGROUP:   PEOPLE::child:plus,     SuperKeyN: 5
 =============================================================================
-CoreLvlN: Lvl0:10, Lvl1: 22, Lvl2: 10, Lvl3: 34, Lvl4: 3, Lvl5: 19  nWords: 98
-nWords <= maxCoreLevel (4)     is: 79
+CoreLvlN: Lvl0:10, Lvl1: 22, Lvl2: 11, Lvl3: 34, Lvl4: 3, Lvl5: 23  nWords: 103
+nWords <= maxCoreLevel (4)     is: 80
 
 
 
-SUPERKEYGROUP:   PEOPLE::TEEN:YEARS,     SuperKeyN: 6
+SUPERKEYGROUP:   PEOPLE::teenager,     SuperKeyN: 6
 =============================================================================
-CoreLvlN: Lvl0:9, Lvl1: 0, Lvl2: 2, Lvl3: 40, Lvl4: 0, Lvl5: 0  nWords: 51
+CoreLvlN: Lvl0:9, Lvl1: 0, Lvl2: 2, Lvl3: 40, Lvl4: 0, Lvl5: 2  nWords: 53
 nWords <= maxCoreLevel (4)     is: 51
 
 
 
-SUPERKEYGROUP:   PEOPLE::ADULTHOOD,     SuperKeyN: 7
+SUPERKEYGROUP:   PEOPLE::adult,     SuperKeyN: 7
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 42, Lvl4: 0, Lvl5: 6  nWords: 48
-nWords <= maxCoreLevel (4)     is: 42
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 43, Lvl4: 0, Lvl5: 10  nWords: 53
+nWords <= maxCoreLevel (4)     is: 43
 
 
 
-SUPERKEYGROUP:   PEOPLE::ELDERLY:GOLDEN:YEARS,     SuperKeyN: 8
+SUPERKEYGROUP:   PEOPLE::elderly,     SuperKeyN: 8
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 39, Lvl4: 0, Lvl5: 0  nWords: 39
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 39, Lvl4: 0, Lvl5: 4  nWords: 43
 nWords <= maxCoreLevel (4)     is: 39<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::EAT:DRINK:DESSERTS,     SuperKeyN: 9
+SUPERKEYGROUP:   PEOPLE::eat:drink:dessert:,     SuperKeyN: 9
 =============================================================================
-CoreLvlN: Lvl0:15, Lvl1: 8, Lvl2: 3, Lvl3: 48, Lvl4: 0, Lvl5: 16  nWords: 90
-nWords <= maxCoreLevel (4)     is: 74
+CoreLvlN: Lvl0:16, Lvl1: 9, Lvl2: 3, Lvl3: 49, Lvl4: 0, Lvl5: 17  nWords: 94
+nWords <= maxCoreLevel (4)     is: 77
 
 
 
-SUPERKEYGROUP:   PEOPLE::EAT:FOOD:NATURAL,     SuperKeyN: 10
+SUPERKEYGROUP:   PEOPLE::eat:food:natural,     SuperKeyN: 10
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 73, Lvl4: 1, Lvl5: 40  nWords: 120
+CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 73, Lvl4: 1, Lvl5: 43  nWords: 123
 nWords <= maxCoreLevel (4)     is: 79
 
 
 
-SUPERKEYGROUP:   PEOPLE::EAT:FOOD:PREPARED,     SuperKeyN: 11
+SUPERKEYGROUP:   PEOPLE::eat:food:prepared,     SuperKeyN: 11
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 8, Lvl3: 63, Lvl4: 1, Lvl5: 34  nWords: 108
-nWords <= maxCoreLevel (4)     is: 74
+CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 9, Lvl3: 63, Lvl4: 1, Lvl5: 37  nWords: 113
+nWords <= maxCoreLevel (4)     is: 76
 
 
 
-SUPERKEYGROUP:   PEOPLE::TO:PEOPLE:COMMUNICATIONS,     SuperKeyN: 12
+SUPERKEYGROUP:   PEOPLE::PEOPLE:with:PEOPLE:communication,     SuperKeyN: 12
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 8, Lvl2: 4, Lvl3: 41, Lvl4: 0, Lvl5: 0  nWords: 55
-nWords <= maxCoreLevel (4)     is: 55
+CoreLvlN: Lvl0:3, Lvl1: 8, Lvl2: 4, Lvl3: 42, Lvl4: 0, Lvl5: 5  nWords: 62
+nWords <= maxCoreLevel (4)     is: 57
 
 
 
-SUPERKEYGROUP:   PEOPLE::BODY:MEDICAL:ASSISTANCE,     SuperKeyN: 13
+SUPERKEYGROUP:   PEOPLE::body_part:medical_aid,     SuperKeyN: 13
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 0, Lvl3: 53, Lvl4: 0, Lvl5: 0  nWords: 54
+CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 0, Lvl3: 53, Lvl4: 0, Lvl5: 2  nWords: 56
 nWords <= maxCoreLevel (4)     is: 54
 
 
 
-SUPERKEYGROUP:   PEOPLE::DO:ACTIVITIES:CAREER,     SuperKeyN: 14
+SUPERKEYGROUP:   PEOPLE::do:sometimes:work,     SuperKeyN: 14
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 4, Lvl2: 2, Lvl3: 70, Lvl4: 0, Lvl5: 0  nWords: 78
-nWords <= maxCoreLevel (4)     is: 78
+CoreLvlN: Lvl0:2, Lvl1: 4, Lvl2: 2, Lvl3: 72, Lvl4: 0, Lvl5: 4  nWords: 84
+nWords <= maxCoreLevel (4)     is: 80
 
 
 
-SUPERKEYGROUP:   PEOPLE::ARE:CAREER:PROFESSION,     SuperKeyN: 15
+SUPERKEYGROUP:   PEOPLE::are:career:plus:degree,     SuperKeyN: 15
 =============================================================================
-CoreLvlN: Lvl0:1, Lvl1: 2, Lvl2: 12, Lvl3: 58, Lvl4: 0, Lvl5: 18  nWords: 91
-nWords <= maxCoreLevel (4)     is: 73
+CoreLvlN: Lvl0:1, Lvl1: 2, Lvl2: 12, Lvl3: 60, Lvl4: 0, Lvl5: 19  nWords: 94
+nWords <= maxCoreLevel (4)     is: 75
 
 
 
-SUPERKEYGROUP:   PEOPLE::CAREER:VOCATIONS,     SuperKeyN: 16
+SUPERKEYGROUP:   PEOPLE::are:career:minus:degree,     SuperKeyN: 16
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 58, Lvl4: 0, Lvl5: 0  nWords: 58
-nWords <= maxCoreLevel (4)     is: 58
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 1, Lvl3: 58, Lvl4: 0, Lvl5: 2  nWords: 61
+nWords <= maxCoreLevel (4)     is: 59
 
 
 
-SUPERKEYGROUP:   PEOPLE::WEAR,     SuperKeyN: 17
+SUPERKEYGROUP:   PEOPLE::wear,     SuperKeyN: 17
 =============================================================================
 CoreLvlN: Lvl0:7, Lvl1: 4, Lvl2: 15, Lvl3: 46, Lvl4: 3, Lvl5: 14  nWords: 89
 nWords <= maxCoreLevel (4)     is: 75
 
 
 
-SUPERKEYGROUP:   PEOPLE::HOUSING,     SuperKeyN: 18
+SUPERKEYGROUP:   PEOPLE::housing,     SuperKeyN: 18
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 2, Lvl2: 2, Lvl3: 9, Lvl4: 1, Lvl5: 0  nWords: 16
-nWords <= maxCoreLevel (4)     is: 16<<<<<<<LESS than target
+CoreLvlN: Lvl0:2, Lvl1: 2, Lvl2: 3, Lvl3: 12, Lvl4: 1, Lvl5: 5  nWords: 25
+nWords <= maxCoreLevel (4)     is: 20<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::ILLNESS,     SuperKeyN: 19
+SUPERKEYGROUP:   PEOPLE::illness,     SuperKeyN: 19
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 7, Lvl3: 31, Lvl4: 0, Lvl5: 5  nWords: 46
 nWords <= maxCoreLevel (4)     is: 41
 
 
 
-SUPERKEYGROUP:   PEOPLE::MIND:FEELINGS:ATTITUDE,     SuperKeyN: 20
+SUPERKEYGROUP:   PEOPLE::state_of_mind,     SuperKeyN: 20
 =============================================================================
-CoreLvlN: Lvl0:9, Lvl1: 3, Lvl2: 17, Lvl3: 49, Lvl4: 1, Lvl5: 32  nWords: 111
-nWords <= maxCoreLevel (4)     is: 79
+CoreLvlN: Lvl0:9, Lvl1: 3, Lvl2: 17, Lvl3: 50, Lvl4: 1, Lvl5: 34  nWords: 114
+nWords <= maxCoreLevel (4)     is: 80
 
 
 
-SUPERKEYGROUP:   PEOPLE::MIND:GENERAL,     SuperKeyN: 21
+SUPERKEYGROUP:   PEOPLE::mind:general,     SuperKeyN: 21
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 2, Lvl3: 22, Lvl4: 0, Lvl5: 8  nWords: 34
-nWords <= maxCoreLevel (4)     is: 26<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 2, Lvl3: 22, Lvl4: 0, Lvl5: 11  nWords: 36
+nWords <= maxCoreLevel (4)     is: 25<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::POETRY:MUSIC,     SuperKeyN: 22
+SUPERKEYGROUP:   PEOPLE::poetry:plus:music,     SuperKeyN: 22
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 75, Lvl4: 0, Lvl5: 23  nWords: 98
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 75, Lvl4: 0, Lvl5: 24  nWords: 99
 nWords <= maxCoreLevel (4)     is: 75
 
 
 
-SUPERKEYGROUP:   PEOPLE::NAMES:AND:IMAGINARY,     SuperKeyN: 23
+SUPERKEYGROUP:   PEOPLE::name:plus:imaginary,     SuperKeyN: 23
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 15, Lvl4: 0, Lvl5: 63  nWords: 79
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 15, Lvl4: 0, Lvl5: 64  nWords: 80
 nWords <= maxCoreLevel (4)     is: 15<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::SPORTS,     SuperKeyN: 24
+SUPERKEYGROUP:   PEOPLE::sport,     SuperKeyN: 24
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 71, Lvl4: 1, Lvl5: 70  nWords: 147
+CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 71, Lvl4: 1, Lvl5: 73  nWords: 150
 nWords <= maxCoreLevel (4)     is: 77
 
 
 
-SUPERKEYGROUP:   PEOPLE::GROUPINGS,     SuperKeyN: 25
+SUPERKEYGROUP:   PEOPLE::group,     SuperKeyN: 25
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 5, Lvl2: 9, Lvl3: 24, Lvl4: 0, Lvl5: 4  nWords: 42
 nWords <= maxCoreLevel (4)     is: 38<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::DISABILITY,     SuperKeyN: 26
+SUPERKEYGROUP:   PEOPLE::disability,     SuperKeyN: 26
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 21, Lvl4: 0, Lvl5: 0  nWords: 21
 nWords <= maxCoreLevel (4)     is: 21<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::BOOKS,     SuperKeyN: 27
+SUPERKEYGROUP:   PEOPLE::book:plus:subject,     SuperKeyN: 27
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 36, Lvl4: 0, Lvl5: 0  nWords: 36
-nWords <= maxCoreLevel (4)     is: 36<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 37, Lvl4: 0, Lvl5: 0  nWords: 37
+nWords <= maxCoreLevel (4)     is: 37<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   PEOPLE::USE:TRANSPORT,     SuperKeyN: 28
+SUPERKEYGROUP:   PEOPLE::use:transport,     SuperKeyN: 28
 =============================================================================
-CoreLvlN: Lvl0:1, Lvl1: 1, Lvl2: 14, Lvl3: 32, Lvl4: 6, Lvl5: 10  nWords: 65
+CoreLvlN: Lvl0:1, Lvl1: 1, Lvl2: 15, Lvl3: 31, Lvl4: 6, Lvl5: 10  nWords: 65
 nWords <= maxCoreLevel (4)     is: 54
 
 
 
-SUPERKEYGROUP:   PEOPLE::PEOPLE:USE,     SuperKeyN: 29
+SUPERKEYGROUP:   PEOPLE::use:general,     SuperKeyN: 29
 =============================================================================
-CoreLvlN: Lvl0:8, Lvl1: 13, Lvl2: 9, Lvl3: 44, Lvl4: 1, Lvl5: 14  nWords: 89
-nWords <= maxCoreLevel (4)     is: 75
+CoreLvlN: Lvl0:8, Lvl1: 10, Lvl2: 4, Lvl3: 33, Lvl4: 1, Lvl5: 9  nWords: 65
+nWords <= maxCoreLevel (4)     is: 56
 
 
 
-SUPERKEYGROUP:   PEOPLE::VISIT:PLACES,     SuperKeyN: 30
+SUPERKEYGROUP:   PEOPLE::visit:places,     SuperKeyN: 30
 =============================================================================
-CoreLvlN: Lvl0:5, Lvl1: 9, Lvl2: 29, Lvl3: 31, Lvl4: 5, Lvl5: 40  nWords: 119
-nWords <= maxCoreLevel (4)     is: 79
+CoreLvlN: Lvl0:5, Lvl1: 9, Lvl2: 29, Lvl3: 32, Lvl4: 5, Lvl5: 52  nWords: 132
+nWords <= maxCoreLevel (4)     is: 80
 
 
 
-SUPERKEYGROUP:   PEOPLE::HOUSE:CLEAN:WORK:REPAIRS,     SuperKeyN: 31
+SUPERKEYGROUP:   PEOPLE::house:clean:work:repair,     SuperKeyN: 31
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 14, Lvl3: 37, Lvl4: 1, Lvl5: 0  nWords: 55
-nWords <= maxCoreLevel (4)     is: 55
+CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 14, Lvl3: 34, Lvl4: 1, Lvl5: 6  nWords: 58
+nWords <= maxCoreLevel (4)     is: 52
 
 
 
-SUPERKEYGROUP:   SCENES::TRANSPORT:AIR,     SuperKeyN: 32
+SUPERKEYGROUP:   SCENES::transport:sky,     SuperKeyN: 32
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 4, Lvl3: 8, Lvl4: 4, Lvl5: 7  nWords: 33
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 4, Lvl3: 8, Lvl4: 4, Lvl5: 8  nWords: 35
 nWords <= maxCoreLevel (4)     is: 16<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::TRANSPORT:LAND,     SuperKeyN: 33
+SUPERKEYGROUP:   SCENES::transport:land,     SuperKeyN: 33
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 4, Lvl3: 35, Lvl4: 1, Lvl5: 9  nWords: 53
+CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 5, Lvl3: 34, Lvl4: 1, Lvl5: 10  nWords: 54
 nWords <= maxCoreLevel (4)     is: 43
 
 
 
-SUPERKEYGROUP:   SCENES::TRANSPORT:WATER,     SuperKeyN: 34
+SUPERKEYGROUP:   SCENES::transport:water,     SuperKeyN: 34
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 38, Lvl4: 1, Lvl5: 10  nWords: 54
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 38, Lvl4: 1, Lvl5: 11  nWords: 55
 nWords <= maxCoreLevel (4)     is: 39<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::TRANSPORT:HORSE,     SuperKeyN: 35
+SUPERKEYGROUP:   SCENES::horse,     SuperKeyN: 35
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 7, Lvl4: 0, Lvl5: 42  nWords: 50
-nWords <= maxCoreLevel (4)     is: 7<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 11, Lvl4: 0, Lvl5: 40  nWords: 52
+nWords <= maxCoreLevel (4)     is: 11<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::SPORT,     SuperKeyN: 36
+SUPERKEYGROUP:   SCENES::camp:plus:sport,     SuperKeyN: 36
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 6, Lvl3: 22, Lvl4: 1, Lvl5: 0  nWords: 29
-nWords <= maxCoreLevel (4)     is: 29<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 6, Lvl3: 24, Lvl4: 1, Lvl5: 3  nWords: 34
+nWords <= maxCoreLevel (4)     is: 31<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::FOOD:PREPARATION,     SuperKeyN: 37
+SUPERKEYGROUP:   SCENES::food:preparation,     SuperKeyN: 37
 =============================================================================
-CoreLvlN: Lvl0:1, Lvl1: 4, Lvl2: 2, Lvl3: 60, Lvl4: 2, Lvl5: 2  nWords: 71
-nWords <= maxCoreLevel (4)     is: 69
+CoreLvlN: Lvl0:1, Lvl1: 4, Lvl2: 2, Lvl3: 61, Lvl4: 2, Lvl5: 9  nWords: 79
+nWords <= maxCoreLevel (4)     is: 70
 
 
 
-SUPERKEYGROUP:   SCENES::HOME,     SuperKeyN: 38
+SUPERKEYGROUP:   SCENES::home,     SuperKeyN: 38
 =============================================================================
-CoreLvlN: Lvl0:6, Lvl1: 13, Lvl2: 30, Lvl3: 19, Lvl4: 1, Lvl5: 13  nWords: 82
-nWords <= maxCoreLevel (4)     is: 69
+CoreLvlN: Lvl0:6, Lvl1: 13, Lvl2: 32, Lvl3: 23, Lvl4: 1, Lvl5: 17  nWords: 92
+nWords <= maxCoreLevel (4)     is: 75
 
 
 
-SUPERKEYGROUP:   SCENES::PLAYING,     SuperKeyN: 39
+SUPERKEYGROUP:   SCENES::playing,     SuperKeyN: 39
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 1, Lvl3: 43, Lvl4: 0, Lvl5: 0  nWords: 46
 nWords <= maxCoreLevel (4)     is: 46
 
 
 
-SUPERKEYGROUP:   SCENES::ENTERTAINMENT,     SuperKeyN: 40
+SUPERKEYGROUP:   SCENES::entertainment,     SuperKeyN: 40
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 1, Lvl3: 21, Lvl4: 0, Lvl5: 0  nWords: 25
-nWords <= maxCoreLevel (4)     is: 25<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 4, Lvl2: 2, Lvl3: 28, Lvl4: 0, Lvl5: 1  nWords: 35
+nWords <= maxCoreLevel (4)     is: 34<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::CONFERENCE:STUDY,     SuperKeyN: 41
+SUPERKEYGROUP:   SCENES::conference,     SuperKeyN: 41
 =============================================================================
 CoreLvlN: Lvl0:1, Lvl1: 1, Lvl2: 1, Lvl3: 43, Lvl4: 0, Lvl5: 0  nWords: 46
 nWords <= maxCoreLevel (4)     is: 46
 
 
 
-SUPERKEYGROUP:   SCENES::SHOPPING,     SuperKeyN: 42
+SUPERKEYGROUP:   SCENES::shoppping,     SuperKeyN: 42
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 4, Lvl2: 3, Lvl3: 8, Lvl4: 0, Lvl5: 1  nWords: 16
 nWords <= maxCoreLevel (4)     is: 15<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::FARM,     SuperKeyN: 43
+SUPERKEYGROUP:   SCENES::farm,     SuperKeyN: 43
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 40, Lvl4: 0, Lvl5: 5  nWords: 45
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 40, Lvl4: 0, Lvl5: 6  nWords: 46
 nWords <= maxCoreLevel (4)     is: 40
 
 
 
-SUPERKEYGROUP:   SCENES::BUSINESS:INDUSTRY,     SuperKeyN: 44
+SUPERKEYGROUP:   SCENES::business:manufacturee,     SuperKeyN: 44
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 73, Lvl4: 0, Lvl5: 0  nWords: 78
-nWords <= maxCoreLevel (4)     is: 78
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 59, Lvl4: 0, Lvl5: 10  nWords: 69
+nWords <= maxCoreLevel (4)     is: 59
 
 
 
-SUPERKEYGROUP:   SCENES::ACCIDENT,     SuperKeyN: 45
+SUPERKEYGROUP:   SCENES::accident,     SuperKeyN: 45
 =============================================================================
-CoreLvlN: Lvl0:3, Lvl1: 0, Lvl2: 1, Lvl3: 25, Lvl4: 1, Lvl5: 0  nWords: 30
-nWords <= maxCoreLevel (4)     is: 30<<<<<<<LESS than target
+CoreLvlN: Lvl0:3, Lvl1: 0, Lvl2: 2, Lvl3: 26, Lvl4: 1, Lvl5: 2  nWords: 34
+nWords <= maxCoreLevel (4)     is: 32<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::COURT,     SuperKeyN: 46
+SUPERKEYGROUP:   SCENES::court,     SuperKeyN: 46
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 29, Lvl4: 0, Lvl5: 6  nWords: 35
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 29, Lvl4: 0, Lvl5: 9  nWords: 38
 nWords <= maxCoreLevel (4)     is: 29<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::DENTIST,     SuperKeyN: 47
+SUPERKEYGROUP:   SCENES::dentist,     SuperKeyN: 47
 =============================================================================
 CoreLvlN: Lvl0:1, Lvl1: 2, Lvl2: 3, Lvl3: 4, Lvl4: 0, Lvl5: 0  nWords: 10
 nWords <= maxCoreLevel (4)     is: 10<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   SCENES::TRAINING:SCOUTS:SOLDIERS,     SuperKeyN: 48
+SUPERKEYGROUP:   SCENES::training:military,     SuperKeyN: 48
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 7, Lvl3: 35, Lvl4: 5, Lvl5: 6  nWords: 56
+CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 7, Lvl3: 35, Lvl4: 5, Lvl5: 7  nWords: 57
 nWords <= maxCoreLevel (4)     is: 49
 
 
 
-SUPERKEYGROUP:   CONCEPTS::ARITHMETIC,     SuperKeyN: 49
+SUPERKEYGROUP:   CONCEPTS::arithmetic,     SuperKeyN: 49
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 12, Lvl4: 0, Lvl5: 0  nWords: 17
+CoreLvlN: Lvl0:0, Lvl1: 2, Lvl2: 3, Lvl3: 12, Lvl4: 0, Lvl5: 3  nWords: 20
 nWords <= maxCoreLevel (4)     is: 17<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   CONCEPTS::LAW,     SuperKeyN: 50
+SUPERKEYGROUP:   CONCEPTS::law,     SuperKeyN: 50
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 6, Lvl2: 3, Lvl3: 49, Lvl4: 0, Lvl5: 0  nWords: 58
-nWords <= maxCoreLevel (4)     is: 58
+CoreLvlN: Lvl0:0, Lvl1: 6, Lvl2: 4, Lvl3: 49, Lvl4: 0, Lvl5: 2  nWords: 61
+nWords <= maxCoreLevel (4)     is: 59
 
 
 
-SUPERKEYGROUP:   CONCEPTS::LANGUAGES,     SuperKeyN: 51
+SUPERKEYGROUP:   CONCEPTS::language:,     SuperKeyN: 51
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 4, Lvl2: 4, Lvl3: 20, Lvl4: 0, Lvl5: 0  nWords: 28
-nWords <= maxCoreLevel (4)     is: 28<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 4, Lvl2: 4, Lvl3: 19, Lvl4: 0, Lvl5: 0  nWords: 27
+nWords <= maxCoreLevel (4)     is: 27<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   CONCEPTS::COMMUNICATIONS,     SuperKeyN: 52
+SUPERKEYGROUP:   CONCEPTS::communication,     SuperKeyN: 52
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 5, Lvl2: 5, Lvl3: 23, Lvl4: 2, Lvl5: 0  nWords: 37
-nWords <= maxCoreLevel (4)     is: 37<<<<<<<LESS than target
+CoreLvlN: Lvl0:2, Lvl1: 7, Lvl2: 7, Lvl3: 24, Lvl4: 2, Lvl5: 3  nWords: 45
+nWords <= maxCoreLevel (4)     is: 42
 
 
 
-SUPERKEYGROUP:   CONCEPTS::NUMBERS,     SuperKeyN: 53
+SUPERKEYGROUP:   CONCEPTS::number,     SuperKeyN: 53
 =============================================================================
 CoreLvlN: Lvl0:10, Lvl1: 0, Lvl2: 0, Lvl3: 2, Lvl4: 0, Lvl5: 0  nWords: 12
 nWords <= maxCoreLevel (4)     is: 12<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   CONCEPTS::TIME,     SuperKeyN: 54
+SUPERKEYGROUP:   CONCEPTS::time,     SuperKeyN: 54
 =============================================================================
-CoreLvlN: Lvl0:8, Lvl1: 9, Lvl2: 14, Lvl3: 45, Lvl4: 2, Lvl5: 18  nWords: 96
-nWords <= maxCoreLevel (4)     is: 78
+CoreLvlN: Lvl0:7, Lvl1: 8, Lvl2: 13, Lvl3: 41, Lvl4: 1, Lvl5: 11  nWords: 81
+nWords <= maxCoreLevel (4)     is: 70
 
 
 
-SUPERKEYGROUP:   CONCEPTS::DIGITAL,     SuperKeyN: 55
+SUPERKEYGROUP:   CONCEPTS::computer,     SuperKeyN: 55
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 3, Lvl3: 15, Lvl4: 0, Lvl5: 0  nWords: 18
-nWords <= maxCoreLevel (4)     is: 18<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 3, Lvl2: 7, Lvl3: 31, Lvl4: 0, Lvl5: 7  nWords: 48
+nWords <= maxCoreLevel (4)     is: 41
 
 
 
-SUPERKEYGROUP:   CONCEPTS::DISTANCE:TIME,     SuperKeyN: 56
+SUPERKEYGROUP:   CONCEPTS::distance,     SuperKeyN: 56
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 4, Lvl2: 0, Lvl3: 8, Lvl4: 0, Lvl5: 0  nWords: 12
-nWords <= maxCoreLevel (4)     is: 12<<<<<<<LESS than target
+CoreLvlN: Lvl0:2, Lvl1: 5, Lvl2: 0, Lvl3: 8, Lvl4: 0, Lvl5: 0  nWords: 15
+nWords <= maxCoreLevel (4)     is: 15<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   CONCEPTS::GEOMETRY,     SuperKeyN: 57
+SUPERKEYGROUP:   CONCEPTS::geometry,     SuperKeyN: 57
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 13, Lvl3: 32, Lvl4: 4, Lvl5: 1  nWords: 51
-nWords <= maxCoreLevel (4)     is: 50
+CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 12, Lvl3: 39, Lvl4: 4, Lvl5: 4  nWords: 60
+nWords <= maxCoreLevel (4)     is: 56
 
 
 
-SUPERKEYGROUP:   CONCEPTS::GOVERNMENTS,     SuperKeyN: 58
+SUPERKEYGROUP:   CONCEPTS::government,     SuperKeyN: 58
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 7, Lvl2: 8, Lvl3: 47, Lvl4: 2, Lvl5: 28  nWords: 92
-nWords <= maxCoreLevel (4)     is: 64
+CoreLvlN: Lvl0:0, Lvl1: 8, Lvl2: 8, Lvl3: 47, Lvl4: 2, Lvl5: 30  nWords: 95
+nWords <= maxCoreLevel (4)     is: 65
 
 
 
-SUPERKEYGROUP:   CONCEPTS::MONEY,     SuperKeyN: 59
+SUPERKEYGROUP:   CONCEPTS::money,     SuperKeyN: 59
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 4, Lvl2: 12, Lvl3: 25, Lvl4: 3, Lvl5: 7  nWords: 53
-nWords <= maxCoreLevel (4)     is: 46
+CoreLvlN: Lvl0:1, Lvl1: 4, Lvl2: 11, Lvl3: 21, Lvl4: 3, Lvl5: 10  nWords: 50
+nWords <= maxCoreLevel (4)     is: 40
 
 
 
-SUPERKEYGROUP:   CONCEPTS::NAVIGATE,     SuperKeyN: 60
+SUPERKEYGROUP:   CONCEPTS::navigate,     SuperKeyN: 60
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 4, Lvl2: 0, Lvl3: 17, Lvl4: 0, Lvl5: 0  nWords: 21
 nWords <= maxCoreLevel (4)     is: 21<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   CONCEPTS::PHYSICS:ENERGY,     SuperKeyN: 61
+SUPERKEYGROUP:   CONCEPTS::physics:energy,     SuperKeyN: 61
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 8, Lvl2: 19, Lvl3: 47, Lvl4: 1, Lvl5: 35  nWords: 110
-nWords <= maxCoreLevel (4)     is: 75
+CoreLvlN: Lvl0:0, Lvl1: 9, Lvl2: 21, Lvl3: 57, Lvl4: 1, Lvl5: 39  nWords: 127
+nWords <= maxCoreLevel (4)     is: 88<<<<GREATER THAN TARGET OF 80<<<<
 
 
 
-SUPERKEYGROUP:   CONCEPTS::RELIGIONS:GENERAL,     SuperKeyN: 62
+SUPERKEYGROUP:   CONCEPTS::religion:general,     SuperKeyN: 62
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 17, Lvl3: 42, Lvl4: 0, Lvl5: 34  nWords: 95
+CoreLvlN: Lvl0:0, Lvl1: 1, Lvl2: 17, Lvl3: 42, Lvl4: 0, Lvl5: 35  nWords: 96
 nWords <= maxCoreLevel (4)     is: 60
 
 
 
 SUPERKEYGROUP:   CONCEPTS::RELIGIONS:SPECIFIC,     SuperKeyN: 63
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 5, Lvl3: 39, Lvl4: 2, Lvl5: 54  nWords: 101
-nWords <= maxCoreLevel (4)     is: 46
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 6, Lvl3: 39, Lvl4: 2, Lvl5: 55  nWords: 103
+nWords <= maxCoreLevel (4)     is: 47
 
 
 
-SUPERKEYGROUP:   CONCEPTS::DATE:AND:PERIOD:IN:TIME,     SuperKeyN: 64
+SUPERKEYGROUP:   CONCEPTS::day:particular,     SuperKeyN: 64
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 9, Lvl4: 0, Lvl5: 0  nWords: 9
-nWords <= maxCoreLevel (4)     is: 9<<<<<<<LESS than target
+CoreLvlN: Lvl0:1, Lvl1: 2, Lvl2: 2, Lvl3: 14, Lvl4: 1, Lvl5: 10  nWords: 30
+nWords <= maxCoreLevel (4)     is: 20<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   CONCEPTS::GENERAL:MISCELLANEOUS,     SuperKeyN: 65
+SUPERKEYGROUP:   CONCEPTS::general,     SuperKeyN: 65
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 15, Lvl4: 0, Lvl5: 40  nWords: 55
 nWords <= maxCoreLevel (4)     is: 15<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::ANIMALS:HAVE,     SuperKeyN: 66
+SUPERKEYGROUP:   ANIMATE::animal:have,     SuperKeyN: 66
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 0, Lvl2: 0, Lvl3: 18, Lvl4: 0, Lvl5: 0  nWords: 20
-nWords <= maxCoreLevel (4)     is: 20<<<<<<<LESS than target
+CoreLvlN: Lvl0:2, Lvl1: 0, Lvl2: 0, Lvl3: 14, Lvl4: 0, Lvl5: 0  nWords: 16
+nWords <= maxCoreLevel (4)     is: 16<<<<<<<LESS than target
 
 
 
 SUPERKEYGROUP:   ANIMATE::ANIMALS:LAND,     SuperKeyN: 67
 =============================================================================
-CoreLvlN: Lvl0:1, Lvl1: 3, Lvl2: 13, Lvl3: 48, Lvl4: 7, Lvl5: 10  nWords: 82
-nWords <= maxCoreLevel (4)     is: 72
+CoreLvlN: Lvl0:1, Lvl1: 3, Lvl2: 13, Lvl3: 54, Lvl4: 7, Lvl5: 10  nWords: 88
+nWords <= maxCoreLevel (4)     is: 78
 
 
 
-SUPERKEYGROUP:   ANIMATE::ANIMALS:SKY,     SuperKeyN: 68
+SUPERKEYGROUP:   ANIMATE::bird,     SuperKeyN: 68
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 3, Lvl3: 25, Lvl4: 0, Lvl5: 0  nWords: 28
-nWords <= maxCoreLevel (4)     is: 28<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 3, Lvl3: 27, Lvl4: 0, Lvl5: 1  nWords: 31
+nWords <= maxCoreLevel (4)     is: 30<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::ANIMALS:WATER,     SuperKeyN: 69
+SUPERKEYGROUP:   ANIMATE::animal_water,     SuperKeyN: 69
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 4, Lvl3: 18, Lvl4: 0, Lvl5: 0  nWords: 22
-nWords <= maxCoreLevel (4)     is: 22<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 4, Lvl3: 22, Lvl4: 0, Lvl5: 1  nWords: 27
+nWords <= maxCoreLevel (4)     is: 26<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::ANIMALS:DO,     SuperKeyN: 70
+SUPERKEYGROUP:   ANIMATE::animal:do,     SuperKeyN: 70
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 14, Lvl4: 0, Lvl5: 0  nWords: 14
 nWords <= maxCoreLevel (4)     is: 14<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::PLANTS:NOT:FOOD,     SuperKeyN: 71
+SUPERKEYGROUP:   ANIMATE::plant:not:food,     SuperKeyN: 71
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 38, Lvl4: 0, Lvl5: 0  nWords: 38
-nWords <= maxCoreLevel (4)     is: 38<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 41, Lvl4: 0, Lvl5: 0  nWords: 41
+nWords <= maxCoreLevel (4)     is: 41
 
 
 
-SUPERKEYGROUP:   ANIMATE::MATERIALS:SUBSTANCES,     SuperKeyN: 72
+SUPERKEYGROUP:   ANIMATE::substance,     SuperKeyN: 72
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 13, Lvl4: 0, Lvl5: 1  nWords: 14
-nWords <= maxCoreLevel (4)     is: 13<<<<<<<LESS than target
+CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 15, Lvl4: 0, Lvl5: 1  nWords: 16
+nWords <= maxCoreLevel (4)     is: 15<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::INSECTS,     SuperKeyN: 73
+SUPERKEYGROUP:   ANIMATE::insect,     SuperKeyN: 73
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 23, Lvl4: 0, Lvl5: 0  nWords: 23
 nWords <= maxCoreLevel (4)     is: 23<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::MICRO:ORGANIZMS,     SuperKeyN: 74
+SUPERKEYGROUP:   ANIMATE::micro_organism,     SuperKeyN: 74
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 7, Lvl4: 0, Lvl5: 0  nWords: 7
 nWords <= maxCoreLevel (4)     is: 7<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::ANIMALS:REPRODUCTION,     SuperKeyN: 75
+SUPERKEYGROUP:   ANIMATE::animal:reproduction,     SuperKeyN: 75
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 1, Lvl3: 11, Lvl4: 5, Lvl5: 75  nWords: 104
 nWords <= maxCoreLevel (4)     is: 17<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   ANIMATE::GENERAL,     SuperKeyN: 76
+SUPERKEYGROUP:   WORLD::about:continent,     SuperKeyN: 76
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 14, Lvl4: 0, Lvl5: 0  nWords: 14
+CoreLvlN: Lvl0:2, Lvl1: 0, Lvl2: 0, Lvl3: 12, Lvl4: 0, Lvl5: 0  nWords: 14
 nWords <= maxCoreLevel (4)     is: 14<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   WORLD::CONTINENTS:GROUPINGS,     SuperKeyN: 77
+SUPERKEYGROUP:   WORLD::natural:event,     SuperKeyN: 77
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 0, Lvl3: 9, Lvl4: 0, Lvl5: 0  nWords: 9
-nWords <= maxCoreLevel (4)     is: 9<<<<<<<LESS than target
+CoreLvlN: Lvl0:6, Lvl1: 10, Lvl2: 4, Lvl3: 33, Lvl4: 0, Lvl5: 24  nWords: 77
+nWords <= maxCoreLevel (4)     is: 53
 
 
 
-SUPERKEYGROUP:   WORLD::NATURAL:EVENTS,     SuperKeyN: 78
-=============================================================================
-CoreLvlN: Lvl0:6, Lvl1: 12, Lvl2: 3, Lvl3: 44, Lvl4: 0, Lvl5: 25  nWords: 90
-nWords <= maxCoreLevel (4)     is: 65
-
-
-
-SUPERKEYGROUP:   WORLD::COUNTRIES,     SuperKeyN: 79
+SUPERKEYGROUP:   WORLD::country,     SuperKeyN: 78
 =============================================================================
 CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 1, Lvl3: 48, Lvl4: 0, Lvl5: 0  nWords: 49
 nWords <= maxCoreLevel (4)     is: 49
 
 
 
-SUPERKEYGROUP:   WORLD::GEOLOGICAL,     SuperKeyN: 80
+SUPERKEYGROUP:   WORLD::geological,     SuperKeyN: 79
 =============================================================================
-CoreLvlN: Lvl0:0, Lvl1: 0, Lvl2: 7, Lvl3: 24, Lvl4: 0, Lvl5: 1  nWords: 32
-nWords <= maxCoreLevel (4)     is: 31<<<<<<<LESS than target
+CoreLvlN: Lvl0:1, Lvl1: 0, Lvl2: 7, Lvl3: 28, Lvl4: 0, Lvl5: 3  nWords: 39
+nWords <= maxCoreLevel (4)     is: 36<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   WORLD::MATERIALS,     SuperKeyN: 81
+SUPERKEYGROUP:   WORLD::material,     SuperKeyN: 80
 =============================================================================
 CoreLvlN: Lvl0:2, Lvl1: 2, Lvl2: 9, Lvl3: 7, Lvl4: 1, Lvl5: 0  nWords: 21
 nWords <= maxCoreLevel (4)     is: 21<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   WORLD::UNIVERSE,     SuperKeyN: 82
+SUPERKEYGROUP:   WORLD::universe,     SuperKeyN: 81
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 0, Lvl2: 1, Lvl3: 19, Lvl4: 2, Lvl5: 0  nWords: 24
+CoreLvlN: Lvl0:3, Lvl1: 0, Lvl2: 1, Lvl3: 18, Lvl4: 2, Lvl5: 0  nWords: 24
 nWords <= maxCoreLevel (4)     is: 24<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   WORLD::GENERAL,     SuperKeyN: 83
+SUPERKEYGROUP:   LANGUAGE::frequently:used,     SuperKeyN: 82
 =============================================================================
-CoreLvlN: Lvl0:2, Lvl1: 1, Lvl2: 1, Lvl3: 3, Lvl4: 0, Lvl5: 0  nWords: 7
-nWords <= maxCoreLevel (4)     is: 7<<<<<<<LESS than target
+CoreLvlN: Lvl0:11, Lvl1: 7, Lvl2: 0, Lvl3: 7, Lvl4: 0, Lvl5: 11  nWords: 36
+nWords <= maxCoreLevel (4)     is: 25<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   LANGUAGE::HOW:MANY:QUESTIONS:GROUPINGS,     SuperKeyN: 84
+SUPERKEYGROUP:   LANGUAGE::how_many_question,     SuperKeyN: 83
 =============================================================================
-CoreLvlN: Lvl0:21, Lvl1: 3, Lvl2: 13, Lvl3: 2, Lvl4: 0, Lvl5: 0  nWords: 39
-nWords <= maxCoreLevel (4)     is: 39<<<<<<<LESS than target
+CoreLvlN: Lvl0:20, Lvl1: 3, Lvl2: 13, Lvl3: 4, Lvl4: 0, Lvl5: 1  nWords: 41
+nWords <= maxCoreLevel (4)     is: 40
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:WHEN,     SuperKeyN: 85
+SUPERKEYGROUP:   LANGUAGE::when_question,     SuperKeyN: 84
 =============================================================================
-CoreLvlN: Lvl0:18, Lvl1: 12, Lvl2: 2, Lvl3: 18, Lvl4: 1, Lvl5: 0  nWords: 51
+CoreLvlN: Lvl0:19, Lvl1: 12, Lvl2: 2, Lvl3: 18, Lvl4: 0, Lvl5: 0  nWords: 51
 nWords <= maxCoreLevel (4)     is: 51
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:WHERE,     SuperKeyN: 86
+SUPERKEYGROUP:   LANGUAGE::where_question,     SuperKeyN: 85
 =============================================================================
-CoreLvlN: Lvl0:8, Lvl1: 14, Lvl2: 8, Lvl3: 30, Lvl4: 0, Lvl5: 0  nWords: 60
-nWords <= maxCoreLevel (4)     is: 60
+CoreLvlN: Lvl0:8, Lvl1: 14, Lvl2: 8, Lvl3: 26, Lvl4: 0, Lvl5: 1  nWords: 57
+nWords <= maxCoreLevel (4)     is: 56
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION_WHICH,     SuperKeyN: 87
+SUPERKEYGROUP:   LANGUAGE::which_question,     SuperKeyN: 86
 =============================================================================
 CoreLvlN: Lvl0:14, Lvl1: 1, Lvl2: 1, Lvl3: 4, Lvl4: 0, Lvl5: 0  nWords: 20
 nWords <= maxCoreLevel (4)     is: 20<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:WHO,     SuperKeyN: 88
+SUPERKEYGROUP:   LANGUAGE::whose_question,     SuperKeyN: 87
 =============================================================================
-CoreLvlN: Lvl0:9, Lvl1: 24, Lvl2: 0, Lvl3: 0, Lvl4: 0, Lvl5: 0  nWords: 33
-nWords <= maxCoreLevel (4)     is: 33<<<<<<<LESS than target
+CoreLvlN: Lvl0:15, Lvl1: 39, Lvl2: 0, Lvl3: 4, Lvl4: 0, Lvl5: 0  nWords: 58
+nWords <= maxCoreLevel (4)     is: 58
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:WHOSE,     SuperKeyN: 89
+SUPERKEYGROUP:   LANGUAGE::likelyhood,     SuperKeyN: 88
 =============================================================================
-CoreLvlN: Lvl0:8, Lvl1: 20, Lvl2: 0, Lvl3: 4, Lvl4: 0, Lvl5: 0  nWords: 32
-nWords <= maxCoreLevel (4)     is: 32<<<<<<<LESS than target
+CoreLvlN: Lvl0:13, Lvl1: 0, Lvl2: 0, Lvl3: 3, Lvl4: 0, Lvl5: 1  nWords: 17
+nWords <= maxCoreLevel (4)     is: 16<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:WHAT,     SuperKeyN: 90
+SUPERKEYGROUP:   LANGUAGE::size:about,     SuperKeyN: 89
 =============================================================================
-CoreLvlN: Lvl0:6, Lvl1: 0, Lvl2: 0, Lvl3: 0, Lvl4: 0, Lvl5: 0  nWords: 6
-nWords <= maxCoreLevel (4)     is: 6<<<<<<<LESS than target
+CoreLvlN: Lvl0:4, Lvl1: 15, Lvl2: 3, Lvl3: 0, Lvl4: 0, Lvl5: 0  nWords: 22
+nWords <= maxCoreLevel (4)     is: 22<<<<<<<LESS than target
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:HOW:LIKELY,     SuperKeyN: 91
+SUPERKEYGROUP:   LANGUAGE::motion:force,     SuperKeyN: 90
 =============================================================================
-CoreLvlN: Lvl0:12, Lvl1: 0, Lvl2: 0, Lvl3: 3, Lvl4: 0, Lvl5: 0  nWords: 15
-nWords <= maxCoreLevel (4)     is: 15<<<<<<<LESS than target
+CoreLvlN: Lvl0:2, Lvl1: 12, Lvl2: 9, Lvl3: 24, Lvl4: 1, Lvl5: 4  nWords: 52
+nWords <= maxCoreLevel (4)     is: 48
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:ABOUT:AND:SIZE,     SuperKeyN: 92
+SUPERKEYGROUP:   LANGUAGE::evaluate,     SuperKeyN: 91
 =============================================================================
-CoreLvlN: Lvl0:4, Lvl1: 16, Lvl2: 0, Lvl3: 0, Lvl4: 0, Lvl5: 0  nWords: 20
-nWords <= maxCoreLevel (4)     is: 20<<<<<<<LESS than target
+CoreLvlN: Lvl0:7, Lvl1: 10, Lvl2: 3, Lvl3: 26, Lvl4: 0, Lvl5: 3  nWords: 49
+nWords <= maxCoreLevel (4)     is: 46
 
 
 
-SUPERKEYGROUP:   LANGUAGE::QUESTION:MOVEMENT:FORCE,     SuperKeyN: 93
+SUPERKEYGROUP:   LANGUAGE::KEYS,     SuperKeyN: 92
 =============================================================================
-CoreLvlN: Lvl0:4, Lvl1: 13, Lvl2: 9, Lvl3: 28, Lvl4: 1, Lvl5: 0  nWords: 55
-nWords <= maxCoreLevel (4)     is: 55
-
-
-
-SUPERKEYGROUP:   LANGUAGE::EVALUATE,     SuperKeyN: 94
-=============================================================================
-CoreLvlN: Lvl0:9, Lvl1: 10, Lvl2: 3, Lvl3: 31, Lvl4: 0, Lvl5: 0  nWords: 53
-nWords <= maxCoreLevel (4)     is: 53
-
-
-
-SUPERKEYGROUP:   LANGUAGE::KEYS,     SuperKeyN: 95
-=============================================================================
-CoreLvlN: Lvl0:32, Lvl1: 4, Lvl2: 1, Lvl3: 28, Lvl4: 0, Lvl5: 1  nWords: 66
+CoreLvlN: Lvl0:32, Lvl1: 4, Lvl2: 1, Lvl3: 28, Lvl4: 0, Lvl5: 4  nWords: 69
 nWords <= maxCoreLevel (4)     is: 65
 
 
 
-SUPERKEYGROUP:   LANGUAGE::LOGIC,     SuperKeyN: 96
+SUPERKEYGROUP:   LANGUAGE::logic,     SuperKeyN: 93
 =============================================================================
-CoreLvlN: Lvl0:13, Lvl1: 7, Lvl2: 0, Lvl3: 53, Lvl4: 0, Lvl5: 0  nWords: 73
-nWords <= maxCoreLevel (4)     is: 73
+CoreLvlN: Lvl0:12, Lvl1: 7, Lvl2: 2, Lvl3: 50, Lvl4: 0, Lvl5: 5  nWords: 76
+nWords <= maxCoreLevel (4)     is: 71
 
 
 
-SUPERKEYGROUP:   LANGUAGE::PHRASES,     SuperKeyN: 97
+SUPERKEYGROUP:   LANGUAGE::phrase,     SuperKeyN: 94
 =============================================================================
 CoreLvlN: Lvl0:42, Lvl1: 6, Lvl2: 0, Lvl3: 0, Lvl4: 0, Lvl5: 1  nWords: 49
 nWords <= maxCoreLevel (4)     is: 48
 
 
 
-SUPERKEYGROUP:   LANGUAGE::GENERAL,     SuperKeyN: 98
+SUPERKEYGROUP:   LANGUAGE::general,     SuperKeyN: 95
 =============================================================================
-CoreLvlN: Lvl0:9, Lvl1: 12, Lvl2: 6, Lvl3: 37, Lvl4: 0, Lvl5: 370  nWords: 434
-nWords <= maxCoreLevel (4)     is: 64
+CoreLvlN: Lvl0:3, Lvl1: 5, Lvl2: 1, Lvl3: 12, Lvl4: 0, Lvl5: 70  nWords: 91
+nWords <= maxCoreLevel (4)     is: 21<<<<<<<LESS than target
 
 
 
 
 
 ======================BEGIN FINAL STATS==========================
-Nr SUPERKEYS (highest level keys):  98
-Total Nr. Symbols (source)       :  5609, Nr. files: 5408
-	Total Nr words plus SoftTabs   : 344
-	Total Nr unique Symbolic words : 5352
-Grand Total Ea Level:  Lvl0: 388, Lvl1: 414, Lvl2: 481, Lvl3: 2831, Lvl4: 84, Lvl5: 1374
-Total Nr of all group words     = 5609
-CrossCheck:  Total all 9 Levels = 5609
+Nr SUPERKEYS (highest level keys):  95
+Total Nr. Symbols (source)       :  5482, Nr. files: 5408
+	Total Nr words plus SoftTabs   : 532
+	Total Nr unique Symbolic words : 5213
+Grand Total Ea Level:  Lvl0: 387, Lvl1: 411, Lvl2: 493, Lvl3: 2833, Lvl4: 83, Lvl5: 1237
+Total Nr of all group words     = 5482
+CrossCheck:  Total all 9 Levels = 5482
 
 Total Group Counts by SUPER-GROUP Names
 		PEOPLE:  Total Groups:  31
 		SCENES:  Total Groups:  17
-		ANIMATE:  Total Groups:  11
-		WORLD:  Total Groups:  7
+		ANIMATE:  Total Groups:  10
+		WORLD:  Total Groups:  6
 		CONCEPTS:  Total Groups:  17
-		LANGUAGE:  Total Groups:  15
-CrossCheckTotal = 98
------------------------------------------------------------------------------------------------
+		LANGUAGE:  Total Groups:  14
+CrossCheckTotal = 95
+-------------------------------------Summary Stats-------------------------------------------
 The total number of Groupings is :  0
   (several LANGUAGE SUPERKEYS are unused)
-The average number of Words per Grouping is:   57.234693877551024
-	The MINIMUM number of words (at 'CORE Level' <= 4) in any group is:  6
-	The MAXIMUM number of words (at 'CORE level' <= 4) in any group is:  79
+The average number of Words per Grouping is:   57.705263157894734
+	The MINIMUM number of words (at 'CORE Level' <= 4) in any group is:  7
+	The MAXIMUM number of words (at 'CORE level' <= 4) in any group is:  88 <<IMPORTANT!
 ============================END FINAL STATS==========================
 
 
 
 Following is a list of the current master symbol (directory) list that are missing/in transition/otherwise lost:
+			"your,yours-(feminine_singular)",
+			"functional",
+			"indicator_(passive)",
+			"indicator_(description_before_fact)",
+			"X_(uppercase)",
 			"joke-(to)",
+			"indicator_(description_after_fact)",
+			"q_(lowercase)",
+			"indicator_(definite_form)",
+			"indicator_(conditional)",
+			"arrow_(bent)",
 			"summer_(ckb)",
+			"j_(lowercase)",
+			"w_(lowercase)",
+			"A_(uppercase)",
+			"bindi,tika_(decoration)",
 			"opening",
+			"swash",
+			"finger_spelling,finger_alphabet",
+			"indicator_(things)",
+			"indicator_(neutral_form)",
+			"keyboard_(computer)",
+			"negative_dependency",
+			"Z_(uppercase)",
+			"a_(lowercase)",
+			"connection_(computer)",
 			"growth,growing",
 			"encouragement",
+			"k_(lowercase)",
+			"indicator_(past_participle_2)",
+			"G_(uppercase)",
+			"core_activity",
 			"uncomfortable",
 			"Thursday_(day6)",
+			"indicator_(female)",
+			"c_(lowercase)",
 			"macaroni",
 			"floor_(42nd)",
 			"rice_flour",
 			"fanatic",
 			"Tuesday_(day4)",
+			"fast",
+			"indicator_(second_person)",
 			"Sunday_(day1)",
+			"fax",
+			"indicator_(future_conditional)",
+			"t_(lowercase)",
+			"indicator_(indefinite_form)",
+			"manhole_cover",
+			"alpana,rangoli_(decoration)",
 			"Saturday_(day6)",
 			"Wednesday_(day5)",
+			"H_(uppercase)",
 			"persevere-(to)",
+			"e_(lowercase)",
+			"U_(uppercase)",
+			"syringe",
+			"indicator_(thing)",
+			"F_(uppercase)",
 			"slice",
 			"flour",
 			"Epiphany",
+			"K_(uppercase)",
 			"resignation_(2)",
 			"Sunday_(day2)",
+			"x_(lowercase)",
+			"i_(lowercase)",
+			"what_kind-(question)",
+			"key_(computer)",
 			"Saturday_(day7)",
-			"tear,teardrop",
 			"fanatic_(person)",
+			"keyboard_(expanded)",
+			"your,yours-(masculine_plural)",
 			"coward",
+			"tracker",
+			"Universe",
+			"digital_world",
+			"S_(uppercase)",
 			"margarine",
+			"indicator_(imperative_form)",
 			"weekend_(6-7)",
+			"T_(uppercase)",
+			"z_(lowercase)",
+			"indicator_(active)",
+			"indicator_(future_passive_conditional)",
+			"Q_(uppercase)",
+			"fingerspell-(to)",
+			"indicator_(past_passive_conditional)",
 			"patient_(in_medical_care)",
 			"courage",
+			"what",
+			"out_of_body_(upward)",
+			"P_(uppercase)",
+			"import",
+			"f_(lowercase)",
+			"type,kind,sort",
 			"autumn,fall_(ckb)",
+			"indicator_(diminutive_form)",
 			"Monday_(day2)",
+			"tap_(2)",
+			"N_(uppercase)",
+			"indicator_(object_form)",
 			"winter_(ckb)",
 			"gymnastics",
+			"o_(lowercase)",
+			"C_(uppercase)",
+			"indicator_(present_action)",
+			"u_(lowercase)",
+			"W_(uppercase)",
 			"Monday_(day3)",
+			"J_(uppercase)",
 			"Tuesday_(day3)",
+			"blot",
+			"I_(uppercase)",
 			"dough",
+			"what_(thing)-(question)",
 			"bread_knife",
+			"indicator_(present_participle)",
+			"indicator_(past_conditional)",
+			"crossed_racquets",
+			"your,yours-(masculine_singular)",
+			"indicator_(third_person)",
+			"indicator_(description)",
+			"d_(lowercase)",
+			"E_(uppercase)",
+			"bet",
+			"indicator_(past_passive)",
 			"worry-(to)",
+			"what,question_mark",
+			"Valentine_(card)",
+			"shipping_forecast",
+			"indicator_(action)",
+			"indicator_(future_action)",
 			"weekend_(7-1)",
-			"laugh,laughter",
+			"D_(uppercase)",
+			"M_(uppercase)",
+			"indicator_(first_person)",
+			"bet-(to)",
+			"water_tower",
+			"s_(lowercase)",
+			"religious_(God_based)",
+			"conductive_education",
+			"V_(uppercase)",
+			"hockey_helmet",
+			"board-(to)",
 			"baking_powder",
+			"p_(lowercase)",
+			"indicator_(plural)",
 			"short_time_home",
+			"indicator_(future_passive)",
+			"m_(lowercase)",
+			"R_(uppercase)",
 			"Friday_(day6)",
+			"indicator_(possessive_form)",
 			"Thursday_(day5)",
+			"can,tin,jar",
+			"indicator_(continuous_form)",
+			"Y_(uppercase)",
+			"floating_container",
+			"r_(lowercase)",
+			"v_(lowercase)",
 			"gym_mat",
+			"can,be_able-(to)",
 			"Wednesday_(day4)",
-			"cornmeal",
+			"well,water_well",
+			"b_(lowercase)",
+			"keyboard_(mini)",
 			"responsibility",
-			"popcorn",
+			"your,yours-(feminine_plural)",
+			"checked",
+			"drilling_rig_(water)",
+			"fewest,least",
+			"same_sound",
+			"indicator_(adverb)",
+			"alphabet,letters_(lowercase)",
+			"rack,single-foot-(to)",
+			"O_(uppercase)",
+			"L_(uppercase)",
+			"indicator_(present_passive_conditional)",
+			"l_(lowercase)",
+			"g_(lowercase)",
+			"n_(lowercase)",
 			"great_experience",
 			"patience",
+			"indicator_(past_action)",
 			"spring_(ckb)",
 			"Friday_(day7)",
+			"h_(lowercase)",
 			"apologize,apologise,regret_(express)-(to)",
 			"excuse",
 			"peace,peace_of_mind,serenity",
+			"indicator_(past_participle_1)",
+			"tuft_of_grass,tussock",
+			"B_(uppercase)",
+			"y_(lowercase)",
+			"indicator_(combine)",
 ================================================================
-NUMBER SYMBOLS REMAINING TO BE CATEGORIZED:     >>> 56 <<<
+NUMBER SYMBOLS REMAINING TO BE CATEGORIZED:     >>> 196 <<<
 ================================================================
 
 
 Following is a list the fileNames from wordMap that do not have an exactly matching fileNm in the 'master' directory:
+			"movie,film.svg",
 ================================================================
-NUMBER SYMBOLS THAT ARE 'DANGLING':     >>> 0 <<<
+NUMBER SYMBOLS THAT ARE 'DANGLING':     >>> 1 <<<
 ================================================================
-
