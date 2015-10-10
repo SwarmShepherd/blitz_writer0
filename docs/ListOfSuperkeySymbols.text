@@ -1,16 +1,4 @@
-These are the exact file_names that are used FROM the  /web/icons/symbols_key   directory.
-
-These are the SYMBOLS used in the SUPERKEYS, and in the SOFTABS used to break and organize the Groupings.
-
-Many issues exist, including the following:
-1.  Too many sub-symbols total, not readable
-2.  Some Symbols did not exist so I just chose one that seemed close/related as PlaceHolder...
-3.  I have not been careful or consistent with PLURALS.  Often a group is a collection, eg COUNTRIES... is logically a collection
-    of Symbols for individual Countries, BUT only the Symbol 'country' is used, not 'many countries' which may or may not seem
-    necessary.
-
-
-	PEOPLE
+PEOPLE
 		1.) PEOPLE
 		2.) relations
 		3.) body_part
@@ -20,19 +8,19 @@ Many issues exist, including the following:
 		7.) teenager
 		8.) adult
 		9.) elderly
-		10.) eat:drink:meal:more
-		11.) eat:food:natural
-		12.) eat:food:prepared
+		10.) meal:general
+		11.) food:natural
+		12.) food:prepared
 		13.) with:PEOPLE:communication
 		14.) body_part:medical_aid
 		15.) do:sometimes:work
-		16.) are:career:plus:degree
-		17.) are:career:minus:degree
+		16.) career:plus:degree
+		17.) career:minus:degree
 		18.) wear
 		19.) housing
 		20.) illness
 		21.) state_of_mind
-		22.) body:mind:general:
+		22.) body:mind:general
 		23.) poetry:plus:music
 		24.) name:plus:imaginary
 		25.) sport
@@ -42,7 +30,7 @@ Many issues exist, including the following:
 		29.) use:transport
 		30.) use:general
 		31.) visit:places
-		32.) house:clean:work:repair
+		32.) house:repair
 	SCENES
 		1.) SCENES
 		2.) transport:sky
@@ -76,7 +64,7 @@ Many issues exist, including the following:
 		11.) animal:reproduction
 
 
-     WORLD
+	WORLD
 		1.) WORLD
 		2.) about:continent
 		3.) natural:event

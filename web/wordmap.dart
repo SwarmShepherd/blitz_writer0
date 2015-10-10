@@ -1082,8 +1082,8 @@ final gLsuperWordMap = {
     ],
 
 
-'PEOPLE:eat:drink:meal:more': [
-                         {SKEY: true,  FLNM: "eat:drink:dessert:"},
+'PEOPLE:meal:general': [ //Really want to say: 'about meals/general' or
+                         {SKEY: true,  FLNM: "meal:general"},
                             {CORE: 0, ASSC: false, FLNM: "eat-(to)"},
                             {CORE: 1, ASSC: false, FLNM: "drink-(to)"},
                          {STOP:true},
@@ -1201,12 +1201,11 @@ final gLsuperWordMap = {
 ],
 
 
-'PEOPLE:eat:food:natural': [     //GENERALLY FOODS THAT CAN BE GATHERED ON A FARM/IN NATURE  - not needing involved process
-                              {SKEY: true,  FLNM: "eat:food:natural"},
+'PEOPLE:food:natural': [     //GENERALLY FOODS THAT CAN BE GATHERED ON A FARM/IN NATURE  - not needing involved process
+                        {SKEY: true, FLNM: "food:natural"},
                         {STAB: true, FLNM: "fish_(food)"},
 //                          {CORE: 1, ASSC: true,  FLNM: "fresh"},  //move
                             {CORE: 2, ASSC: true,  FLNM: "fish_(food)"},
-
 
                             {CORE: 5, ASSC: false, FLNM: "cod"},
                             {CORE: 5, ASSC: false, FLNM: "salmon"},
@@ -1346,8 +1345,8 @@ final gLsuperWordMap = {
      ],
 
 
-    'PEOPLE:eat:food:prepared': [
-                        {SKEY: true,  FLNM: "eat:food:prepared"},
+    'PEOPLE:food:prepared': [
+                        {SKEY: true,  FLNM: "food:prepared"},
                         {STAB: true,  FLNM: "ready,prepared"},
                            {CORE: 2,  FREQ: -5, KEYS: [], ASSC: false, FLNM: "ready,prepared"},
                            {CORE: 1,  FREQ: -5, KEYS: [], ASSC: false, FLNM: "preparation,readying,readiness,preparedness"},
@@ -1763,8 +1762,8 @@ final gLsuperWordMap = {
                             {CORE: 3, ASSC: false, FLNM: "fishing"},
     ],
 
-    'PEOPLE:are:career:plus:degree':    [
-                            {SKEY: true,  FLNM: "are:career:plus:degree"},
+    'PEOPLE:career:plus:degree':    [
+                            {SKEY: true,  FLNM: "career:plus:degree"},
                         {STAB: true, FLNM: "professions"},
                             {CORE: 1, ASSC: false, FLNM: "calling,profession,career"},
                             {CORE: 3, ASSC: true,  FLNM: "colleague"},
@@ -1864,7 +1863,7 @@ final gLsuperWordMap = {
                             {CORE: 3, ASSC: false, FLNM: "zoologist"},
                 ],
 
-                'PEOPLE:are:career:minus:degree':    [
+                'PEOPLE:career:minus:degree':    [
                             {SKEY: true,  FLNM: "are:career:minus:degree"},
                             {CORE: 2, ASSC: false, FLNM: "calling,vocation"},
                         //{STAB: true, FLNM: "vocations"},
@@ -2301,8 +2300,8 @@ final gLsuperWordMap = {
     ],
 
 
-    'PEOPLE:body:mind:general:' : [
-                            {STAB: true, FLNM: "body:basic"},
+    'PEOPLE:body:mind:general' : [
+                            {STAB: true, FLNM: "body:mind:general"},
                             {CORE: 0, ASSC: false, FLNM: "exhausted,worn_out"},      //Synonym with tired, ???
                             {CORE: 0, ASSC: false, FLNM: "tired,exhausted,weary"},
                             {CORE: 1, ASSC: false, FLNM: "dizzy"},
@@ -3286,8 +3285,8 @@ final gLsuperWordMap = {
                             {CORE: 5, ASSC: false, FLNM: "laundry_(workplace)"},
     ], //'PEOPLE:visit:places'
 
-    'PEOPLE:house:clean:work:repair':          [
-                            {SKEY: true,  FLNM: "house:clean:work:repair"},
+    'PEOPLE:house:repair':   [  //!!Want to say something like House Cleaning & Maintenance
+                        {SKEY: true,  FLNM: "house:repair"},
                             {CORE: 3, ASSC: false, FLNM: "habitation,dwelling_place,site"},
                             {CORE: 3, ASSC: false, FLNM: "domestic_science,home_economics"},
 
