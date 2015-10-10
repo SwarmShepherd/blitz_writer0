@@ -1,0 +1,121 @@
+These are the exact file_names that are used FROM the  /web/icons/symbols_key   directory.
+
+These are the SYMBOLS used in the SUPERKEYS, and in the SOFTABS used to break and organize the Groupings.
+
+Many issues exist, including the following:
+1.  Too many sub-symbols total, not readable
+2.  Some Symbols did not exist so I just chose one that seemed close/related as PlaceHolder...
+3.  I have not been careful or consistent with PLURALS.  Often a group is a collection, eg COUNTRIES... is logically a collection
+    of Symbols for individual Countries, BUT only the Symbol 'country' is used, not 'many countries' which may or may not seem
+    necessary.
+
+
+	PEOPLE
+		1.) PEOPLE
+		2.) relations
+		3.) body_part
+		4.) body_part:sense
+		5.) baby:child
+		6.) child:plus
+		7.) teenager
+		8.) adult
+		9.) elderly
+		10.) eat:drink:meal:more
+		11.) eat:food:natural
+		12.) eat:food:prepared
+		13.) with:PEOPLE:communication
+		14.) body_part:medical_aid
+		15.) do:sometimes:work
+		16.) are:career:plus:degree
+		17.) are:career:minus:degree
+		18.) wear
+		19.) housing
+		20.) illness
+		21.) state_of_mind
+		22.) body:mind:general:
+		23.) poetry:plus:music
+		24.) name:plus:imaginary
+		25.) sport
+		26.) group
+		27.) disability
+		28.) book:plus:subject
+		29.) use:transport
+		30.) use:general
+		31.) visit:places
+		32.) house:clean:work:repair
+	SCENES
+		1.) SCENES
+		2.) transport:sky
+		3.) transport:land
+		4.) transport:water
+		5.) horse
+		6.) camp:plus:sport
+		7.) food:preparation
+		8.) home
+		9.) playing
+		10.) entertainment
+		11.) conference
+		12.) shopping
+		13.) farm
+		14.) business:manufacture
+		15.) accident
+		16.) court
+		17.) dentist
+		18.) training:military
+	ANIMATE
+		1.) ANIMATE
+		2.) animal:have
+		3.) animals:land
+		4.) bird
+		5.) animal_water
+		6.) animal:do
+		7.) plant:not:food
+		8.) substance
+		9.) insect
+		10.) micro-organism
+		11.) animal:reproduction
+
+
+     WORLD
+		1.) WORLD
+		2.) about:continent
+		3.) natural:event
+		4.) country
+		5.) geological
+		6.) material
+		7.) universe
+	CONCEPTS
+		1.) CONCEPTS
+		2.) arithmetic
+		3.) law
+		4.) language
+		5.) communication
+		6.) number
+		7.) time
+		8.) computer
+		9.) distance:plus:time
+		10.) geometry
+		11.) government
+		12.) money
+		13.) navigate
+		14.) physics
+		15.) religion:general
+		16.) religion:example
+		17.) day:particular
+		18.) general
+	LANGUAGE
+		1.) LANGUAGE
+		2.) frequently:used
+		3.) how_many_question
+		4.) when_question
+		5.) where_question
+		6.) which_question
+		7.) whose_question
+		8.) likelyhood
+		9.) size:about
+		10.) motion:force
+		11.) evaluation
+		12.) KEY
+		13.) logic
+		14.) phrase
+		15.) general

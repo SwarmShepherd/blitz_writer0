@@ -10,18 +10,28 @@ While there are only two "hard" levels, there are actually at least 5 "soft", or
 
 Note that the Major Groupings are:
 
-PEOPLE (the center of the Screen and in the same shape as the Bliss symbol for 'Man')
-SCENES (to the right moving out, strongly involving PEOPLE in their various common activities)
-ANIMATE (to the left of PEOPLE, moving outward involving Animals, Insects, and the animate things of our world
-CONCEPTS far to the Right and gearing to the knowledgebase of a typical modern adult, Arithmetic, Physics...
-WORLD to the far Left - The cold hard stuff of the Universe outside our direct experience such as Volcanoes..
-LANGUAGE arcs over the entire screen providing the GLUE needed to express our thought
+    PEOPLE (the center of the Screen and in the same shape as the Bliss symbol for 'Man')
+
+    SCENES (to the right moving out, strongly involving PEOPLE in their various common activities)
+
+    ANIMATE (to the left of PEOPLE, moving outward involving Animals, Insects, and the animate things of our world
+
+    CONCEPTS far to the Right and gearing to the knowledgebase of a typical modern adult, Arithmetic, Physics..
+
+    WORLD to the far Left - The cold hard stuff of the Universe outside our direct experience such as Volcanoes..
+
+    LANGUAGE arcs over the entire screen providing the GLUE needed to express our thought
+
+
+
+
+//There are some currently 95 Subgroupings total across these Six Major Groupings.  Of these 95,  31 are ordered under PEOPLE.
 
 
 
 LANGUAGE also includes a Grouping named KEYS which provides a useful list of the entire set of BASE SYMBOLS
 
-WE THINK THERE IS A SIMPLE TRICK TO UNDERSTANDING THE INDEX SCHEME USED.  We were all once Babies!  When a PERSON:BABY is born his/her world consists of the people he/she is dependent upon, Milk, and lots of loving care that involves such as POOP, PEE, and Soiled Diapers.  This is a little "Earthy", perhaps but it is also the shared basis for the human experience!  Accordingly Diapers, and the matters they contain, are at the very center of our screen, not just Right to Left, but also top to bottom.
+WE THINK THERE IS A SIMPLE TRICK TO UNDERSTANDING THE INDEX SCHEME USED.  We were all babies once!  When a PERSON:BABY is born his/her world consists of the people he/she is dependent upon, Milk, and lots of loving care that involves such as POOP, PEE, and Soiled Diapers.  This is a little "Earthy", perhaps but it is also the shared basis for the human experience!  Accordingly Diapers, and the matters they contain, are at the very center of our screen, not just Right to Left, but also top to bottom.
 
 As we mature, and our world grows and we leave our diapers we experience many things, we get to know parts of the home such as Doors, and the also very human matters of Food Preparation, we vist Zoos and learn of Animals...   all moving outward from birth to the much more abstract CONCEPTS of Mathematics, or the Objects to be found in WORLD:universe...
 
