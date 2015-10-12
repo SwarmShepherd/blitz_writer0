@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pruf1</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- include source files here..-->
+    <script src="svg_gk.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="svg_draggable_gk.js" type="text/javascript" charset="utf-8"></script>-->
+    <!-- -->
+</head>
+<body>
+
+<div id="drawing"></div>
+
+<span id="ruler"></span>
+<input type="button" id="menuSignalPort" >
+<input type="button" id="slctSignalPort">
+<input type="button" id="dropSignalPort">
+<input type="button" id="slctLivePort">
+<input type="button" id="wordLivePort">
+
+<!--================================BEGIN JS_SCRIPT========================================-->
+
+<script type="text/javascript">
+    //==============================Code for SVGNode1====================================
+
+    /*notes
+     CREATE: can be either a string with the node name (e.g. rect, ellipse, ...) or a custom initializer function; [required]
+     INHERIT: the desired svg.js class to inherit from (e.g. SVG.Shape, SVG.Element, SVG.Container, SVG.Rect, ...); [optional but recommended]
+     EXTEND: an object with the methods that should be applied to the element's prototype; [optional]
+     CONSTRUCT: an object with the methods to create the element on the parent element; [optional]
+     PARENT: an svg.js parent class on which the methods in the passed construct object should be available; [optional]
+     */
+
+    var gLtraceOn    = false;
+
+    //screen sizes:   1024 x 768 (4:3), 1024 x 600, 1920 x 1080 (my monitors)
+
+    var  gLw = 1240,  gLh = 800, gLmh = 38, gLdh = 44, gLmw = 72; //gLmh: Menu Height, gLdh: dropbox height
+    var  gLDy2 = gLh - gLdh;                                       //This is the top horizontal boundary of the Drop boxes..
+    var  gLxc  = gLw / 2,  gLyc  = gLh / 2;                        //Screen Centers
+
+    var  gLcx = 420,  gLcy = 280;  //Compensated Screen Centers, used in spring calcs (and elsewhere?)
+
+    var  gLwordTypAr = ['VERB:','ADVB:', 'ARTC:', 'ADJV:', 'NOUN:', 'PNOU:', 'CONJ:', 'INJN:', 'PPTP:'];
+    var  gLNwTyp     = 9;
+
+    //TODO - THESE BELONG AT LOWEST POSSIBLE LEVEL, BUT...
+    //Used for Slct Calculations First...
+
+    //SlctNODE PARAMS
+    var  gLslctStepSize = 0.00055;   // Orig js example was 0.0005, last worked fine at 0.015
+    var  gLslctRepulsion=  200000;   // repulsion constant, adjust for wider/narrower spacing
+    var  gLslctSprgLenX =     100;   // base resting length of spring in X
+    var  gLslctSprgLenY =      70;   // base resting length of spring in Y
+    var  gLslctDuration=       50;    //Number millsec delay per frame,  50 is fast, 300 is slow
+
+    //WordNODE PARAMS
+    var  gLwordStepSize = 0.00020;   // Orig js example was 0.0005, last worked fine at 0.015
+    var  gLWordRepulsion=    3000;   // repulsion constant, adjust for wider/narrower spacing
+    var  gLwordSprgLenX =     1.8;   // base resting length of spring in X
+    var  gLwordSprgLenY =     2.5;   // base resting length of spring in Y
+    var  gLwordDuration =      50;   //Number millsec delay per frame,  50 is fast, 300 is slow
+
+    gLdraw              = SVG('drawing').size(gLw, gLh);   //Provides something like a canvas context for all actual work, NOT to be used in classes of course!
+
+    //The APP.screen_manager uses this alternatively for whatever (Slct/Word NODE in on the screen)
+    var gLDragObj       = null;
+
+    var gLruler         = document.getElementById("ruler");
+
+
+    //==========================Imperial Utility Functions=====================================
+
+    var pixLength = function (fntsz, tok) {//Temp!  The only way found to determine the length of text;
+        gLruler.textContent = tok;
+        return gLruler.offsetWidth;
+    };
+
+    some_function = function () {
+        console.log('Some function!!');
+    };
+
+    var ellipsePath = function (cx, cy, rx, ry){
+        return 'M ' +cx+ ',' +cy+ 'a' +rx+ ',' +ry+ ' 0 1,0 ' +(rx*2)+ ', 0a ' +rx+ ',' +ry+ ' 0 1,0 -' + (rx*2) + ',0';
+    };
+
+    //TEMP:  This is a Cheat because I don't know how to set the visibility = hidden in the object declaration
+    var gLmenuPort      = document.getElementById("menuSignalPort"); gLmenuPort.style.visibility      = "hidden";
+    var gLslctPort      = document.getElementById("slctSignalPort"); gLslctPort.style.visibility      = "hidden";
+    var gLdropPort      = document.getElementById("dropSignalPort"); gLdropPort.style.visibility      = "hidden";
+    var gLslctLivePort  = document.getElementById("slctLivePort");   gLslctLivePort.style.visibility  = "hidden";
+    var gLwordLivePort  = document.getElementById("wordLivePort");   gLwordLivePort.style.visibility  = "hidden";
+
+
+    //==============================================================================================================
+    //PORTAL FUNCTIONS TO DART....
+    //==============================================================================================================
+
+    var menu_node_click = function(signal) {
+        //if(gLtraceOn) console.log('HTML:  click Event on button, Tag = ' + signal);
+        gLmenuPort.setAttribute("text", signal);
+        gLmenuPort.click(); // Simulate a Click on an html element
+    };
+
+    var slct_node_click = function(signal) {  //@@@
+        //if(gLtraceOn) console.log('HTML:  click Event on Node, signal = ' + signal);
+        gLslctPort.setAttribute("text", signal);
+        gLslctPort.click(); // Simulate a Click on an html element
+    };
+
+    var drop_node_click = function(signal) {
+        //if(gLtraceOn) console.log('HTML:  MouseUP on DropBox, Tag = ' + signal);
+        gLdropPort.setAttribute("text", signal);
+        gLdropPort.click(); // Simulate a Click on an html element
+    };
+
+    var slct_animation_click = function(signal) {
+        //if(gLtraceOn) console.log('HTML:  SLCT ANIMATION CLICK EVENT SIMULATED, signal = ' + signal);
+        gLslctLivePort.setAttribute("text", signal);
+        gLslctLivePort.click(); // Simulate a Click on an html element
+    };
+
+    var word_animation_click = function(signal) {
+        //if(gLtraceOn) console.log('HTML:  WORD ANIMATION CLICK EVENT SIMULATED, signal = ' + signal);
+        gLwordLivePort.setAttribute("text", signal);
+        gLwordLivePort.click(); // Simulate a Click on an html element
+    };
+
+
+    //==============================================================================================================
+    //======================SELECT CLASSES  / GRAPHICAL OBJECTS + Interface Dart <> SVG ============================
+    //==============================================================================================================
+
+
+//    this.slctnode_faker = function(optionMap) { /
+//        var settings;
+//
+//    //SVG.SlctNODE = function(optionMap) {
+//
+//
+//        console.log("\t>SlctNODE CREATE??   Hallooo Kunte!!!  just faking for now....");
+
+//
+//
+//        var settings;
+//
+//        /*SlctNODE: set defaults */
+//        settings = {//Note:   plate:       '#FFFFFF' , marks:     '#111111'  -->from clock demo
+//            color: 'red'
+//            , token: 'END'
+//            , width: 62
+//            , height: 32
+//            , signal: 'missing'
+//        };
+//
+//        console.log("\t>SlctNODE CREATE??     ????EVER CALLED???? I THINK NOT!!!!!!");
+//
+//
+//
+//        /*SlctNODE: merge options */
+//        optionMap = optionMap || {};
+//        for (var option in optionMap) {
+//            settings[option] = optionMap[option];
+//        }
+//
+//        this.signal = 'SN:' + settings.token;
+//
+//        /*SlctNODE: create nested svg element */
+//        this.constructor.call(this, SVG.create('svg'));
+//
+//
+//        //SlctNODE:Push in an image
+//        //Need to handle up to 3 files here!
+////        this.image('icons/ring0/' + settings.token + '.svg')
+////                .size(120, 80)
+////                .dmove(-30, -25);                                         //workd: .y(-20).x(50);
+//
+//
+//
+////          show_iconKey = function(worldAr, pntN, cX, cY)
+//
+//        var pntN  = settings.pntN;
+//        var cX    = settings.cX;
+//        var cY    = settings.cY;
+//
+//        var iconW = settings.iconW;
+//        var iconH = settings.iconH;
+//
+//        var flNmAr = worldAr[pntN].split(':');
+//        if (flNmAr.length == 1) {
+//            gLdraw.image('icons/symbols_key/' + flNmAr[0] + '.svg').size(iconW, iconH).move(cX + 4, cY - 10);
+//        } else if (flNmAr.length == 2) {
+//            gLdraw.image('icons/symbols_key/' + flNmAr[0] + '.svg').size(iconW / 2, iconH).move(cX + 4, cY - 10);
+//            gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 2, iconH).move(cX + 4 + iconW / 2, cY - 10);
+//        } else if (flNmAr.length == 3) {
+//            gLdraw.image('icons/symbols_key/' + flNmAr[0] + '.svg').size(iconW / 3, iconH).move(cX + 4, cY - 10);
+//            gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 3, iconH).move(cX + 4 + iconW / 3, cY - 10);
+//            gLdraw.image('icons/symbols_key/' + flNmAr[2] + '.svg').size(iconW / 3, iconH).move(cX + 4 + (2 * iconW / 3), cY - 10);
+//        }
+//
+//
+//        //SlctNODE:Create the outer rectangle
+//        this.rect(npxw, settings.height+10)           //BLISS MOD +20
+//                .radius(settings.height / 4)          //BLISS MOD
+//                .fill('none')
+//                .stroke({color: 'grey', width: 2});
+//    };
+
+
+//======================================================================================================================
+
+
+    SVG.SlctNODE = function(settings) { //##
+        var cX      = settings.cX;
+        var cY      = settings.cY;
+        var signal  = settings.flNms;
+
+
+        this.signal = settings.flNms;
+
+        var iconW   = settings.iconW;
+        var iconH   = settings.iconH;
+        var pntN    = settings.pntN;
+
+        var iconLnW = settings.iconLW;
+
+        console.log("\t>SlctNODE_faker() signal: " + signal + ", cX: " + cX + ", cY: " + cY + ", pntN: " + pntN);
+
+        //1
+        var slctNode = gLdraw.rect(iconW + 6, iconH - 13)
+                .radius(iconH / 4)
+                .fill((settings.pntN > 0) ? 'none' : '#D2691E')
+                .stroke({color: '#D2691E', width: iconLnW * 6})
+                .dmove(cX + 4, cY);
+
+        //2
+        var flNmAr = signal.split(':'); //SUPERKEY (eg PEOPLE:)  has been added in, so ignore here!
+        if (flNmAr.length == 2) {
+            gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW, iconH).move(cX + 4, cY - 10);
+        } else if (flNmAr.length == 3) {
+            gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 2, iconH).move(cX + 4, cY - 10);
+            gLdraw.image('icons/symbols_key/' + flNmAr[2] + '.svg').size(iconW / 2, iconH).move(cX + 4 + iconW / 2, cY - 10);
+        } else if (flNmAr.length == 4) {
+            gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 3, iconH).move(cX + 4, cY - 10);
+            gLdraw.image('icons/symbols_key/' + flNmAr[2] + '.svg').size(iconW / 3, iconH).move(cX + 4 + iconW / 3, cY - 10);
+            gLdraw.image('icons/symbols_key/' + flNmAr[3] + '.svg').size(iconW / 3, iconH).move(cX + 4 + (2 * iconW / 3), cY - 10);
+        }
+
+
+        return slctNode;
+    };
+
+    SVG.SlctNODE.prototype = new SVG.Container;
+
+    //SlctNODE: Can Add additional methods here...
+    SVG.extend(SVG.SlctNODE, {
+
+        spring_calcs_on_connecting_node: function() {
+            //try using gLcx,  gLcy  calc'd center of screen..
+            var dX       = gLcx - this.x();         //Single axis distance from screenCenter to this Node
+            var dY       = gLcy - this.y();
+            var dX2Y2    = dX * dX + dY * dY;       //Sum of squares of dX and dY
+            var dXY      = Math.sqrt( dX2Y2 );      //Distance from center to this Node
+            this.forceX += (dXY - gLslctSprgLenX) * dX;
+            this.forceY += (dXY - gLslctSprgLenY) * dY;
+        }
+        , recalculate: function( slctGroup, nNodes ) {
+            //NOTE!  node X & Y forces are being reset to zero!
+            this.forceX  = 0;this.forceY  = 0;
+
+            for (var nV = 0; nV < nNodes;nV++) { //neighborNode
+                var trgtNode = slctGroup.get(nV);
+
+                if ( trgtNode != this ) {
+                    //console.log('\t\tthis.x = ' + this.x() + 'trgtNode.x() = ' + trgtNode.x());
+                    var dX    = trgtNode.x() - this.x();
+                    var dY    = trgtNode.y() - this.y();
+                    var dX2Y2 = dX * dX + dY * dY;
+
+                    //console.log('\t\tdX2Y2 = ' + dX2Y2);
+                    // Coulomb's law -- repulsion varies inversely with square of distance
+                    // The forces (x & y) are set for each curNode per Coulomb's Law,
+                    // repulsion is fixed but dX2Y2 is varying, dX/Y is the distance from thisNode to neighbor
+                    this.forceX -= (gLslctRepulsion / dX2Y2) * dX;
+                    this.forceY -= (gLslctRepulsion / dX2Y2) * dY;
+                    //console.log('\t\tforceX = ' + this.forceX + ', forceY = ' + this.forceY);
+
+                } else {
+                    this.spring_calcs_on_connecting_node();
+                }
+            }
+        }
+        , clear: function() { //Unbind any events, clear image.. keep memory leaks in mind!
+            if(gLtraceOn) console.log('\t\tHTML: SlctNODE.clear(), attempting to clear.');
+        }
+
+    }); //END_OF_FUNCTION( SVG.SlctNODE );
+
+    //SlctNODE: Extend SVG container
+    SVG.extend(SVG.Container, {
+        //Note:  Add the created object to the SVG stack?
+        slctnode: function(size, options) {
+            //Note:  initialization routine fires from here...
+            return this.put(new SVG.SlctNODE(size, options))
+        }
+    });
+
+    //================================SELECT MANAGER CLASS=================================================================
+
+    var SlctNODES = function() { //Selection Node handler -
+        var slctGroup;   //Collection/Container of all slctNodes
+        var nNodes = 0;
+        var slctInterval, iterationN;
+        var cx, cy;
+
+        var xOS     = gLw / 16;
+        var yOS     = gLh / 8;
+
+        var iconH   = gLh / 12;
+        var iconW   = gLw / 18;
+
+        var iconLW  = 0.8;
+
+
+//==============================================================================================
+
+
+        this.slctnode_faker = function(settings) { //##
+            //SVG.SlctNODE = function(optionMap) {
+
+            var cX      = settings.cX;
+            var cY      = settings.cY;
+            var signal  = settings.flNms;
+
+            var iconW   = settings.iconW;
+            var iconH   = settings.iconH;
+            var pntN    = settings.pntN;
+
+            var iconLnW = settings.iconLW;
+
+            console.log("\t>SlctNODE_faker() signal: " + signal + ", cX: " + cX + ", cY: " + cY + ", pntN: " + pntN);
+
+            //1
+            var slctNode = gLdraw.rect(iconW + 6, iconH - 13)
+                    .radius(iconH / 4)
+                    .fill((settings.pntN > 0) ? 'none' : '#D2691E')
+                    .stroke({color: '#D2691E', width: iconLnW * 6})
+                    .dmove(cX + 4, cY);
+
+            //2
+            var flNmAr = signal.split(':'); //SUPERKEY (eg PEOPLE:)  has been added in, so ignore here!
+            if (flNmAr.length == 2) {
+                gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW, iconH).move(cX + 4, cY - 10);
+            } else if (flNmAr.length == 3) {
+                gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 2, iconH).move(cX + 4, cY - 10);
+                gLdraw.image('icons/symbols_key/' + flNmAr[2] + '.svg').size(iconW / 2, iconH).move(cX + 4 + iconW / 2, cY - 10);
+            } else if (flNmAr.length == 4) {
+                gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 3, iconH).move(cX + 4, cY - 10);
+                gLdraw.image('icons/symbols_key/' + flNmAr[2] + '.svg').size(iconW / 3, iconH).move(cX + 4 + iconW / 3, cY - 10);
+                gLdraw.image('icons/symbols_key/' + flNmAr[3] + '.svg').size(iconW / 3, iconH).move(cX + 4 + (2 * iconW / 3), cY - 10);
+            }
+
+
+            slctGroup.add( slctNode );
+
+        };
+
+
+//=================================================================================================
+
+
+
+
+
+        this.get_slctGroup = function() {return slctGroup;} //TODO  how to make this a 'getter'?
+
+
+        //TODO?!  SHOULD THIS NOT BE RE-INITIALIZE EACH INIT??
+        var cnnctSlctGrp = gLdraw.group();
+
+        //SlctNODES
+        this._create_node = function (iNr, item) {
+            //OR HERE???? @@@@@
+//            //Display a Selection Node
+//            if( gLtraceOn) console.log('\tin SlctNODES.set_node, item = ' + item + ', iNr = ' + iNr);
+//            var hh       = 32;
+//
+//            console.log("\t>CREATING_FUCKING_NODE()!!!");
+//
+//            var fLen     = screenEllipseLen / nNodes;
+//            //Initial Distribution   DELTA#0
+//            var pnt      = screenEllipsePath.pointAt(fLen * iNr); //-> returns { x : 96.88497924804688, y : 58.062747955322266 }
+//
+//            //Instantiate the node
+//            var slctNode = gLdraw.slctnode('100%', {height: hh, token: item, x: pnt.x, y: pnt.y});
+//
+//            var connect = gLdraw.line(0,0,0,0);
+//            cnnctSlctGrp.add( connect );
+//
+//            slctNode.move(pnt.x, pnt.y);
+//            //Put the new object into the slctGroup
+//            slctGroup.add( slctNode );
+//
+//            return slctNode;
+        };
+
+        //SlctNODES
+        this.wipe_screen = function() {
+            //TODO! - This is (dangerously/stupidly) duplicating data in CSS for Body, how to re-use?
+            gLdraw.rect(gLw-2, gLh-92).fill('#E6E6FA').move(1, gLdh);
+        };
+
+        //SlctNODES
+        this.clear_all = function() {
+            clearInterval( slctInterval );
+            //slctGroup.each(function (i) { //Nothing done, so skip over
+            //    this.clear();  //includes unbind event(s) / future; screen clean up?
+            //});
+            cnnctSlctGrp.clear();
+            slctGroup.clear();
+            gLDragObj = null;
+            this.wipe_screen();
+        };
+
+
+        //SlctNODES.
+        this.recalc_slct_nodes_all = function () {
+            var dX, dY, dXmax = 0, dYmax = 0, tX, tY;
+            ++iterationN;
+
+            slctGroup.each(function( i ) {
+
+                if (this !== gLDragObj) {
+                    this.recalculate(slctGroup, nNodes); //Sets forceX, forceY
+                    dX      = this.forceX * gLslctStepSize;
+                    dY      = this.forceY * gLslctStepSize;
+                    //console.log('\tin SlctNODES.recalculate(' + iterationN + ') dX = ' + dX + ', dY = ' + dY);
+
+                    //Node is repositioned here, TODO: This should be skipped if this Node is being dragged!)
+                    tX      = this.x() + dX;
+                    tY      = this.y() + dY;
+                    this.move(tX, tY);
+
+                    dXmax   = Math.max(dXmax, dX);
+                    dYmax   = Math.max(dYmax, dY);
+                }
+
+                var rbox0   = this.rbox();
+                var x0      = rbox0['cx'];
+                var y0      = rbox0['cy'];
+               cnnctSlctGrp.get(i).plot(x0, y0, slctEllipseX1, slctEllipseY1);
+
+            });
+
+            //if (dXmax < 0.5 && dYmax < 0.5) { //'Settling' logic
+            //    clearInterval( slctInterval );
+            //}
+
+        };
+
+
+        //==============================================================================================================
+        //==============================================================================================================
+
+        this.show_iconKey = function(worldAr, pntN, cX, cY) { //Handles the placement of up to 3 symbols.
+
+            var flNmAr = worldAr[pntN].split(':');
+            if (flNmAr.length == 1) {
+                gLdraw.image('icons/symbols_key/' + flNmAr[0] + '.svg').size(iconW, iconH).move(cX + 4, cY - 10);
+            } else if (flNmAr.length == 2) {
+                gLdraw.image('icons/symbols_key/' + flNmAr[0] + '.svg').size(iconW / 2, iconH).move(cX + 4, cY - 10);
+                gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 2, iconH).move(cX + 4 + iconW / 2, cY - 10);
+            } else if (flNmAr.length == 3) {
+                gLdraw.image('icons/symbols_key/' + flNmAr[0] + '.svg').size(iconW / 3, iconH).move(cX + 4, cY - 10);
+                gLdraw.image('icons/symbols_key/' + flNmAr[1] + '.svg').size(iconW / 3, iconH).move(cX + 4 + iconW / 3, cY - 10);
+                gLdraw.image('icons/symbols_key/' + flNmAr[2] + '.svg').size(iconW / 3, iconH).move(cX + 4 + (2 * iconW / 3), cY - 10);
+            }
+
+        };
+
+
+        //==================================================
+        this.show_people = function( peopleAr ) { //@@@@@
+            var nPeople   = peopleAr.length;
+            var nIconPVC  = 9; //Number Icons per vertical column
+            console.log("\t>SHOW_PEOPLE(), nPeople = " + nPeople + "SUPERKEYS");
+
+            var xL0     = gLw / 2 - xOS * 2.0;
+            var xL1     = xL0 + xOS * 1.4;      //Second Vertical line (from Left)  #neu0
+            var yH      = yOS * 1.4;
+            var yL      = gLh - yOS * 0.6;
+
+            var dY      = (yL - yH) / 10;
+
+            var xL      = xOS * 0.5;
+            var xR      = xOS * 15;
+            var dX      = (xR - xL) / (nPeople - 2 * nIconPVC);
+
+            var relPntN = 0, absHorzNOdd = 0, absHorzNEvn = 1;
+
+            var cY, cX;
+            for (var absPntN = 0; absPntN < nPeople; absPntN++) {
+                //if ([9, 18].contains( relPntN )) relPntN = 0;
+                if (absPntN == 9 || absPntN == 18) relPntN = 0;
+
+                if (absPntN < nIconPVC * 2 ) { //Two Vertical Columns first...
+                    cY = yH + dY * relPntN;
+                    cX = (absPntN < nIconPVC) ? xL1 : xL0;
+                } else { //Bottom row from center out toward each side
+                    cY = yH + dY * 9;
+                    if (relPntN%2==0) { //Odd, go right
+                        cX =  xL1 + dX * absHorzNOdd;
+                        ++absHorzNOdd;
+                    } else { //Even, go left
+                        cX =  xL1 - dX * absHorzNEvn;
+                        ++absHorzNEvn;
+                    }
+                }
+
+
+                //OCT11,2015 NOTES...
+                //WORKS!!! BEING DONE IN WORKING VERSION OF SUPERKEYS, BUT NO WAY TO DETERMINE WHICH KEY HIT AS
+                //A BOUNDING BOX NOT BEING RECORDED + WHEN THE BUTTON IS LOCATED THE BUTTON DOES NOT NOW "KNOW" ITS
+                //ASSIGNED 'SIGNAL' (File:name).   SO WE WANT TO GO BACK TO USING THE CREATE AS PER THE FOLLOWING:
+
+
+                var flNms = 'PEOPLE:' + peopleAr[absPntN];
+
+                console.log("\t>flNms = " + flNms);
+
+
+//                gLdraw.slctnode({height: iconH - 13, flNmAr: flNmAr, cX: cX, cY: cY});
+
+
+                //ALL THESE FUNCTIONS TO BE DONE INSIDE OF slctnode!!!!!!!!!!!!!!!!!!
+
+
+                //##  start testing here...
+//                var slctNode = this.slctnode_faker({height: iconH - 13, flNms: flNms, pntN: absPntN, cX: cX, cY: cY, iconH: iconH, iconW: iconW, iconLW: iconLW});
+
+
+                var slctNode = gLdraw.slctnode({height: iconH - 13, flNms: flNms, pntN: absPntN, cX: cX, cY: cY, iconH: iconH, iconW: iconW, iconLW: iconLW});
+
+                slctGroup.add( slctNode );
+
+
+
+
+
+                //1
+//                var slctNode = gLdraw.rect(iconW + 6, iconH - 13)
+//                        .radius(iconH / 4)
+//                        .fill((absPntN > 0) ? 'none' : '#D2691E')
+//                        .stroke({color: '#D2691E', width: iconLW * 6})
+//                        .dmove(cX + 4, cY);
+//
+//                //2
+//                this.show_iconKey(peopleAr, absPntN, cX, cY);
+//
+//                //3
+//                slctGroup.add( slctNode );
+
+
+                relPntN += 1;
+            }
+
+            console.log("\t<SHOW_PEOPLE()");
+        };
+
+
+        this.show_scenes = function( sceneAr ) {
+            var nScenes = sceneAr.length;
+            console.log("\t>SHOW_SCENES(), nScenes = " + nScenes);
+
+            var xL0     = gLw / 2 + xOS * 1.5;  //First  Vertical line (from Left)
+            var xL1     = xL0 + xOS * 1.4;      //Second Vertical line (from Left)
+
+            var yH      = yOS * 1.5;
+            var yL      = gLh - yOS * 1.4;
+
+            //VERTICAL LINE - SCENES (15 of 15 as of 08-26-15)
+            var nIcons = 9; //PerColumn
+            var dY  = (yL - yH) / nIcons;
+            for (var absPntN = 0; absPntN < nScenes; absPntN++) {
+                var relPntN = absPntN % nIcons;
+                var cX      = (absPntN < nIcons) ? xL0 : xL1;
+                var cY      = yH + dY * relPntN;
+
+                var slctNode = gLdraw.rect(iconW + 6, iconH-13)
+                        .radius(iconH / 4)
+                        .fill((absPntN > 0) ? 'none' : 'green')
+                        .stroke({color: 'green', width: iconLW*3})
+                        .dmove(cX+4, cY);
+
+                this.show_iconKey( sceneAr, absPntN, cX, cY);
+
+                slctGroup.add( slctNode );
+            }
+
+
+            console.log("\t<SHOW_SCENES()");
+        };
+
+        this.show_concepts = function( conceptAr ) {
+            var nConcepts = conceptAr.length;
+            console.log("\t>SHOW_CONCEPTS(), nConcepts = " + nConcepts);
+
+            var xL0     = gLw / 2 + xOS * 4.8;  //First  Vertical line (from Left)
+            var xL1     = xL0 + xOS * 1.4;      //Second Vertical line (from Left)
+
+            var yH      = yOS * 1.5;
+            var yL      = gLh - yOS * 1.6;
+
+            var nIcons = 9; //PerColumn
+            var dY  = (yL - yH) / nIcons;
+            for (var absPntN = 0; absPntN < nConcepts; absPntN++) {
+                var relPntN = absPntN % nIcons;
+                var cX      = (absPntN < nIcons) ? xL0 : xL1;
+                var cY      = yH + dY * relPntN;
+
+                var slctNode = gLdraw.rect(iconW + 6, iconH-13)
+                        .radius(iconH / 4)
+                        .fill((absPntN > 0) ? 'none' : 'red')
+                        .stroke({color: 'red', width: iconLW*2})
+                        .dmove(cX+4, cY);
+
+                this.show_iconKey( conceptAr, absPntN, cX, cY);
+
+                slctGroup.add( slctNode );
+            }
+
+            console.log("\t<SHOW_CONCEPTS()");
+
+        };
+
+
+        this.show_animate = function( animateAr ) {
+            var nAnimate = animateAr.length;
+            console.log("\t>SHOW_ANIMATE(), nAnimate = " + nAnimate);
+
+            var xL0     = gLw / 2 - xOS * 4.2  //First  Vertical line (from Left)
+            var xL1     = xL0 - xOS * 1.35;    //Second Vertical line (from Left)
+
+            var yH      = yOS * 1.5;
+            var yL      = gLh - yOS * 1.4;
+
+            //VERTICAL LINE - SCENES (15 of 15 as of 08-26-15)
+            var nIcons = 9; //PerColumn
+            var dY  = (yL - yH) / nIcons;
+            for (var absPntN = 0; absPntN < nAnimate; absPntN++) {
+                var relPntN = absPntN % nIcons;
+                var cX      = (absPntN < nIcons) ? xL0 : xL1;
+                var cY      = yH + dY * relPntN;
+
+                var slctNode = gLdraw.rect(iconW + 6, iconH-13)
+                        .radius(iconH / 4)
+                        .fill((absPntN > 0) ? 'none' : 'green')
+                        .stroke({color: 'green', width: iconLW*3})
+                        .dmove(cX+4, cY);
+
+                this.show_iconKey( animateAr, absPntN, cX, cY);
+
+                slctGroup.add( slctNode );
+            }
+
+            console.log("\t<SHOW_ANIMATE()");
+        };
+
+
+        this.show_world = function( worldAr ) {
+            var nWorld = worldAr.length;
+            console.log("\t>SHOW_WORLD(), nWorlds = " + nWorld);
+
+            var xL0     = gLw / 2 - xOS * 7.3;  //First  Vertical line (from Left)
+            var xL1     = xL0 - xOS * 1.4;      //Second Vertical line (from Left)
+
+            var yH      = yOS * 1.5;
+            var yL      = gLh - yOS * 1.6;
+
+            var nIcons = 9; //PerColumn
+            var dY  = (yL - yH) / nIcons;
+            for (var absPntN = 0; absPntN < nWorld; absPntN++) {
+                var relPntN = absPntN % nIcons;
+                var cX      = (absPntN < nIcons) ? xL0 : xL1;
+                var cY      = yH + dY * relPntN;
+
+                var slctNode = gLdraw.rect(iconW + 6, iconH-13)
+                        .radius(iconH / 4)
+                        .fill((absPntN > 0) ? 'none' : 'brown')
+                        .stroke({color: 'red', width: iconLW*2})
+                        .dmove(cX+4, cY);
+
+                this.show_iconKey( worldAr, absPntN, cX, cY);
+
+                slctGroup.add( slctNode );
+            }
+
+            console.log("\t<SHOW_WORLD()");
+        };
+
+        this.show_language = function( languageAr ) {
+            var nLanguage = languageAr.length;
+            console.log("\t>SHOW_LANGUAGE(), nLanguage = " + nLanguage);
+
+            var xL      = xOS * 0.5;
+            var xR      = xOS * 15;
+            var yH      = yOS * 0.9;
+
+
+            //HORIZONTAL LINE - LANGUAGE
+            var dX  = (xR - xL) / (nLanguage-1);
+            var cY  = yH - 35;
+            for (var pntN = 0; pntN < nLanguage; pntN++) {
+                var cX = xL + dX * pntN;
+
+                var slctNode = gLdraw.rect(dX, iconH * 0.8)
+                      .radius(iconH / 4)
+                      .fill((pntN > 0) ? 'none' : 'purple')
+                      .stroke({color: 'purple', width: iconLW * 5})
+                      .dmove(cX, cY+4);
+
+                this.show_iconKey( languageAr, pntN, cX, cY);
+
+                slctGroup.add( slctNode );
+            }
+
+            console.log("\t<SHOW_LANGUAGE()");
+
+        };
+
+
+        //SlctNODES.
+        this.init = function(slctMap) {
+            iterationN     = 0;
+            slctGroup      =  gLdraw.group();
+
+
+            //Center and Bbelow
+            this.show_people(   slctMap['PEOPLE'] );   //@@@@@ BEING USED!
+
+            //To Right
+            this.show_scenes(   slctMap['SCENES'] );
+            this.show_concepts( slctMap['CONCEPTS'] );
+
+            //to Left
+            this.show_animate(  slctMap['ANIMATE'] );
+            this.show_world(    slctMap['WORLD'] );
+
+            //above
+            this.show_language( slctMap['LANGUAGE']);
+
+
+            //'ANIMATE' THE SelectNODES
+            //slctInterval = setInterval(function(){slct_animation_click("update")}, gLslctDuration);
+            return this;
+        };
+
+    }; //END_OF_APP_INTERFACE_CLASS( SlctNODES );
+
+
+    //=============================================================================================================================
+
+    //=========== APP INTERFACE LEVEL, ALL DART INTERFACE CAN/SHOULD BE VIA THIS CLASS  =============
+    var APP = function() {
+        var  slctNODES = null;
+        var  curSlctSignal;
+        var  slctModeOn = true;
+
+        this.get_slctNODES = function() {return slctNODES};
+
+        //================================SCREEN MANAGER TESTING========================================================
+
+        //var  gLw = 1140,  gLh = 600, gLmh = 38, gLdh = 44;
+        var screen_manager = function(x, y, evtTyp) {
+            var nodesGrp = null;
+
+            console.log(">>HTML: screen0_manager  x = " + x, ', y = ' + y + ", evtTyp = " + evtTyp );
+
+            if ( y > gLdh && y < gLDy2) {
+                nodesGrp = slctNODES.get_slctGroup();
+            } else {
+                return;
+            }
+
+//           if (y < gLmh)       {
+//               console.log(">>HTML:     KUNTE KINTE???????????????????????");
+//               zoneN = 0;
+//               nodesGrp = menuNODES.get_menuGroup();
+//           } //MenuZone
+//            else if (y < gLDy2) {zoneN = 1;nodesGrp = (slctModeOn) ? slctNODES.get_slctGroup() : wordNODES.get_wordGroup();} //bodyZone
+//            else                {zoneN = 2;nodesGrp = dropNODES.get_dropGroup();} //dropZone
+
+            //DELTA - THIS EXTRACTED FROM LINE#2 OF ABOVE COMMENTED OUT CODE
+//            zoneN       = 0;
+            //nodesGrp    = slctNODES.get_slctGroup();
+
+//            //Filter out some event noise - Aktung!
+//            if(zoneN==0 && evtTyp != 'MD') return;
+//            if(zoneN==2 && evtTyp == "MD") return;
+//
+//            //Handle MouseMove on an existing object
+//            if (gLDragObj != null) { //Have a draggable object (hopefully)
+//                if (zoneN > 0) { //In draggable zone
+//                    if (evtTyp == 'MM')  { //See object drag and drag
+//                        //console.log(">>HTML: MouseMoveHandler, zone#: " + zoneN + ", x = " + x, ', y = ' + y + ', HOT obj: ' + gLDragObj.signal);
+//                        gLDragObj.move(x, y);
+//                        return;
+//                    }else {
+//                        gLDragObj = null;
+//                    }
+//                }
+//            }
+
+//            if (gLtraceOn || true) console.log("\nHTML: APP1.screen_manager() evtTyp = " + evtTyp + ", zone#: "+ zoneN + ", x = " + x, ', y = ' + y);
+
+//            if(nodesGrp === null){
+//                console.log("nodesGrp == null, leaving Town!"); //@@@@@
+//                return;
+//            }//Note, without this running without null protection, this code assumes no empty screens!
+
+
+            var nodeN = 0;    //##
+            nodesGrp.each(function (i) { //Look at each node in turn. set left & right borders
+                var lb = this.rbox().x;
+                var rb = this.rbox().x2;
+
+                console.log("\t\tnodeN = " + nodeN++);
+
+
+                if (x > lb && x < rb) { //Within Horizontal limits
+                    if (y > this.rbox().y && y < this.rbox().y2) { //if this is true then the curser is inside the Node
+                        curSlctSignal = this.signal;
+                        console.log("\tHTML: slctSIGNAL: " + curSlctSignal);
+//                        if (evtTyp == 'MD') {
+//                            gLDragObj = this;
+//                            this.move(x - this.bbox().cx, y - this.bbox().cy); //Snap node center to cursor!
+//                            slct_node_click(this.signal);
+//                        }
+                    }
+                }
+            });
+        };
+
+        //===========================================END SCREEN MANAGER====================================================
+
+        //APP - as a pragmatic matter slct being necessary before 'word', the Menu + Drop object are also set here
+        this.slct_change = function( title, slctAr) {
+            if(gLtraceOn) console.log(">>>>>>>>>>HTML: App.slct_change(), slctAr = " + slctAr);
+
+            slctModeOn = true;
+
+//DELTA       if (wordNODES!=null) {
+//                if(gLtraceOn) console.log("\twordNODES!=null, about to call wordNodes.clear_all()");
+//                wordNODES.clear_all();
+//                wordNODES = null;
+//            } //Clear any previous content from screen
+
+//            if (title) menuNODES.update_title(title);
+
+            if (slctAr) {
+                if(slctNODES!=null) slctNODES.clear_all();  //As far as known THIS works..
+                slctNODES = new SlctNODES().init(slctAr);
+            }
+
+//DELTA      if (dropAr) {
+//                if(dropNODES!=null) dropNODES.clear_all();  //As far as known THIS works..
+//                dropNODES = new DropNODES().init(dropAr);
+//            }
+
+            return slctNODES; //for convenience, to make this a one call operation...
+        };
+
+
+        //APP
+        this.init = function(title, slctMap) {
+            slctModeOn = true;
+
+            console.log(">>HTML: APP.init title  =  " + title );
+            console.log(">>HTML: APP.init slctMap=  " + slctMap );
+
+//            menuNODES  = new MenuNODES().init();//Not used
+
+//            menuNODES.update_title(title);
+
+            slctNODES  = new SlctNODES().init(slctMap); //USED (as of 100915)
+
+            //gLdraw.on('mousemove', function (evt) {screen_manager(evt.clientX, evt.clientY, 'MM');});
+            gLdraw.on('mousedown', function (evt) {screen_manager(evt.clientX, evt.clientY, 'MD');});
+            //gLdraw.on('mouseup',   function (evt) {screen_manager(evt.clientX, evt.clientY, 'MU');});
+
+            //EXPERIMENTING!!!
+ //           gLdraw.on('mouseover',   function (evt) {screen_manager(evt.clientX, evt.clientY, 'MD');});
+ //           gLdraw.on('mouseover',   function (evt) {screen_manager(evt.clientX, evt.clientY, 'MU');});
+
+        };//End(init());
+
+        this.update_title = function(title) {
+            if(gLtraceOn) console.log('\tin APP.update_title(), new title = ' + title);
+            //menuNODES.update_title(title);
+        };
+
+        //============DART IS ECHOING BACK SIGNALS RECEIVED FROM THE RESPECTIVE LISTENERS==============
+        /*Why DO this?
+         This Manager Object Instance must be instantiated and kept in One place.  If in JS then Dart
+         would have to 'poll' for events...(I think).
+
+         Note, the source listeners are being placed on NODES.  Many of them, and if they are actually
+         being 'removed' fully and properly in all the Browsers in Not Known.  The effort is being made
+         via SVG however.
+         */
+
+        this.menu_signal  = function( signal ) {
+            console.log('\tin APP2.menu_signal = ' + signal);
+        };
+
+        this.slct_signal  = function( signal ) {
+            console.log('\thtml: APP2.slct_signal(), signal = ' + signal);
+            curSlctSignal = signal;
+        };
+
+        this.drop_signal  = function( signal ) {//Aktung!  Mouse up on a DropBox!
+            console.log('\thtml: APP.2**DROP**_signal, signal = ' + signal + ', curSlctSignal = ' + curSlctSignal);
+        };
+
+        this.word_signal  = function( signal ) {
+            console.log('\tin APP2.word_signal = ' + signal);
+        };
+
+        //===================
+
+        this.slct_animation = function( signal ){
+            //console.log('\tin APP.slct_animation()');
+            slctNODES.recalc_slct_nodes_all();
+        };
+
+        this.word_animation = function( signal ){
+            //console.log('\tin APP.word_animation()');
+            wordNODES.recalc_word_nodes_all();
+        };
+
+    };//END_OF_CLASS( APP );
+
+
+</script>
+
+<script type="application/dart" src="index.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>
